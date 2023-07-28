@@ -1,6 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Notes
+
+### Webserver configuration
+When uploaded to webserver, remember to configure to serve the `.html` file when a URL without the .html extension is requested. Examples:
+
+NGINX Webserver (Production):
+```
+server {
+    listen 80;
+
+    location / {
+        root /home/bun/path/to/next/app; # Modify this with your actual Next.js build directory path.
+        try_files $uri $uri/ $uri.html;
+    }
+}
+
+```
+
+Caddy Webserver (Failover 1):
+```
+:80
+
+root * /home/bun/path/to/next/app; # Modify this with your actual Next.js build directory path.
+file_server
+try_files {path} {path}/ {path}.html
+```
+
+LiteSpeed Apache Webserver (Failover 2):
+```
+<Directory "/path/to/your/next/app">  # Modify this with your actual Next.js build directory path.
+    Options Indexes FollowSymLinks
+
+    RewriteEngine On
+
+    # If the requested filename exists, serve file
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # If the requested filename does not exist, add .html
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^ %{REQUEST_URI}.html [L]
+
+</Directory>
+
+```
+
+### Serving pages instantly
+Router change the URL and render the new page without refreshing the whole page. NextJS pre-fetches linked page when the link comes into the viewport. Next.js does this automatically for Link components. It will pre-fetch the page and keep it in memory, so when you click on the link, the page can be swapped instantly. **Make sure you're using Next.js's Link component for navigation.**
+
+
+
+
+
 
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 

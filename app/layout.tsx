@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NavigationMenuWide } from "./components/NavigationMenuWide";
 import { ThemeProvider } from "./components/theme-provider";
+import ProgressBar from "./ProgressBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ProgressBar
+            height="4px"
+            color="rgb(156, 163, 175, 0.9)"
+            options={{ showSpinner: true }}
+          />
           <NavigationMenuWide />
           {children}
         </ThemeProvider>
