@@ -155,19 +155,19 @@ const LoginDropdown: {
   gameIcon?: string;
 }[] = [
   {
-    title: "Billing Panel",
+    title: "Billing (WHMCS1)",
     href: "/coming-soon",
   },
   {
-    title: "cPanel (us1.fur)",
+    title: "cPanel (us1.rap)",
     href: "/coming-soon",
   },
   {
-    title: "Pterodactyl Panel (panel.fox)",
+    title: "Pterodactyl (panel.fox)",
     href: "/coming-soon",
   },
   {
-    title: "Pterodactyl Panel 2 (panel2.fox)",
+    title: "Pterodactyl 2 (panel2.fox)",
     href: "/coming-soon",
   },
 ];
@@ -199,10 +199,10 @@ export function NavigationMenuWide() {
         isScrolled ? "border-zinc-800" : ""
       } flex items-center justify-center px-8 py-4 backdrop-blur bg-zinc/50`}
     >
-      <div className="flex items-center justify-between space-x-4 max-w-7xl mx-auto w-full">
+      <div className="w-full flex flex-row justify-between items-center py-4 px-10 mx-auto container">
         <div className="flex items-center space-x-4">
           {/* Add your logo image here */}
-          <img src="/path/to/logo.svg" alt="Coems🤑🤑" className="h-8 w-auto" />
+          Netvigator
           <div>
             {/* Navigation Items */}
             <NavigationMenu
@@ -225,7 +225,7 @@ export function NavigationMenuWide() {
                                 Minecraft
                               </div>
                               <p className="text-sm leading-tight text-muted-foreground">
-                                Start your Minecraft server today!
+                                Choose from Vanilla, Modded, Purpur, or Spigot!
                               </p>
                             </div>
                           </Link>
@@ -262,21 +262,49 @@ export function NavigationMenuWide() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="relative">
-                  <NavigationMenuTrigger>Cloud Hosting</NavigationMenuTrigger>
+                  <NavigationMenuTrigger>
+                    Other Hosting
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute">
-                    <ul className="grid w-[200px] p-4 md:w-[300px] md:grid-cols-1 lg:w-[400px] ">
-                      {cloudHosting.map((cloudHosting) => (
-                        <ListItem
-                          value={cloudHosting.title}
-                          onClick={closeSubMenu}
-                          key={cloudHosting.title}
-                          gameIcon={cloudHosting.gameIcon}
-                          href={cloudHosting.href}
-                          title={cloudHosting.title}
-                        >
-                          {cloudHosting?.description}
-                        </ListItem>
-                      ))}
+                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                      <li className="row-span-3">
+                        <NavigationMenuLink asChild>
+                          <Link href="/">
+                            <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                              <div className="mb-2 mt-4 text-lg font-medium">
+                                Webhosting
+                              </div>
+                              <p className="text-sm leading-tight text-muted-foreground">
+                                NodeJS, PHP (WordPress), Python, and Ruby supported!
+                              </p>
+                            </div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <ListItem
+                        value="minecraft"
+                        onClick={closeSubMenu}
+                        href="/minecraft"
+                        title="Webhosting"
+                      >
+                        Powered by cPanel.
+                      </ListItem>
+                      <ListItem
+                        value="minecraft"
+                        onClick={closeSubMenu}
+                        href="/minecraft"
+                        title="Dedicated Server"
+                      >
+                        Unmanaged and root access.
+                      </ListItem>
+                      <ListItem
+                        value="minecraft"
+                        onClick={closeSubMenu}
+                        href="/minecraft"
+                        title="Discord Bot Hosting"
+                      >
+                        Powered by Pterodactyl. 
+                      </ListItem>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>

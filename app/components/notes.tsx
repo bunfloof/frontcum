@@ -199,10 +199,10 @@ export function NavigationMenuWide() {
         isScrolled ? "border-zinc-800" : ""
       } flex items-center justify-center px-8 py-4 backdrop-blur bg-zinc/50`}
     >
-      <div className="flex items-center justify-between space-x-4 container mx-auto w-full">
+      <div className="w-full flex flex-row justify-between items-center py-4 px-10 mx-auto container">
         <div className="flex items-center space-x-4">
           {/* Add your logo image here */}
-          <img src="/path/to/logo.svg" alt="Coems🤑🤑" className="h-8 w-auto" />
+          Company
           <div>
             {/* Navigation Items */}
             <NavigationMenu
@@ -265,6 +265,20 @@ export function NavigationMenuWide() {
                   <NavigationMenuTrigger>Cloud Hosting</NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute">
                     <ul className="grid w-[200px] p-4 md:w-[300px] md:grid-cols-1 lg:w-[400px] ">
+                      <li className="row-span-3">
+                        <NavigationMenuLink asChild>
+                          <Link href="/">
+                            <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                              <div className="mb-2 mt-4 text-lg font-medium">
+                                Minecraft
+                              </div>
+                              <p className="text-sm leading-tight text-muted-foreground">
+                                Start your Minecraft server today!
+                              </p>
+                            </div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
                       {cloudHosting.map((cloudHosting) => (
                         <ListItem
                           value={cloudHosting.title}
@@ -340,7 +354,6 @@ export function NavigationMenuWide() {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
-                
               </NavigationMenuList>
             </NavigationMenu>
           </ul>
