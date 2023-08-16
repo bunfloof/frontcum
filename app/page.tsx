@@ -8,6 +8,9 @@ import {
 import Link from "next/link";
 import { ModeToggle } from "./components/ModeToggle";
 import Footer from "./components/Footer";
+import WorldMapSection from "./components/WorldMapSection";
+import CustomersSection from "./components/CustomersSection";
+
 import {
   Card,
   CardContent,
@@ -105,7 +108,7 @@ export default function Home() {
             {" "}
             {/* 2/3 width on larger screens */}
             <div className="my-auto container transition mx-auto">
-              <p className="font-semibold text-3xl sm:text-5xl tracking-wider">
+              <p className="font-semibold text-3xl sm:text-5xl">
                 At the <span className="text-teal-500">Call</span> of the{" "}
                 <span className="text-teal-500">Pack</span>
               </p>
@@ -119,33 +122,34 @@ export default function Home() {
             {/* 1/3 width on larger screens */}
             <Card className="bg-zinc-950/30 border-zinc-800 p-2">
               <CardHeader className="pb-3">
-                <CardTitle>Let's get started</CardTitle>
+                <CardTitle>{`Let's get started`}</CardTitle>
                 <CardDescription>
                   Choose the services you want to learn more about.
                 </CardDescription>
               </CardHeader>
               <CardContent className="grid gap-1">
-                <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    height="1em"
-                    width="1em"
-                  >
-                    <path d="M4 2h16a2 2 0 012 2v16a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2m2 4v4h4v2H8v6h2v-2h4v2h2v-6h-2v-2h4V6h-4v4h-4V6H6z" />
-                  </svg>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium leading-none">
-                      Minecraft Hosting
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Starting at USD $3/GB.
-                    </p>
+                <Link href="/minecraft">
+                  <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="1em"
+                      width="1em"
+                    >
+                      <path d="M4 2h16a2 2 0 012 2v16a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2m2 4v4h4v2H8v6h2v-2h4v2h2v-6h-2v-2h4V6h-4v4h-4V6H6z" />
+                    </svg>
+                    <div className="space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Minecraft Hosting
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Starting at USD $2/GB.
+                      </p>
+                    </div>
+                    <div className="flex-grow"></div> {/* Spacer div */}
+                    <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
                   </div>
-                  <div className="flex-grow"></div> {/* Spacer div */}
-                  <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
-                </div>
-
+                </Link>
                 <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
                   <svg
                     viewBox="0 0 58 58"
@@ -211,12 +215,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center min-h-screen bg-gray-900">
+      <div className="flex justify-center">
         <div className="container mx-auto my-auto">
-          <p className="font-semibold text-3xl sm:text-5xl tracking-wider">
-            You're in <span className="text-teal-500">Good</span> Paws
+          <p className="font-semibold text-3xl sm:text-5xl text-center">
+            {`You're in`} <span className="text-teal-500">Good</span> Paws
           </p>
-          <p className="py-5 text-xl sm:text-3xl text-left">
+          <p className="py-5 text-md sm:text-lg text-center text-muted-foreground">
             <s>We</s> Bun know how things work around here.
           </p>
 
@@ -237,8 +241,6 @@ export default function Home() {
                   <path
                     d="M7.28856 0.796908C7.42258 0.734364 7.57742 0.734364 7.71144 0.796908L13.7114 3.59691C13.8875 3.67906 14 3.85574 14 4.05V10.95C14 11.1443 13.8875 11.3209 13.7114 11.4031L7.71144 14.2031C7.57742 14.2656 7.42258 14.2656 7.28856 14.2031L1.28856 11.4031C1.11252 11.3209 1 11.1443 1 10.95V4.05C1 3.85574 1.11252 3.67906 1.28856 3.59691L7.28856 0.796908ZM2 4.80578L7 6.93078V12.9649L2 10.6316V4.80578ZM8 12.9649L13 10.6316V4.80578L8 6.93078V12.9649ZM7.5 6.05672L12.2719 4.02866L7.5 1.80176L2.72809 4.02866L7.5 6.05672Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
                   ></path>
                 </svg>
               </CardHeader>
@@ -289,8 +291,6 @@ export default function Home() {
                   <path
                     d="M7.07095 0.650238C6.67391 0.650238 6.32977 0.925096 6.24198 1.31231L6.0039 2.36247C5.6249 2.47269 5.26335 2.62363 4.92436 2.81013L4.01335 2.23585C3.67748 2.02413 3.23978 2.07312 2.95903 2.35386L2.35294 2.95996C2.0722 3.2407 2.0232 3.6784 2.23493 4.01427L2.80942 4.92561C2.62307 5.2645 2.47227 5.62594 2.36216 6.00481L1.31209 6.24287C0.924883 6.33065 0.650024 6.6748 0.650024 7.07183V7.92897C0.650024 8.32601 0.924883 8.67015 1.31209 8.75794L2.36228 8.99603C2.47246 9.375 2.62335 9.73652 2.80979 10.0755L2.2354 10.9867C2.02367 11.3225 2.07267 11.7602 2.35341 12.041L2.95951 12.6471C3.24025 12.9278 3.67795 12.9768 4.01382 12.7651L4.92506 12.1907C5.26384 12.377 5.62516 12.5278 6.0039 12.6379L6.24198 13.6881C6.32977 14.0753 6.67391 14.3502 7.07095 14.3502H7.92809C8.32512 14.3502 8.66927 14.0753 8.75705 13.6881L8.99505 12.6383C9.37411 12.5282 9.73573 12.3773 10.0748 12.1909L10.986 12.7653C11.3218 12.977 11.7595 12.928 12.0403 12.6473L12.6464 12.0412C12.9271 11.7604 12.9761 11.3227 12.7644 10.9869L12.1902 10.076C12.3768 9.73688 12.5278 9.37515 12.638 8.99596L13.6879 8.75794C14.0751 8.67015 14.35 8.32601 14.35 7.92897V7.07183C14.35 6.6748 14.0751 6.33065 13.6879 6.24287L12.6381 6.00488C12.528 5.62578 12.3771 5.26414 12.1906 4.92507L12.7648 4.01407C12.9766 3.6782 12.9276 3.2405 12.6468 2.95975L12.0407 2.35366C11.76 2.07292 11.3223 2.02392 10.9864 2.23565L10.0755 2.80989C9.73622 2.62328 9.37437 2.47229 8.99505 2.36209L8.75705 1.31231C8.66927 0.925096 8.32512 0.650238 7.92809 0.650238H7.07095ZM4.92053 3.81251C5.44724 3.44339 6.05665 3.18424 6.71543 3.06839L7.07095 1.50024H7.92809L8.28355 3.06816C8.94267 3.18387 9.5524 3.44302 10.0794 3.81224L11.4397 2.9547L12.0458 3.56079L11.1882 4.92117C11.5573 5.44798 11.8164 6.0575 11.9321 6.71638L13.5 7.07183V7.92897L11.932 8.28444C11.8162 8.94342 11.557 9.55301 11.1878 10.0798L12.0453 11.4402L11.4392 12.0462L10.0787 11.1886C9.55192 11.5576 8.94241 11.8166 8.28355 11.9323L7.92809 13.5002H7.07095L6.71543 11.932C6.0569 11.8162 5.44772 11.5572 4.92116 11.1883L3.56055 12.046L2.95445 11.4399L3.81213 10.0794C3.4431 9.55266 3.18403 8.94326 3.06825 8.2845L1.50002 7.92897V7.07183L3.06818 6.71632C3.18388 6.05765 3.44283 5.44833 3.81171 4.92165L2.95398 3.561L3.56008 2.95491L4.92053 3.81251ZM9.02496 7.50008C9.02496 8.34226 8.34223 9.02499 7.50005 9.02499C6.65786 9.02499 5.97513 8.34226 5.97513 7.50008C5.97513 6.65789 6.65786 5.97516 7.50005 5.97516C8.34223 5.97516 9.02496 6.65789 9.02496 7.50008ZM9.92496 7.50008C9.92496 8.83932 8.83929 9.92499 7.50005 9.92499C6.1608 9.92499 5.07513 8.83932 5.07513 7.50008C5.07513 6.16084 6.1608 5.07516 7.50005 5.07516C8.83929 5.07516 9.92496 6.16084 9.92496 7.50008Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
                   ></path>
                 </svg>
               </CardHeader>
@@ -367,35 +367,27 @@ export default function Home() {
                   <path
                     d="M7.49996 1.80002C4.35194 1.80002 1.79996 4.352 1.79996 7.50002C1.79996 10.648 4.35194 13.2 7.49996 13.2C10.648 13.2 13.2 10.648 13.2 7.50002C13.2 4.352 10.648 1.80002 7.49996 1.80002ZM0.899963 7.50002C0.899963 3.85494 3.85488 0.900024 7.49996 0.900024C11.145 0.900024 14.1 3.85494 14.1 7.50002C14.1 11.1451 11.145 14.1 7.49996 14.1C3.85488 14.1 0.899963 11.1451 0.899963 7.50002Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
                   ></path>
                   <path
                     d="M13.4999 7.89998H1.49994V7.09998H13.4999V7.89998Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
                   ></path>
                   <path
                     d="M7.09991 13.5V1.5H7.89991V13.5H7.09991zM10.375 7.49998C10.375 5.32724 9.59364 3.17778 8.06183 1.75656L8.53793 1.24341C10.2396 2.82218 11.075 5.17273 11.075 7.49998 11.075 9.82724 10.2396 12.1778 8.53793 13.7566L8.06183 13.2434C9.59364 11.8222 10.375 9.67273 10.375 7.49998zM3.99969 7.5C3.99969 5.17611 4.80786 2.82678 6.45768 1.24719L6.94177 1.75281C5.4582 3.17323 4.69969 5.32389 4.69969 7.5 4.6997 9.67611 5.45822 11.8268 6.94179 13.2472L6.45769 13.7528C4.80788 12.1732 3.9997 9.8239 3.99969 7.5z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
                   ></path>
                   <path
                     d="M7.49996 3.95801C9.66928 3.95801 11.8753 4.35915 13.3706 5.19448 13.5394 5.28875 13.5998 5.50197 13.5055 5.67073 13.4113 5.83948 13.198 5.89987 13.0293 5.8056 11.6794 5.05155 9.60799 4.65801 7.49996 4.65801 5.39192 4.65801 3.32052 5.05155 1.97064 5.8056 1.80188 5.89987 1.58866 5.83948 1.49439 5.67073 1.40013 5.50197 1.46051 5.28875 1.62927 5.19448 3.12466 4.35915 5.33063 3.95801 7.49996 3.95801zM7.49996 10.85C9.66928 10.85 11.8753 10.4488 13.3706 9.6135 13.5394 9.51924 13.5998 9.30601 13.5055 9.13726 13.4113 8.9685 13.198 8.90812 13.0293 9.00238 11.6794 9.75643 9.60799 10.15 7.49996 10.15 5.39192 10.15 3.32052 9.75643 1.97064 9.00239 1.80188 8.90812 1.58866 8.9685 1.49439 9.13726 1.40013 9.30601 1.46051 9.51924 1.62927 9.6135 3.12466 10.4488 5.33063 10.85 7.49996 10.85z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
                   ></path>
                 </svg>
               </CardHeader>
               <CardContent className="pb-2">
                 <p className="text-sm font-medium text-muted-foreground">
-                  Whether it's setting up WordPress, deploying Node.js, Python,
+                  {`Whether it's setting up WordPress, deploying Node.js, Python,
                   or Ruby applications, we provide the environment to get your
                   web presence up and running. DNS management, email inboxes,
-                  sFTP, and SSL are included.
+                  sFTP, and SSL are included.`}
                 </p>
               </CardContent>
               <div className="p-6 pt-0 flex items-center">
@@ -451,8 +443,6 @@ export default function Home() {
                   <path
                     d="M5.5 3C4.67157 3 4 3.67157 4 4.5C4 5.32843 4.67157 6 5.5 6C6.32843 6 7 5.32843 7 4.5C7 3.67157 6.32843 3 5.5 3ZM3 5C3.01671 5 3.03323 4.99918 3.04952 4.99758C3.28022 6.1399 4.28967 7 5.5 7C6.71033 7 7.71978 6.1399 7.95048 4.99758C7.96677 4.99918 7.98329 5 8 5H13.5C13.7761 5 14 4.77614 14 4.5C14 4.22386 13.7761 4 13.5 4H8C7.98329 4 7.96677 4.00082 7.95048 4.00242C7.71978 2.86009 6.71033 2 5.5 2C4.28967 2 3.28022 2.86009 3.04952 4.00242C3.03323 4.00082 3.01671 4 3 4H1.5C1.22386 4 1 4.22386 1 4.5C1 4.77614 1.22386 5 1.5 5H3ZM11.9505 10.9976C11.7198 12.1399 10.7103 13 9.5 13C8.28967 13 7.28022 12.1399 7.04952 10.9976C7.03323 10.9992 7.01671 11 7 11H1.5C1.22386 11 1 10.7761 1 10.5C1 10.2239 1.22386 10 1.5 10H7C7.01671 10 7.03323 10.0008 7.04952 10.0024C7.28022 8.8601 8.28967 8 9.5 8C10.7103 8 11.7198 8.8601 11.9505 10.0024C11.9668 10.0008 11.9833 10 12 10H13.5C13.7761 10 14 10.2239 14 10.5C14 10.7761 13.7761 11 13.5 11H12C11.9833 11 11.9668 10.9992 11.9505 10.9976ZM8 10.5C8 9.67157 8.67157 9 9.5 9C10.3284 9 11 9.67157 11 10.5C11 11.3284 10.3284 12 9.5 12C8.67157 12 8 11.3284 8 10.5Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
                   ></path>
                 </svg>
               </CardHeader>
@@ -599,8 +589,15 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="min-h-screen bg-gray-950">
-        <div className="container mx-auto">ddddddd</div>
+      <div>
+        <div className="container mt-20">
+          <WorldMapSection />
+        </div>
+      </div>
+      <div>
+        <div className="container mt-20">
+          <CustomersSection />
+        </div>
       </div>
       <Footer />
     </>

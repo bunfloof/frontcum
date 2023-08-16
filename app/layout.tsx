@@ -1,8 +1,10 @@
 import "./globals.css";
+import '@radix-ui/themes/styles.css';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NavigationMenuWide } from "./components/NavigationMenuWide";
 import { ThemeProvider } from "./components/theme-provider";
+
 import ProgressBar from "./ProgressBar";
 
 const inter = Inter({ subsets: ["latin"] });

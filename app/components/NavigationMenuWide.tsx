@@ -195,7 +195,7 @@ export function NavigationMenuWide() {
   };
   return (
     <nav
-      className={`sticky top-0 h-16 border-b border-transparent transition-colors duration-300 ease-in-out ${
+      className={`sticky top-0 h-16 z-50 border-b border-transparent transition-colors duration-300 ease-in-out ${
         isScrolled ? "border-zinc-800" : ""
       } flex items-center justify-center px-8 py-4 backdrop-blur bg-zinc/50`}
     >
@@ -219,7 +219,7 @@ export function NavigationMenuWide() {
                     <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
-                          <Link href="/">
+                          <Link href="/minecraft">
                             <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
                               <div className="mb-2 mt-4 text-lg font-medium">
                                 Minecraft

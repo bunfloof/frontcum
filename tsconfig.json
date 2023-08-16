@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./types"],
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -23,6 +24,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/types/app/minecraft/page.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/types/app/minecraft/page.tsx"
+  ],
   "exclude": ["node_modules"]
 }
