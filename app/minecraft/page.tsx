@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import SupportCard from "../components/SupportCard";
+import Footer from "../components/Footer";
 
 import {
   Table,
@@ -516,7 +517,7 @@ export default function Minecraft() {
 
   /* Start Networks */
 
-  type CardType = "AS30277" | "AS399820";
+  type CardType = "AS30277" | "AS399820" | "AS18779" | "AS20278";
 
   const [selectedCard, setSelectedCard] = useState("AS30277");
 
@@ -541,10 +542,10 @@ export default function Minecraft() {
           <div className="flex flex-col justify-between">
             <div>
               <div className="mt-20 font-semibold text-3xl sm:text-5xl">
-                Minecraft Hosting
+                Game Hosting
               </div>
               <p className="py-5 text-md sm:text-lg text-muted-foreground">
-                Order a Minecraft server today and get started within minutes.
+                Order a game server today and get started within minutes.
               </p>
             </div>
           </div>
@@ -997,8 +998,8 @@ export default function Minecraft() {
                 <div className="font-semibold text-2xl mt-8">
                   Finally, review your selection...
                 </div>
-                <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                  <Card className="p-6 shadow-lg rounded-lg">
+                <div className="mt-4 flex justify-center">
+                  <Card className="p-6 shadow-lg rounded-lg min-w-[368px]">
                     <div className="grid grid-cols-2 gap-x-4 gap-y-5">
                       <div className="col-span-2 flex flex-col space-y-1">
                         <div className="flex justify-between text-sm text-gray-400 mb-1">
@@ -1105,8 +1106,9 @@ export default function Minecraft() {
           </div>
         </div>
       </div>
+      {/* Next Section */}
       <div className="flex justify-center">
-        <div className="container mx-auto my-auto">
+        <div className="container mx-auto my-auto mt-15">
           <p className="font-semibold text-3xl sm:text-5xl text-center">
             AS200360
           </p>
@@ -1117,7 +1119,9 @@ export default function Minecraft() {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex flex-col justify-between">
               <div className="grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                {(["AS30277", "AS399820"] as CardType[]).map((card) => (
+                {(
+                  ["AS30277", "AS20278", "AS18779", "AS399820"] as CardType[]
+                ).map((card) => (
                   <Card
                     key={card}
                     onClick={() => handleCardClick(card)}
@@ -1130,11 +1134,16 @@ export default function Minecraft() {
                     <CardHeader className="flex flex-row items-center justify-between space-y-0">
                       <CardTitle className="text-lg font-bold">
                         {(card === "AS30277" && "Dallas, Texas") ||
-                          (card === "AS399820" && "Amsterdam, Netherlands")}
+                          (card === "AS399820" && "Amsterdam, Netherlands") ||
+                          (card === "AS18779" && "San Jose, California") ||
+                          (card === "AS20278" && "Chicago, Illinois")}
                       </CardTitle>
                       <img
                         src={`/images/${
-                          card === "AS30277" ? "usflag" : "nlflag"
+                          (card === "AS30277" && "usflag") ||
+                          (card === "AS399820" && "nlflag") ||
+                          (card === "AS18779" && "usflag") ||
+                          (card === "AS20278" && "usflag")
                         }.svg`}
                         alt="flag"
                         className="h-6 w-6 mr-2"
@@ -1176,7 +1185,7 @@ export default function Minecraft() {
                     </div>
                   </div>
                   <p className="text-xl font-bold mb-2">
-                    Upstreams for AS399820
+                    Upstreams for AS30277
                   </p>
                   <Table>
                     <TableCaption></TableCaption>
@@ -1288,6 +1297,194 @@ export default function Minecraft() {
                 </CardContent>
               </Card>
             )}
+            {selectedCard === "AS18779" && (
+              <Card>
+                <CardContent className="pb-2 pt-6">
+                  <p className="text-xl font-bold mb-2">Network</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          Test IPv4
+                        </p>
+                      </div>
+                      <p className="text-md font-bold">69.46.67.66</p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">Address</p>
+                      </div>
+                      <p className="text-md font-bold">
+                        1 S Market St San Jose, CA 95113
+                      </p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          Facility
+                        </p>
+                      </div>
+                      <p className="text-md font-bold">Scented Con</p>
+                    </div>
+                  </div>
+                  <p className="text-xl font-bold mb-2">
+                    Upstreams for AS30277
+                  </p>
+                  <Table>
+                    <TableCaption></TableCaption>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[150px]">ASN</TableHead>
+
+                        <TableHead className="">Name</TableHead>
+                        <TableHead className="">Description</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">AS396998</TableCell>
+                        <TableCell className="font-medium">
+                          Path Network, Inc.
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          DDoS Protection
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS174</TableCell>
+                        <TableCell className="font-medium">
+                          Cogent Communications
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS6939</TableCell>
+                        <TableCell className="font-medium">
+                          Hurricane Electric LLC
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS3257</TableCell>
+                        <TableCell className="font-medium">
+                          GTT Communications Inc.
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            )}
+            {selectedCard === "AS20278" && (
+              <Card>
+                <CardContent className="pb-2 pt-6">
+                  <p className="text-xl font-bold mb-2">Network</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          Test IPv4
+                        </p>
+                      </div>
+                      <p className="text-md font-bold">23.146.184.1</p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">Address</p>
+                      </div>
+                      <p className="text-md font-bold">
+                        603 Discovery Drive, West Chicago, IL 60185
+                      </p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          Facility
+                        </p>
+                      </div>
+                      <p className="text-md font-bold">MFF</p>
+                    </div>
+                  </div>
+                  <p className="text-xl font-bold mb-2">
+                    Upstreams for AS20278
+                  </p>
+                  <Table>
+                    <TableCaption></TableCaption>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[150px]">ASN</TableHead>
+
+                        <TableHead className="">Name</TableHead>
+                        <TableHead className="">Description</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">AS3223</TableCell>
+                        <TableCell className="font-medium">
+                          Path Network, Inc.
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          DDoS Protection
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS53264</TableCell>
+                        <TableCell className="font-medium">
+                          SBA Edge, LLC
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          US Datacenter
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS394437</TableCell>
+                        <TableCell className="font-medium">
+                          PS Lightwave
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS20473</TableCell>
+                        <TableCell className="font-medium">
+                          The Constant Company, LLC
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS6939</TableCell>
+                        <TableCell className="font-medium">
+                          Hurricane Electric LLC
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS3257</TableCell>
+                        <TableCell className="font-medium">
+                          GTT Communications Inc.
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS19151</TableCell>
+                        <TableCell className="font-medium">
+                          BroadbandONE, LLC
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS5580</TableCell>
+                        <TableCell className="font-medium">
+                          GTT Communications Netherlands B.V.
+                        </TableCell>
+                        <TableCell className="font-medium">Peering</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </div>
@@ -1296,6 +1493,7 @@ export default function Minecraft() {
           <SupportCard />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

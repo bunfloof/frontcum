@@ -10,6 +10,7 @@ import { ModeToggle } from "./components/ModeToggle";
 import Footer from "./components/Footer";
 import WorldMapSection from "./components/WorldMapSection";
 import CustomersSection from "./components/CustomersSection";
+import SupportCard from "./components/SupportCard";
 
 import {
   Card,
@@ -597,6 +598,11 @@ export default function Home() {
       <div>
         <div className="container mt-20">
           <CustomersSection />
+        </div>
+      </div>
+      <div>
+        <div className="container mt-10">
+          <SupportCard />
         </div>
       </div>
       <Footer />

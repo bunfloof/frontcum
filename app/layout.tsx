@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ProgressBar
-            height="4px"
+            height="2px"
             color="rgb(156, 163, 175, 0.9)"
             options={{ showSpinner: true }}
           />

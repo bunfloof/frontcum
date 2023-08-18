@@ -4,28 +4,25 @@ export function Footer() {
 
   const sections = [
     {
-      title: "Product",
-      links: ["Pricing", "Changelog", "Docs", "Download"],
-    },
-    {
-      title: "Company",
+      title: "Services",
       links: [
-        "About us",
-        "Blog",
-        "Careers",
-        "Customers",
-        "Newsroom",
-        "Sitemap",
+        "Game Hosting",
+        "Minecraft Hosting",
+        "Dedicated Servers",
+        "Colocation",
       ],
     },
     {
+      title: "Company",
+      links: ["About us"],
+    },
+    {
       title: "Resources",
-      links: ["Community", "Help & Support", "eBook", "What's New", "Status"],
+      links: ["Open Ticket"],
     },
     {
       title: "Developers",
-      links: ["Api", "Status", "GitHub"],
-      specialLink: { label: "GitHub", isNew: true },
+      links: ["Status", "GitHub"],
     },
   ];
 
@@ -38,10 +35,10 @@ export function Footer() {
             href="#"
             aria-label="Coems"
           >
-            Coems
+            Bun
           </a>
           <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-            © 2022
+            © 2023
           </p>
         </div>
         {sections.map((section) => (
@@ -57,16 +54,6 @@ export function Footer() {
                   </a>
                 </p>
               ))}
-              {section.specialLink && (
-                <p>
-                  <a className={linkClassName} href="#">
-                    {section.specialLink.label}
-                  </a>{" "}
-                  <span className="inline text-blue-600 dark:text-blue-500">
-                    {section.specialLink.isNew ? "— New" : ""}
-                  </span>
-                </p>
-              )}
             </div>
           </div>
         ))}
@@ -89,7 +76,7 @@ export function Footer() {
                 href="#"
                 aria-label="Coems"
               >
-                Coems
+                Bun
               </a>
               <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 © 2023.
