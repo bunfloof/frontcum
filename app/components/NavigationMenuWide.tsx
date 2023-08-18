@@ -202,7 +202,7 @@ export function NavigationMenuWide() {
       <div className="w-full flex flex-row justify-between items-center py-4 px-10 mx-auto container">
         <div className="flex items-center space-x-4">
           {/* Add your logo image here */}
-          Netvigator
+          Bun
           <div>
             {/* Navigation Items */}
             <NavigationMenu

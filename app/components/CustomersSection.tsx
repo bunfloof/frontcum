@@ -213,7 +213,7 @@ export function CustomersSection() {
               <CardContent className="p-6">
                 <div className="flex gap-4 justify-end">
                   <Button variant="secondary">Open Ticket</Button>
-                  <Popover.Root openDelay={0}>
+                  <Popover.Root>
                     <Popover.Trigger asChild>
                       <Button variant="secondary">Discord</Button>
                     </Popover.Trigger>

@@ -1,6 +1,12 @@
 "use client";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { Tabs } from "@radix-ui/react-tabs";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import SupportCard from "../components/SupportCard";
 
 import {
   Table,
@@ -20,7 +26,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type HostingCompany = {
   "Plugin and Modpack Installer": string;
@@ -76,7 +82,7 @@ const MarkerSVG = (
   </svg>
 );
 
-export default function Home() {
+export default function Minecraft() {
   const [location, setLocation] = useState<string | null>(null);
   const [planSize, setPlanSize] = useState<string | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
@@ -94,6 +100,7 @@ export default function Home() {
     backupSlot: string;
     containerSplit: string;
     link: string;
+    whmcspid: string;
   };
 
   const plans: Plan[] = [
@@ -108,6 +115,7 @@ export default function Home() {
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
+      whmcspid: "2",
     },
     {
       id: "dfw2gb",
@@ -120,6 +128,7 @@ export default function Home() {
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
+      whmcspid: "3",
     },
     {
       id: "dfw3gb",
@@ -132,6 +141,7 @@ export default function Home() {
       backupSlot: "1",
       containerSplit: "2",
       link: "https://example.com",
+      whmcspid: "4",
     },
     {
       id: "dfw4gb",
@@ -144,6 +154,7 @@ export default function Home() {
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
+      whmcspid: "5",
     },
     {
       id: "dfw5gb",
@@ -156,6 +167,7 @@ export default function Home() {
       backupSlot: "2",
       containerSplit: "3",
       link: "https://example.com",
+      whmcspid: "6",
     },
     {
       id: "dfw6gb",
@@ -168,6 +180,7 @@ export default function Home() {
       backupSlot: "3",
       containerSplit: "3",
       link: "https://example.com",
+      whmcspid: "7",
     },
     {
       id: "dfw8gb",
@@ -180,6 +193,7 @@ export default function Home() {
       backupSlot: "4",
       containerSplit: "4",
       link: "https://example.com",
+      whmcspid: "9",
     },
     {
       id: "dfw10gb",
@@ -192,6 +206,7 @@ export default function Home() {
       backupSlot: "5",
       containerSplit: "5",
       link: "https://example.com",
+      whmcspid: "10",
     },
     {
       id: "dfw16gb",
@@ -204,6 +219,7 @@ export default function Home() {
       backupSlot: "8",
       containerSplit: "8",
       link: "https://example.com",
+      whmcspid: "11",
     },
     {
       id: "dfw20gb",
@@ -216,6 +232,7 @@ export default function Home() {
       backupSlot: "10",
       containerSplit: "10",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "dfw24gb",
@@ -228,6 +245,7 @@ export default function Home() {
       backupSlot: "12",
       containerSplit: "12",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "dfw32gb",
@@ -240,6 +258,7 @@ export default function Home() {
       backupSlot: "16",
       containerSplit: "16",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams1gb",
@@ -252,6 +271,7 @@ export default function Home() {
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams2gb",
@@ -264,6 +284,7 @@ export default function Home() {
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams3gb",
@@ -276,6 +297,7 @@ export default function Home() {
       backupSlot: "1",
       containerSplit: "2",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams4gb",
@@ -288,6 +310,7 @@ export default function Home() {
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams5gb",
@@ -300,6 +323,7 @@ export default function Home() {
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams6gb",
@@ -312,6 +336,7 @@ export default function Home() {
       backupSlot: "3",
       containerSplit: "2",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams8gb",
@@ -324,6 +349,7 @@ export default function Home() {
       backupSlot: "4",
       containerSplit: "2",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams10gb",
@@ -336,6 +362,7 @@ export default function Home() {
       backupSlot: "5",
       containerSplit: "5",
       link: "https://example.com",
+      whmcspid: "12",
     },
     {
       id: "ams16gb",
@@ -348,6 +375,7 @@ export default function Home() {
       backupSlot: "8",
       containerSplit: "8",
       link: "https://example.com",
+      whmcspid: "12",
     },
   ];
 
@@ -364,28 +392,28 @@ export default function Home() {
       price: "$4",
       description:
         "A reserved IP address with the default port (25565 or 19132).",
-      urlparams: "&dedicatedip=true",
+      urlparams: "&configoption[1]=1",
     },
     {
       name: "Website Hosting",
       price: "FREE",
       description:
         'Use the promo code "WEB" at checkout when you order website hosting to receive free webhosting for the duration of your game server service.',
-      urlparams: "&webhosting=1",
+      urlparams: "&addons[1]=1",
     },
     {
       name: "The Shockbyte Treatment 💀",
       price: "$15",
       description:
         "Installing and configuring plugins and modpacks is included in support already. (This isn't actually a real addon)",
-      urlparams: "&premiumsupport=1",
+      urlparams: "&addons[2]=1",
     },
     {
       name: "The Premium Treatment 💀",
       price: "$50",
       description:
         "Another server management addon but it's premium and more greedy. (This isn't actually a real addon)",
-      urlparams: "&premiumsupport=1",
+      urlparams: "&addons[2]=1",
     },
     // More addons...
   ];
@@ -398,13 +426,26 @@ export default function Home() {
     );
   };
 
-  const getConcatenatedParams = () => {
-    return selectedAddons
-      .map((addonName) => {
-        const addon = addons.find((a) => a.name === addonName);
-        return addon?.urlparams;
-      })
-      .join("");
+  const getTotalPrice = () => {
+    let total = 0;
+
+    if (selectedPlan && selectedPlan.price) {
+      total = parseFloat(selectedPlan.price.replace("$", ""));
+    }
+
+    selectedAddons.forEach((addonName) => {
+      const addon = addons.find((a) => a.name === addonName);
+      if (
+        addon &&
+        addon.price !== "FREE" &&
+        addon.name !== "The Shockbyte Treatment 💀" &&
+        addon.name !== "The Premium Treatment 💀"
+      ) {
+        total += parseFloat(addon.price.replace("$", ""));
+      }
+    });
+
+    return `$${total.toFixed(2)}`;
   };
 
   /* Location Selector */
@@ -424,7 +465,65 @@ export default function Home() {
     // Add more locations as needed
   ];
 
+  const getConcatenatedParams = () => {
+    return selectedAddons
+      .map((addonName) => {
+        const addon = addons.find((a) => a.name === addonName);
+        return addon?.urlparams;
+      })
+      .join("");
+  };
+
+  const WHMCSLink = `https://foxomy.com/billing/cart.php?a=add&pid=${
+    selectedPlan?.whmcspid
+  }${getConcatenatedParams()}`;
+
+  const handleOpenWHMCSLink = () => {
+    window.open(WHMCSLink, "_self");
+  };
+
   /* End Location Selector */
+
+  /* Start carousel */
+
+  const [activeTab, setActiveTab] = useState(0);
+  const sliderRef = useRef<typeof Slider | null>(null);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: (current: number) => setActiveTab(current),
+  };
+  const images = [
+    "/images/pteroconsole.png",
+    "/images/pteroconfig.png",
+    "/images/pteroplugin.png",
+    "/images/pteromodpack.png",
+    "/images/pterosplitter.png",
+  ];
+
+  const handleTabClick = (index: number) => {
+    setActiveTab(index);
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(index);
+    }
+  };
+
+  /* End Carousel */
+
+  /* Start Networks */
+
+  type CardType = "AS30277" | "AS399820";
+
+  const [selectedCard, setSelectedCard] = useState("AS30277");
+
+  const handleCardClick = (card: CardType) => {
+    setSelectedCard(card);
+  };
+
   return (
     <>
       <div
@@ -525,7 +624,7 @@ export default function Home() {
         {/* End of Grid */}
       </div>
       {/* Next section */}
-      <div className="flex min-h-screen flex-col">
+      <div className="flex flex-col">
         {/* Grid */}
         <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 container mt-8">
           <div className="flex flex-col justify-between">
@@ -783,149 +882,418 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mt-4 grid gap-4 container">
-          <div className="flex flex-col justify-between">
-            <div>
-              <div className="font-semibold text-2xl mt-8">
-                Next, select your plan...
+        {selectedLocation && (
+          <div className="mt-4 grid gap-4 container">
+            <div className="flex flex-col justify-between">
+              <div>
+                <div className="font-semibold text-2xl mt-8">
+                  Next, select your plan...
+                </div>
+                <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+                  {plans
+                    .filter((plan) => plan.location === selectedLocation) // Filter the plans based on the selected location
+                    .map((plan, index) => (
+                      <Card
+                        key={index}
+                        className={`relative hover:bg-muted/50 transition-colors cursor-pointer ${
+                          selectedPlan?.id === plan.id
+                            ? "bg-teal-100/10 border-teal-500 transition-colors"
+                            : ""
+                        }`}
+                        onClick={() => setSelectedPlan(plan)}
+                      >
+                        <div className="absolute top-1/2 right-6 transform -translate-y-1/2 text-muted-forground- opacity-10 text-2xl font-bold">
+                          {plan.id}
+                        </div>
+                        <CardHeader className="space-y-0 pb-0">
+                          <CardTitle>
+                            <span className="text-lg font-bold">
+                              {plan.ram}
+                            </span>{" "}
+                            <span className="text-sm text-muted-foreground">
+                              of RAM
+                            </span>
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="pb-2">
+                            <span className="text-md pb-1 font-medium">
+                              {plan.price}
+                            </span>{" "}
+                            <span className="text-sm font-medium text-muted-foreground">
+                              per month
+                            </span>
+                          </div>
+                          <p className="text-sm font-medium text-muted-foreground">
+                            {plan.vCore} vCore
+                            {Number(plan.vCore) > 1 ? "s" : ""}
+                            <br />
+                            {plan.storage} of storage
+                            <br />
+                            {plan.backupSlot} Backup slot
+                            {Number(plan.backupSlot) > 1 ? "s" : ""}
+                            <br />
+                            {plan.containerSplit} Container split
+                            {Number(plan.containerSplit) > 1 ? "s" : ""}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    ))}
+                </div>
               </div>
-              <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-                {plans
-                  .filter((plan) => plan.location === selectedLocation) // Filter the plans based on the selected location
-                  .map((plan, index) => (
+            </div>
+          </div>
+        )}
+        {selectedLocation && selectedPlan && (
+          <div className="mt-4 grid gap-4 container">
+            <div className="flex flex-col justify-between">
+              <div>
+                <div className="font-semibold text-2xl mt-8">
+                  Then, select optional addons...
+                </div>
+                <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+                  {addons.map((addon, index) => (
                     <Card
                       key={index}
-                      className={`relative hover:bg-muted/50 transition-colors cursor-pointer ${
-                        selectedPlan?.id === plan.id
-                          ? "bg-teal-100/10 border-teal-500 transition-colors"
+                      className={`hover:bg-muted/50 transition-colors cursor-pointer ${
+                        selectedAddons.includes(addon.name)
+                          ? "bg-teal-100/10 border-teal-500"
                           : ""
                       }`}
-                      onClick={() => setSelectedPlan(plan)}
+                      onClick={() => toggleAddon(addon.name)}
                     >
-                      <div className="absolute top-1/2 right-6 transform -translate-y-1/2 text-muted-forground- opacity-10 text-2xl font-bold">
-                        {plan.id}
-                      </div>
                       <CardHeader className="space-y-0 pb-0">
                         <CardTitle>
-                          <span className="text-lg font-bold">{plan.ram}</span>{" "}
-                          <span className="text-sm text-muted-foreground">
-                            of RAM
+                          <span className="text-lg font-bold">
+                            {addon.name}
                           </span>
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
                         <div className="pb-2">
                           <span className="text-md pb-1 font-medium">
-                            {plan.price}
+                            {addon.price}
                           </span>{" "}
                           <span className="text-sm font-medium text-muted-foreground">
                             per month
                           </span>
                         </div>
                         <p className="text-sm font-medium text-muted-foreground">
-                          {plan.vCore} vCore
-                          {Number(plan.vCore) > 1 ? "s" : ""}
-                          <br />
-                          {plan.storage} of storage
-                          <br />
-                          {plan.backupSlot} Backup slot
-                          {Number(plan.backupSlot) > 1 ? "s" : ""}
-                          <br />
-                          {plan.containerSplit} Container split
-                          {Number(plan.containerSplit) > 1 ? "s" : ""}
+                          {addon.description}
                         </p>
                       </CardContent>
                     </Card>
                   ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="mt-4 grid gap-4 container">
-          <div className="flex flex-col justify-between">
-            <div>
-              <div className="font-semibold text-2xl mt-8">
-                Then, select optional addons...
+        )}
+        {/* Next Section */}
+        {selectedLocation && selectedPlan && (
+          <div className="mt-4 grid gap-4 container">
+            <div className="flex flex-col justify-between">
+              <div>
+                <div className="font-semibold text-2xl mt-8">
+                  Finally, review your selection...
+                </div>
+                <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+                  <Card className="p-6 shadow-lg rounded-lg">
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-5">
+                      <div className="col-span-2 flex flex-col space-y-1">
+                        <div className="flex justify-between text-sm text-gray-400 mb-1">
+                          <div>Plan</div>
+                          <div>Price</div>
+                        </div>
+                        <div className="flex justify-between">
+                          <div className="text-md font-bold mb-1">
+                            {selectedPlan?.id}
+                          </div>
+                          <div className="text-sm">{selectedPlan?.price}</div>
+                        </div>
+                        {selectedAddons.length > 0 && (
+                          <>
+                            <div className="flex justify-between text-sm text-gray-400 mb-1">
+                              <div>Addons</div>
+                            </div>
+                            {selectedAddons.map((addonName) => {
+                              const addon = addons.find(
+                                (a) => a.name === addonName
+                              );
+                              return addon ? (
+                                <div className="flex justify-between">
+                                  <div className="text-md font-bold mb-1">
+                                    {addon.name}
+                                  </div>
+                                  <div className="text-sm">
+                                    {addon.name.includes("Treatment")
+                                      ? "FREE"
+                                      : addon.price}
+                                  </div>
+                                </div>
+                              ) : null;
+                            })}
+                          </>
+                        )}
+                        <div className="mt-[-0.25rem]">
+                          <hr className="border-gray mt-1 mb-2" />
+                        </div>
+                        <div className="flex justify-between">
+                          <div className="text-sm">Total</div>
+                          <div className="text-sm">{getTotalPrice()}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex mt-6 justify-end space-x-3">
+                      {selectedPlan && (
+                        <button
+                          onClick={handleOpenWHMCSLink}
+                          className="text-teal-500 font-bold bg-teal-500/30 hover:bg-teal-500/40 py-2 px-4 rounded focus:outline-none transition-colors"
+                        >
+                          Continue
+                        </button>
+                      )}
+                    </div>
+                  </Card>
+                </div>
               </div>
-              <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-                {addons.map((addon, index) => (
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-col">
+        <div className="container mt-20">
+          {/* Testing */}
+          <div>
+            <p className="font-semibold text-3xl sm:text-5xl text-center">
+              Our Game Panel
+            </p>
+            <p className="py-5 text-md sm:text-lg text-center text-muted-foreground">
+              {`Easily manage your server with Pterodactyl Panel. Designed with our clients in mind, we continually listen to feedback and develop custom modifications, enhancing your experience and simplifying server management.`}
+            </p>
+            <div className="flex justify-center space-x-4 mb-2">
+              <span>Our custom features:</span>
+              {images.map((image, index) => (
+                <button
+                  key={image}
+                  onClick={() => handleTabClick(index)}
+                  className={index === activeTab ? "font-bold" : ""}
+                >
+                  {
+                    ["Players", "Config", "Plugins", "Modpacks", "Splitter"][
+                      index
+                    ]
+                  }
+                </button>
+              ))}
+            </div>
+            <Slider ref={sliderRef} {...settings}>
+              {images.map((image) => (
+                <div key={image}>
+                  <Image
+                    src={image}
+                    alt="image"
+                    className="mx-auto"
+                    width={1280}
+                    height={1600}
+                    priority
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="container mx-auto my-auto">
+          <p className="font-semibold text-3xl sm:text-5xl text-center">
+            AS200360
+          </p>
+          <p className="py-5 text-2xl text-center text-muted-foreground">
+            BunArcticFloof
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+            <div className="flex flex-col justify-between">
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+                {(["AS30277", "AS399820"] as CardType[]).map((card) => (
                   <Card
-                    key={index}
+                    key={card}
+                    onClick={() => handleCardClick(card)}
                     className={`hover:bg-muted/50 transition-colors cursor-pointer ${
-                      selectedAddons.includes(addon.name)
+                      selectedCard === card
                         ? "bg-teal-100/10 border-teal-500"
                         : ""
                     }`}
-                    onClick={() => toggleAddon(addon.name)}
                   >
-                    <CardHeader className="space-y-0 pb-0">
-                      <CardTitle>
-                        <span className="text-lg font-bold">{addon.name}</span>
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                      <CardTitle className="text-lg font-bold">
+                        {(card === "AS30277" && "Dallas, Texas") ||
+                          (card === "AS399820" && "Amsterdam, Netherlands")}
                       </CardTitle>
+                      <img
+                        src={`/images/${
+                          card === "AS30277" ? "usflag" : "nlflag"
+                        }.svg`}
+                        alt="flag"
+                        className="h-6 w-6 mr-2"
+                      />
                     </CardHeader>
-                    <CardContent>
-                      <div className="pb-2">
-                        <span className="text-md pb-1 font-medium">
-                          {addon.price}
-                        </span>{" "}
-                        <span className="text-sm font-medium text-muted-foreground">
-                          per month
-                        </span>
-                      </div>
-                      <p className="text-sm font-medium text-muted-foreground">
-                        {addon.description}
-                      </p>
-                    </CardContent>
                   </Card>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-        {/* Next Section */}
-        <div className="mt-4 grid gap-4 container">
-          <div className="flex flex-col justify-between">
-            <div>
-              <div className="font-semibold text-2xl mt-8">
-                Finally, review your selection...
-              </div>
-              <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                <Card className="p-6 shadow-lg rounded-lg">
-                  <div className="h-28 mb-4">fff</div>
 
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-5">
-                    <div className="col-span-2 flex flex-col space-y-1">
-                      <div className="flex justify-between">
-                        <div className="text-sm text-gray-400 mb-1">Plan</div>
-                        <div className="text-sm text-gray-400 mb-1">Price</div>
+            {selectedCard === "AS30277" && (
+              <Card>
+                <CardContent className="pb-2 pt-6">
+                  <p className="text-xl font-bold mb-2">Network</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          Test IPv4
+                        </p>
                       </div>
-                      <div className="flex justify-between">
-                        <div className="text-lg font-bold mb-1">Flared XL</div>
-                        <div className="text-sm">$20,000</div>
+                      <p className="text-md font-bold">202.5.26.13</p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">Address</p>
                       </div>
-                      <div className="flex justify-between">
-                        <div className="text-lg font-bold mb-1">
-                          Flared XL no base
-                        </div>
-                        <div className="text-sm">$17,500</div>
+                      <p className="text-md font-bold">
+                        1515 Round Table Dr, Dallas, Texas, 75247
+                      </p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          Facility
+                        </p>
                       </div>
-                      <div className="mt-[-0.25rem]">
-                        <hr className="border-gray-300 mt-1 mb-2" />
-                      </div>
-                      <div className="flex justify-between">
-                        <div className="text-sm">Total</div>
-                        <div className="text-sm">$38,500</div>
-                      </div>
+                      <p className="text-md font-bold">Carrier-1</p>
                     </div>
                   </div>
+                  <p className="text-xl font-bold mb-2">
+                    Upstreams for AS399820
+                  </p>
+                  <Table>
+                    <TableCaption></TableCaption>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[150px]">ASN</TableHead>
 
-                  <div className="flex mt-6 justify-end space-x-3">
-                    <Button variant="secondary">Deploy</Button>
+                        <TableHead className="">Name</TableHead>
+                        <TableHead className="">Description</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">AS3223</TableCell>
+                        <TableCell className="font-medium">
+                          Voxility LLP
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          DDoS Protection
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS393398</TableCell>
+                        <TableCell className="font-medium">
+                          1515 ROUNDTABLE DR PROPERTY, LLC
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          US Datacenter
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            )}
+            {selectedCard === "AS399820" && (
+              <Card>
+                <CardContent className="pb-2 pt-6">
+                  <p className="text-xl font-bold mb-2">Network</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          Test IPv4
+                        </p>
+                      </div>
+                      <p className="text-md font-bold">204.137.14.2</p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">Address</p>
+                      </div>
+                      <p className="text-md font-bold">
+                        Science Park 121, 1098 XG Amsterdam, Netherlands
+                      </p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          Facility
+                        </p>
+                      </div>
+                      <p className="text-md font-bold">Dutch FurCon</p>
+                    </div>
                   </div>
-                </Card>
-              </div>
-            </div>
+                  <p className="text-xl font-bold mb-2">
+                    Upstreams for AS399820
+                  </p>
+
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[150px]">ASN</TableHead>
+
+                        <TableHead className="">Name</TableHead>
+                        <TableHead className="">Description</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">AS396998</TableCell>
+                        <TableCell className="font-medium">
+                          Path Network, Inc.
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          DDoS Protection
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS49581</TableCell>
+                        <TableCell className="font-medium">
+                          Ferdinand Zink trading as Tube-Hosting
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          Amsterdam Datacenter
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="font-medium">AS29802</TableCell>
+                        <TableCell className="font-medium">
+                          HIVELOCITY, Inc.
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          US Datacenter
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            )}
           </div>
+        </div>
+      </div>
+      <div>
+        <div className="container mt-20">
+          <SupportCard />
         </div>
       </div>
     </>
