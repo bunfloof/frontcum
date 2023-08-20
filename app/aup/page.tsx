@@ -32,11 +32,11 @@ export default function terms() {
           <p className="py-3 text-muted-foreground">{`Services must comply with applicable laws and regulations in California and the United States. Prohibited activities include, but are not limited to:`}</p>
           <div className="text-muted-foreground">
             <ul className="list-inside list-decimal pl-5">
-              <li>"Dstating": Testing cyberattack capabilities or defenses.</li>
+              <li>{`"Dstating": Testing cyberattack capabilities or defenses.`}</li>
               <li>
-                "Tunneling": Rerouting network traffic outside of Bun’s network.
+              {`"Tunneling": Rerouting network traffic outside of Bun’s network.`}
               </li>
-              <li>"Portscanning": Scanning remote network entry points.</li>
+              <li>{`"Portscanning": Scanning remote network entry points.`}</li>
               <li>Network/Cyber Attacks against Bun or third parties.</li>
               <li>
                 Excessive Use: Overloading the hardware or network resources.

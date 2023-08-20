@@ -122,10 +122,10 @@ export default function Home() {
             </svg>
           </div>
           <p className="text-sm">
-            Foxomy has been acquired wholly by Bun. Please re-read all terms of
+            {`Foxomy has been acquired wholly by Bun. Please re-read all terms of
             service, privacy policy, and other legal documents. TLDR; this isn't
             "bulletproof" hosting anymore. We prohibit illegal content
-            everywhere.
+            everywhere.`}
           </p>
         </div>
 

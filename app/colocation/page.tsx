@@ -217,8 +217,8 @@ export default function Colocation() {
                 Colocation
               </div>
               <p className="py-5 text-md sm:text-lg text-muted-foreground">
-                Place your rack in our datacenter and we'll provide the power,
-                cooling, and network.
+                {`Place your rack in our datacenter and we’ll provide the power,
+                cooling, and network.`}
               </p>
             </div>
           </div>
@@ -552,7 +552,7 @@ export default function Colocation() {
                         </p>
                       </div>
                       <p className="text-md font-bold">
-                        Pls dont ddos me or i'll cum :3
+                        {`Pls dont ddos me or i'll cum :3`}
                       </p>
                     </div>
                     <div className="flex flex-col">

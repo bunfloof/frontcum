@@ -76,9 +76,9 @@ export default function privacy() {
             THE DATA PROTECTION OFFICER
           </p>
           <p className="py-3 text-muted-foreground">
-            Contact details for Bun's Data Protection Officer will be provided
+            {`Contact details for Bun's Data Protection Officer will be provided
             upon request. The Data Protection Officer may require personally
-            identifiable information to confirm identity.
+            identifiable information to confirm identity.`}
           </p>
 
           <p className="font-semibold text-xl mt-4">COOKIES</p>

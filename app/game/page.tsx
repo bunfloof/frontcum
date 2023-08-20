@@ -1340,7 +1340,7 @@ export default function Minecraft() {
                         </p>
                       </div>
                       <p className="text-md font-bold">
-                        Pls dont ddos me or i'll cum :3
+                        {`Pls dont ddos me or i’ll cum :3`}
                       </p>
                     </div>
                     <div className="flex flex-col">

@@ -35,7 +35,7 @@ export default function terms() {
             </ul>
             <p className="pl-5 italic">
               *Clients aged 13-17 may enter into a contract with a legal
-              guardian's permission.
+              guardian’s permission.
             </p>
           </div>
           <p className="font-semibold text-xl mt-4">RELATIONSHIP TERMS</p>
