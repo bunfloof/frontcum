@@ -7,7 +7,6 @@ import {
 
 import Link from "next/link";
 import { ModeToggle } from "./components/ModeToggle";
-import Footer from "./components/Footer";
 import WorldMapSection from "./components/WorldMapSection";
 import CustomersSection from "./components/CustomersSection";
 import SupportCard from "./components/SupportCard";
@@ -104,6 +103,32 @@ export default function Home() {
           backgroundPosition: "center center",
         }}
       >
+        <div className="items-start bg-teal-700/[0.09] border-collapse text-gray-100 gap-3 flex break-words p-4">
+          <div className="items-center flex align-bottom">
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              height="16"
+              viewBox="0 0 15 15"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clipRule="evenodd"
+                d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+          <p className="text-sm">
+            Foxomy has been acquired wholly by Bun. Please re-read all terms of
+            service, privacy policy, and other legal documents. TLDR; this isn't
+            "bulletproof" hosting anymore. We prohibit illegal content
+            everywhere.
+          </p>
+        </div>
+
         <div className="flex flex-col md:flex-row p-4 pt-16 md:pt-4 container">
           <div className="flex-1 flex items-center justify-center h-screen mb-4 md:mb-0">
             {" "}
@@ -129,7 +154,7 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="grid gap-1">
-                <Link href="/minecraft">
+                <Link href="/game">
                   <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
                     <svg
                       viewBox="0 0 24 24"
@@ -151,66 +176,72 @@ export default function Home() {
                     <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
                   </div>
                 </Link>
-                <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
-                  <svg
-                    viewBox="0 0 58 58"
-                    fill="currentColor"
-                    strokeWidth="1"
-                    className="mt-px h-5 w-5"
-                  >
-                    <path d="M12.8 8.4h9.6l-1.5 5.7a3.6 3.6 0 0 1-3.4 2.6H13c-1 0-2 .3-2.7 1a4.7 4.7 0 0 0-1.7 4.5c.1.7.4 1.3.8 1.8.4.6 1 1 1.6 1.3.6.3 1.3.5 2 .5h2.7c.5 0 1 .2 1.3.6.3.4.4.9.2 1.4L15.5 34h-3A12.7 12.7 0 0 1 .3 24.2c-.4-2-.4-4 .1-5.8l.2-.7a12.5 12.5 0 0 1 12.2-9.3zm4.8 25.7L26 2.6A3.6 3.6 0 0 1 29.5 0h8.9c2 0 3.9.4 5.6 1.3 3.4 1.8 5.9 5 6.7 8.7.4 2 .3 4-.2 5.8l-.2.7a12.7 12.7 0 0 1-12 9.4h-7.8L32 20a3.6 3.6 0 0 1 3.5-2.6H38c2 0 3.8-1.4 4.3-3.4.2-.7.2-1.4 0-2 0-.7-.3-1.4-.7-1.9A4.6 4.6 0 0 0 38 8.4h-4.8L27 31.5c-.2.8-.7 1.4-1.3 1.9-.6.5-1.3.7-2.1.7z" />
-                  </svg>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium leading-none">
-                      Web Hosting
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Starting at USD $3/month.
-                    </p>
+                <Link href="/web">
+                  <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
+                    <svg
+                      viewBox="0 0 58 58"
+                      fill="currentColor"
+                      strokeWidth="1"
+                      className="mt-px h-5 w-5"
+                    >
+                      <path d="M12.8 8.4h9.6l-1.5 5.7a3.6 3.6 0 0 1-3.4 2.6H13c-1 0-2 .3-2.7 1a4.7 4.7 0 0 0-1.7 4.5c.1.7.4 1.3.8 1.8.4.6 1 1 1.6 1.3.6.3 1.3.5 2 .5h2.7c.5 0 1 .2 1.3.6.3.4.4.9.2 1.4L15.5 34h-3A12.7 12.7 0 0 1 .3 24.2c-.4-2-.4-4 .1-5.8l.2-.7a12.5 12.5 0 0 1 12.2-9.3zm4.8 25.7L26 2.6A3.6 3.6 0 0 1 29.5 0h8.9c2 0 3.9.4 5.6 1.3 3.4 1.8 5.9 5 6.7 8.7.4 2 .3 4-.2 5.8l-.2.7a12.7 12.7 0 0 1-12 9.4h-7.8L32 20a3.6 3.6 0 0 1 3.5-2.6H38c2 0 3.8-1.4 4.3-3.4.2-.7.2-1.4 0-2 0-.7-.3-1.4-.7-1.9A4.6 4.6 0 0 0 38 8.4h-4.8L27 31.5c-.2.8-.7 1.4-1.3 1.9-.6.5-1.3.7-2.1.7z" />
+                    </svg>
+                    <div className="space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Web Hosting
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Starting at USD $2/month.
+                      </p>
+                    </div>
+                    <div className="flex-grow"></div> {/* Spacer div */}
+                    <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
                   </div>
-                  <div className="flex-grow"></div> {/* Spacer div */}
-                  <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
-                </div>
-                <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
-                  <svg
-                    viewBox="0 0 512 512"
-                    fill="currentColor"
-                    height="1em"
-                    width="1em"
-                  >
-                    <path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 120c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm96-24c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64H64zm280 120c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm104-24c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24z" />
-                  </svg>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium leading-none">
-                      Unmanaged Dedicated Server Hosting
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Starting at USD $100/month.
-                    </p>
+                </Link>
+                <Link href="/dedicated">
+                  <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
+                    <svg
+                      viewBox="0 0 512 512"
+                      fill="currentColor"
+                      height="1em"
+                      width="1em"
+                    >
+                      <path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 120c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm96-24c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64H64zm280 120c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm104-24c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24z" />
+                    </svg>
+                    <div className="space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Dedicated Server Hosting
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Starting at USD $130/month.
+                      </p>
+                    </div>
+                    <div className="flex-grow"></div> {/* Spacer div */}
+                    <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
                   </div>
-                  <div className="flex-grow"></div> {/* Spacer div */}
-                  <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
-                </div>
-                <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
-                  <svg
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    height="1em"
-                    width="1em"
-                  >
-                    <path d="M2 2a2 2 0 00-2 2v1a2 2 0 002 2h1v2H2a2 2 0 00-2 2v1a2 2 0 002 2h12a2 2 0 002-2v-1a2 2 0 00-2-2h-1V7h1a2 2 0 002-2V4a2 2 0 00-2-2H2zm.5 3a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 7a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zM12 7v2H4V7h8z" />
-                  </svg>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium leading-none">
-                      Server Colocation
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Starting at USD $70/month
-                    </p>
+                </Link>
+                <Link href="/colocation">
+                  <div className="-mx-2 flex items-start space-x-4 rounded-md p-3 hover:bg-muted/50 transition-colors hover:text-accent-foreground">
+                    <svg
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      height="1em"
+                      width="1em"
+                    >
+                      <path d="M2 2a2 2 0 00-2 2v1a2 2 0 002 2h1v2H2a2 2 0 00-2 2v1a2 2 0 002 2h12a2 2 0 002-2v-1a2 2 0 00-2-2h-1V7h1a2 2 0 002-2V4a2 2 0 00-2-2H2zm.5 3a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zm-2 7a.5.5 0 110-1 .5.5 0 010 1zm2 0a.5.5 0 110-1 .5.5 0 010 1zM12 7v2H4V7h8z" />
+                    </svg>
+                    <div className="space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Server Colocation
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Starting at USD $150/month
+                      </p>
+                    </div>
+                    <div className="flex-grow"></div> {/* Spacer div */}
+                    <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
                   </div>
-                  <div className="flex-grow"></div> {/* Spacer div */}
-                  <ArrowRightIcon className="self-center mt-px h-5 w-5" />{" "}
-                </div>
+                </Link>
               </CardContent>
             </Card>
           </div>
@@ -605,7 +636,6 @@ export default function Home() {
           <SupportCard />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

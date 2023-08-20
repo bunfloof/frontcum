@@ -21,7 +21,7 @@ export function CustomersSection() {
       </p>
       <p className="py-5 text-md sm:text-lg text-center text-muted-foreground">
         {`We're proud to serve a diverse and passionate community of individuals
-        and organizations. Our customers include social justice activists, human
+        and organizations. Our customers include social justice activists, humxn
         rights advocates, community organizers, and anyone committed to the
         fight against injustice, inequality, and white supremacy. Together, we
         are working towards a better world.`}
@@ -72,7 +72,7 @@ export function CustomersSection() {
           </div>
           <CardContent className="pb-2 pt-2">
             <p className="text-sm text-muted-foreground">
-              {`“Thanks for setting up my mongodb host and modded minecraft server. I'm sure a lot of my friends appreciated your help.”`}
+              {`“Go woke or go broke! Thanks for setting up my mongodb host and modded minecraft server. I'm sure a lot of my friends appreciated your help.”`}
             </p>
           </CardContent>
         </Card>

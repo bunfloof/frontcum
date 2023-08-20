@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import SupportCard from "../components/SupportCard";
-import Footer from "../components/Footer";
+import Link from "next/link";
 
 import {
   Table,
@@ -246,7 +246,7 @@ export default function Minecraft() {
       backupSlot: "12",
       containerSplit: "12",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "26",
     },
     {
       id: "dfw32gb",
@@ -259,7 +259,7 @@ export default function Minecraft() {
       backupSlot: "16",
       containerSplit: "16",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "27",
     },
     {
       id: "ams1gb",
@@ -272,7 +272,7 @@ export default function Minecraft() {
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "25",
     },
     {
       id: "ams2gb",
@@ -285,7 +285,7 @@ export default function Minecraft() {
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "28",
     },
     {
       id: "ams3gb",
@@ -298,7 +298,7 @@ export default function Minecraft() {
       backupSlot: "1",
       containerSplit: "2",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "29",
     },
     {
       id: "ams4gb",
@@ -311,7 +311,7 @@ export default function Minecraft() {
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "30",
     },
     {
       id: "ams5gb",
@@ -324,7 +324,7 @@ export default function Minecraft() {
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "31",
     },
     {
       id: "ams6gb",
@@ -332,12 +332,12 @@ export default function Minecraft() {
       location: "Amsterdam, Netherlands",
       ram: "6 GB",
       price: "$12",
-      vCore: "4",
+      vCore: "6",
       storage: "108 GB",
       backupSlot: "3",
       containerSplit: "2",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "32",
     },
     {
       id: "ams8gb",
@@ -350,7 +350,7 @@ export default function Minecraft() {
       backupSlot: "4",
       containerSplit: "2",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "33",
     },
     {
       id: "ams10gb",
@@ -363,7 +363,7 @@ export default function Minecraft() {
       backupSlot: "5",
       containerSplit: "5",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "34",
     },
     {
       id: "ams16gb",
@@ -376,7 +376,7 @@ export default function Minecraft() {
       backupSlot: "8",
       containerSplit: "8",
       link: "https://example.com",
-      whmcspid: "12",
+      whmcspid: "35",
     },
   ];
 
@@ -545,7 +545,7 @@ export default function Minecraft() {
                 Game Hosting
               </div>
               <p className="py-5 text-md sm:text-lg text-muted-foreground">
-                Order a game server today and get started within minutes.
+                Order a Minecraft server today and get started within minutes.
               </p>
             </div>
           </div>
@@ -996,10 +996,10 @@ export default function Minecraft() {
             <div className="flex flex-col justify-between">
               <div>
                 <div className="font-semibold text-2xl mt-8">
-                  Finally, review your selection...
+                  Finally, review your order...
                 </div>
                 <div className="mt-4 flex justify-center">
-                  <Card className="p-6 shadow-lg rounded-lg min-w-[368px]">
+                  <Card className="p-6 shadow-lg rounded-lg w-full md:w-1/2">
                     <div className="grid grid-cols-2 gap-x-4 gap-y-5">
                       <div className="col-span-2 flex flex-col space-y-1">
                         <div className="flex justify-between text-sm text-gray-400 mb-1">
@@ -1172,7 +1172,7 @@ export default function Minecraft() {
                         <p className="text-xs text-muted-foreground">Address</p>
                       </div>
                       <p className="text-md font-bold">
-                        1515 Round Table Dr, Dallas, Texas, 75247
+                        1515 Round Table Dr, Dallas, Texas 75247
                       </p>
                     </div>
                     <div className="flex flex-col">
@@ -1182,6 +1182,21 @@ export default function Minecraft() {
                         </p>
                       </div>
                       <p className="text-md font-bold">Carrier-1</p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          LookingGlass
+                        </p>
+                      </div>
+                      <Link
+                        href="http://lg-dfw1.bunis.gay/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="text-md font-bold hover:text-muted-foreground transition"
+                      >
+                        lg-dfw1.bunis.gay
+                      </Link>
                     </div>
                   </div>
                   <p className="text-xl font-bold mb-2">
@@ -1204,7 +1219,7 @@ export default function Minecraft() {
                           Voxility LLP
                         </TableCell>
                         <TableCell className="font-medium">
-                          DDoS Protection
+                          DDoS Protected
                         </TableCell>
                       </TableRow>
                       <TableRow>
@@ -1271,7 +1286,7 @@ export default function Minecraft() {
                           Path Network, Inc.
                         </TableCell>
                         <TableCell className="font-medium">
-                          DDoS Protection
+                          DDoS Protected
                         </TableCell>
                       </TableRow>
                       <TableRow>
@@ -1308,7 +1323,7 @@ export default function Minecraft() {
                           Test IPv4
                         </p>
                       </div>
-                      <p className="text-md font-bold">69.46.67.66</p>
+                      <p className="text-md font-bold">173.249.199.2</p>
                     </div>
                     <div className="flex flex-col">
                       <div className="flex justify-between mb-1">
@@ -1324,11 +1339,28 @@ export default function Minecraft() {
                           Facility
                         </p>
                       </div>
-                      <p className="text-md font-bold">Scented Con</p>
+                      <p className="text-md font-bold">
+                        Pls dont ddos me or i'll cum :3
+                      </p>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-between mb-1">
+                        <p className="text-xs text-muted-foreground">
+                          LookingGlass
+                        </p>
+                      </div>
+                      <Link
+                        href="http://lg-sjc1.bunis.gay/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="text-md font-bold hover:text-muted-foreground transition"
+                      >
+                        lg-sjc1.bunis.gay
+                      </Link>
                     </div>
                   </div>
                   <p className="text-xl font-bold mb-2">
-                    Upstreams for AS30277
+                    Upstreams for AS11878
                   </p>
                   <Table>
                     <TableCaption></TableCaption>
@@ -1342,32 +1374,9 @@ export default function Minecraft() {
                     </TableHeader>
                     <TableBody>
                       <TableRow>
-                        <TableCell className="font-medium">AS396998</TableCell>
+                        <TableCell className="font-medium">AS36236</TableCell>
                         <TableCell className="font-medium">
-                          Path Network, Inc.
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          DDoS Protection
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS174</TableCell>
-                        <TableCell className="font-medium">
-                          Cogent Communications
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS6939</TableCell>
-                        <TableCell className="font-medium">
-                          Hurricane Electric LLC
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS3257</TableCell>
-                        <TableCell className="font-medium">
-                          GTT Communications Inc.
+                          NetActuate
                         </TableCell>
                         <TableCell className="font-medium">Peering</TableCell>
                       </TableRow>
@@ -1421,12 +1430,12 @@ export default function Minecraft() {
                     </TableHeader>
                     <TableBody>
                       <TableRow>
-                        <TableCell className="font-medium">AS3223</TableCell>
+                        <TableCell className="font-medium">AS396998</TableCell>
                         <TableCell className="font-medium">
                           Path Network, Inc.
                         </TableCell>
                         <TableCell className="font-medium">
-                          DDoS Protection
+                          DDoS Protected
                         </TableCell>
                       </TableRow>
                       <TableRow>
@@ -1493,7 +1502,6 @@ export default function Minecraft() {
           <SupportCard />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

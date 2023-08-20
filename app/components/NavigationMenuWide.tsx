@@ -23,108 +23,108 @@ const gameServers: {
 }[] = [
   {
     title: "7 Days to Die",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Ark: Survival Evolved",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Arma 3",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Barotrauma",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "BeamMP",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Factorio",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Garry's Mod",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Grand Theft Auto",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Icarus",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Killing Floor 2",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Left 4 Dead 2",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Minecraft",
-    href: "/minecraft",
+    href: "/game",
     gameIcon: "/gameIcons/minecraftgrassblock.png",
   },
   {
     title: "Mordhau",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Project Zomboid",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Rust",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Satisfactory",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "SCP: Secret Laboratory",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Sons of the Forest",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Starbound",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Stardew Valley",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Team Fortress 2",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "The Forest",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "The Isle",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Unturned",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "V Rising",
-    href: "/coming-soon",
+    href: "/game",
   },
   {
     title: "Valheim",
-    href: "/coming-soon",
+    href: "/game",
   },
 ];
 
@@ -156,19 +156,19 @@ const LoginDropdown: {
 }[] = [
   {
     title: "Billing (WHMCS1)",
-    href: "/coming-soon",
+    href: "https://foxomy.com/billing/login",
   },
   {
     title: "cPanel (us1.rap)",
-    href: "/coming-soon",
+    href: "https://us1.rapidcpanelserver.com:2087/",
   },
   {
     title: "Pterodactyl (panel.fox)",
-    href: "/coming-soon",
+    href: "https://panel.foxomy.com",
   },
   {
     title: "Pterodactyl 2 (panel2.fox)",
-    href: "/coming-soon",
+    href: "https://panel2.foxomy.com",
   },
 ];
 
@@ -202,7 +202,11 @@ export function NavigationMenuWide() {
       <div className="w-full flex flex-row justify-between items-center py-4 px-10 mx-auto container">
         <div className="flex items-center space-x-4">
           {/* Add your logo image here */}
-          Bun
+          <Link href="/">
+            <p className="hover:text-muted-foreground transition-colors">
+              BunArcticFloof
+            </p>
+          </Link>
           <div>
             {/* Navigation Items */}
             <NavigationMenu
@@ -211,37 +215,6 @@ export function NavigationMenuWide() {
               className="p-2 w-full"
             >
               <NavigationMenuList>
-                <NavigationMenuItem className="relative">
-                  <NavigationMenuTrigger>
-                    Minecraft Server
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="absolute">
-                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                      <li className="row-span-3">
-                        <NavigationMenuLink asChild>
-                          <Link href="/minecraft">
-                            <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
-                              <div className="mb-2 mt-4 text-lg font-medium">
-                                Minecraft
-                              </div>
-                              <p className="text-sm leading-tight text-muted-foreground">
-                                Choose from Vanilla, Modded, Purpur, or Spigot!
-                              </p>
-                            </div>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <ListItem
-                        value="minecraft"
-                        onClick={closeSubMenu}
-                        href="/minecraft"
-                        title="Minecraft"
-                      >
-                        Minecraft is a sandbox video game developed by Mojang.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
                 <NavigationMenuItem className="relative">
                   <NavigationMenuTrigger>Game Server</NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute">
@@ -262,48 +235,47 @@ export function NavigationMenuWide() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="relative">
-                  <NavigationMenuTrigger>
-                    Other Hosting
-                  </NavigationMenuTrigger>
+                  <NavigationMenuTrigger>Other Hosting</NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute">
                     <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
-                          <Link href="/">
+                          <Link href="/web">
                             <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
                               <div className="mb-2 mt-4 text-lg font-medium">
                                 Webhosting
                               </div>
                               <p className="text-sm leading-tight text-muted-foreground">
-                                NodeJS, PHP (WordPress), Python, and Ruby supported!
+                                NodeJS, PHP (WordPress), Python, and Ruby
+                                supported!
                               </p>
                             </div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
                       <ListItem
-                        value="minecraft"
+                        value="game"
                         onClick={closeSubMenu}
-                        href="/minecraft"
+                        href="/game"
                         title="Webhosting"
                       >
                         Powered by cPanel.
                       </ListItem>
                       <ListItem
-                        value="minecraft"
+                        value="dedicated"
                         onClick={closeSubMenu}
-                        href="/minecraft"
+                        href="/dedicated"
                         title="Dedicated Server"
                       >
                         Unmanaged and root access.
                       </ListItem>
                       <ListItem
-                        value="minecraft"
+                        value="colocation"
                         onClick={closeSubMenu}
-                        href="/minecraft"
-                        title="Discord Bot Hosting"
+                        href="/colocation"
+                        title="Colocation"
                       >
-                        Powered by Pterodactyl. 
+                        Bring your own rack server.
                       </ListItem>
                     </ul>
                   </NavigationMenuContent>
@@ -320,28 +292,9 @@ export function NavigationMenuWide() {
               onValueChange={setActiveItem}
               className="p-2 w-full"
             >
-              <NavigationMenuItem className="relative">
-                <NavigationMenuTrigger>Company</NavigationMenuTrigger>
-                <NavigationMenuContent className="absolute">
-                  <ul className="grid w-[200px] p-4 md:w-[300px] md:grid-cols-1 lg:w-[400px] ">
-                    {cloudHosting.map((cloudHosting) => (
-                      <ListItem
-                        value={cloudHosting.title}
-                        onClick={closeSubMenu}
-                        key={cloudHosting.title}
-                        gameIcon={cloudHosting.gameIcon}
-                        href={cloudHosting.href}
-                        title={cloudHosting.title}
-                      >
-                        {cloudHosting?.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
               <NavigationMenuList>
                 <NavigationMenuItem className="relative">
-                  <Link href="/docs" legacyBehavior passHref>
+                  <Link href="https://foxomy.com/billing/submitticket.php" legacyBehavior passHref>
                     <NavigationMenuLink
                       className={navigationMenuTriggerStyle()}
                     >

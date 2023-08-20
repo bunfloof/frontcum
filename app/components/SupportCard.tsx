@@ -15,11 +15,16 @@ export function SupportCard() {
   const username = "furcon";
   const telegramURL = "https://t.me/bun2003";
   const discordServerURL = "https://discord.gg/uQkn7vVqj6";
+  const WHMCSURL =
+    "https://foxomy.com/billing/submitticket.php?step=2&deptid=2";
   const handleJoinDiscordServer = () => {
     window.open(discordServerURL, "_blank", "noopener,noreferrer");
   };
   const handleTelegramLink = () => {
     window.open(telegramURL, "_blank", "noopener,noreferrer");
+  };
+  const handleWHMCSLink = () => {
+    window.open(WHMCSURL, "_blank", "noopener,noreferrer");
   };
   const handleCopyUsername = async () => {
     try {
@@ -52,7 +57,9 @@ export function SupportCard() {
           <div className="my-auto">
             <CardContent className="p-6">
               <div className="flex gap-4 justify-end">
-                <Button variant="secondary">Open Ticket</Button>
+                <Button variant="secondary" onClick={handleWHMCSLink}>
+                  Open Ticket
+                </Button>
                 <Popover.Root>
                   <Popover.Trigger asChild>
                     <Button variant="secondary">Discord</Button>
