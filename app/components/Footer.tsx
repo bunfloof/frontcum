@@ -53,7 +53,7 @@ export function Footer() {
             href="/"
             aria-label="Coems"
           >
-            BunArcticFloof
+            Foxomy
           </Link>
           <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             © 2023
@@ -96,7 +96,7 @@ export function Footer() {
                 href="/"
                 aria-label="Coems"
               >
-                BunArcticFloof
+                Foxomy
               </Link>
               <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 © 2023.

@@ -588,10 +588,10 @@ export default function Minecraft() {
           <div className="flex flex-col justify-between">
             <div>
               <div className="mt-20 font-semibold text-3xl sm:text-5xl">
-                Game Hosting
+                Free Game Hosting
               </div>
               <p className="py-5 text-md sm:text-lg text-muted-foreground">
-                Order a Minecraft server today and get started within minutes.
+                Get a free Minecraft server today and get started within minutes.
               </p>
             </div>
           </div>

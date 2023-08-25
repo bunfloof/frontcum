@@ -1,9 +1,32 @@
-## Notes
+## Notes for front
+
+### Websockets
+
+- Used to ping server locations unless APIs die 😂
 
 ### Webserver configuration
 When uploaded to webserver, remember to configure to serve the `.html` file when a URL without the .html extension is requested. Examples:
 
-NGINX Webserver (Production):
+LiteSpeed Apache Websever on CloudLinux cPanel with PHP WHMCS under /billing (Production 🤑):
+```
+# Custom rules for Next.js app
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Ignore the rules for specific directories like /billing or other folders
+  RewriteCond %{REQUEST_URI} !^/billing
+  # Add other directories to ignore as needed
+  # RewriteCond %{REQUEST_URI} !^/other-directory
+
+  # If the requested filename does not exist, add .html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+```
+
+NGINX Webserver:
 ```
 server {
     listen 80;
