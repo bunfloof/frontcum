@@ -45,80 +45,83 @@ export function SupportCard() {
     }
   }, [copyButtonText]);
   return (
-    <div className="mt-4 grid gap-4 grid-cols-1 p-0 m-0 ">
-      <Card>
-        <div className="grid md:grid-cols-1 xl:grid-cols-2">
-          <div>
-            <CardHeader>
-              <CardTitle>Contact support</CardTitle>
-              <CardDescription>See what we can do for you.</CardDescription>
-            </CardHeader>
-          </div>
-          <div className="my-auto">
-            <CardContent className="p-6">
-              <div className="flex gap-4 justify-end">
-                <Button variant="secondary" onClick={handleWHMCSLink}>
-                  Open Ticket
-                </Button>
-                <Popover.Root>
-                  <Popover.Trigger asChild>
-                    <Button variant="secondary">Discord</Button>
-                  </Popover.Trigger>
-                  <Popover.Portal>
-                    <Popover.Content
-                      className="bg-zinc-900 data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[300px] rounded-md bg-white p-5 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] data-[state=open]:transition-all"
-                      sideOffset={5}
-                    >
-                      <div className="flex flex-col gap-[7px]">
-                        <div className="flex flex-col gap-[10px]">
-                          <div className="text-sm font-medium">
-                            Message Bun on Discord
-                          </div>
-                          <div className="text-sm text-muted-foreground">
-                            Send Bun a friend request on Discord and message
-                            them directly.
-                          </div>
-                          <div className="text-sm text-muted-foreground">
-                            Username: {username}
-                          </div>
-                          <Button
-                            variant="secondary"
-                            className="p-1"
-                            onClick={handleCopyUsername}
-                          >
-                            {copyButtonText}
-                          </Button>
-                          <Separator />
-                          <div className="text-sm font-medium">
-                            Community Discord Server
-                          </div>
-                          <div className="text-sm text-muted-foreground">
-                            Join the community Discord server to chat with the
-                            community and get help from other members.
-                          </div>
+    <div className="container">
+      {" "}
+      <div className="mt-4 grid gap-4 grid-cols-1 p-0 m-0">
+        <Card>
+          <div className="grid md:grid-cols-1 xl:grid-cols-2">
+            <div>
+              <CardHeader>
+                <CardTitle>Contact support</CardTitle>
+                <CardDescription>See what we can do for you.</CardDescription>
+              </CardHeader>
+            </div>
+            <div className="my-auto">
+              <CardContent className="p-6">
+                <div className="flex gap-4 justify-end">
+                  <Button variant="secondary" onClick={handleWHMCSLink}>
+                    Open Ticket
+                  </Button>
+                  <Popover.Root>
+                    <Popover.Trigger asChild>
+                      <Button variant="secondary">Discord</Button>
+                    </Popover.Trigger>
+                    <Popover.Portal>
+                      <Popover.Content
+                        className="bg-zinc-900 data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[300px] rounded-md bg-white p-5 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] data-[state=open]:transition-all"
+                        sideOffset={5}
+                      >
+                        <div className="flex flex-col gap-[7px]">
+                          <div className="flex flex-col gap-[10px]">
+                            <div className="text-sm font-medium">
+                              Message Bun on Discord
+                            </div>
+                            <div className="text-sm text-muted-foreground">
+                              Send Bun a friend request on Discord and message
+                              them directly.
+                            </div>
+                            <div className="text-sm text-muted-foreground">
+                              Username: {username}
+                            </div>
+                            <Button
+                              variant="secondary"
+                              className="p-1"
+                              onClick={handleCopyUsername}
+                            >
+                              {copyButtonText}
+                            </Button>
+                            <Separator />
+                            <div className="text-sm font-medium">
+                              Community Discord Server
+                            </div>
+                            <div className="text-sm text-muted-foreground">
+                              Join the community Discord server to chat with the
+                              community and get help from other members.
+                            </div>
 
-                          <Button
-                            variant="secondary"
-                            className="p-1"
-                            onClick={handleJoinDiscordServer}
-                          >
-                            Join Discord server
-                          </Button>
+                            <Button
+                              variant="secondary"
+                              className="p-1"
+                              onClick={handleJoinDiscordServer}
+                            >
+                              Join Discord server
+                            </Button>
+                          </div>
                         </div>
-                      </div>
 
-                      <Popover.Arrow className="fill-white/10" />
-                    </Popover.Content>
-                  </Popover.Portal>
-                </Popover.Root>
-                <Button variant="secondary" onClick={handleTelegramLink}>
-                  Telegram
-                </Button>
-              </div>
-            </CardContent>
+                        <Popover.Arrow className="fill-white/10" />
+                      </Popover.Content>
+                    </Popover.Portal>
+                  </Popover.Root>
+                  <Button variant="secondary" onClick={handleTelegramLink}>
+                    Telegram
+                  </Button>
+                </div>
+              </CardContent>
+            </div>
           </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
     </div>
   );
 }

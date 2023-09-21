@@ -443,12 +443,12 @@ export default function Dedicated() {
       <div
         style={{
           backgroundImage:
-            "linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/blmserver.jpeg)",
+            "linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/dedicatedcard1.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center center",
         }}
-        className="pt-10"
+        className="pt-32"
       >
         {/* Grid */}
         <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 container">
@@ -458,7 +458,7 @@ export default function Dedicated() {
                 Dedicated Server Hosting
               </div>
               <p className="py-5 text-md sm:text-lg text-muted-foreground">
-                Order a dedicated server today and get started within 48 hours.
+                Order a dedicated server today and get started within 72 hours.
               </p>
             </div>
           </div>

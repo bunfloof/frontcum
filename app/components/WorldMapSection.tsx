@@ -89,7 +89,7 @@ export function WorldMapSection() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <p className="font-semibold text-3xl sm:text-5xl text-center">
         Server Locations
       </p>
@@ -268,7 +268,7 @@ export function WorldMapSection() {
           }
         `}</style>
       </div>
-    </>
+    </div>
   );
 }
 

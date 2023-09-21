@@ -57,7 +57,7 @@ export default function terms() {
           <p className="font-semibold text-xl mt-4">CHANGES TO TERMS</p>
           <p className="py-3 text-muted-foreground">{`Bun may update these terms without notice. Clients are responsible for staying informed.`}</p>
           <p className="font-semibold text-xl mt-4">INTELLECTUAL PROPERTY</p>
-          <p className="py-3 text-muted-foreground">{`Bun's logo and name are protected under UK unregistered trademark rights. Unauthorized commercial use is prohibited.`}</p>
+          <p className="py-3 text-muted-foreground">{`Unauthorized commercial use is prohibited.`}</p>
           <p className="font-semibold text-xl mt-4">CONTACT INFORMATION</p>
           <p className="py-3 text-muted-foreground">
             <strong>Bun</strong>

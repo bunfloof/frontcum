@@ -2,10 +2,37 @@
 
 ### Websockets
 
-- Used to ping server locations unless APIs die 😂
+- Ookla used for server locations to ping unless APIs die 😂
 
 ### Webserver configuration
 When uploaded to webserver, remember to configure to serve the `.html` file when a URL without the .html extension is requested. Examples:
+
+cPanel generated php ini configs will shit on your cock. Make sure the `session.save_path` is corrected and has write permissions or php apps will get stuck on the same page 😭😂😂 (Check your: .htaccess, .user.ini, and .php.ini files)
+
+For example, php.ini file:
+```
+; cPanel-generated php ini directives, do not edit
+; Manual editing of this file may result in unexpected behavior.
+; To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+; For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+
+asp_tags = Off
+display_errors = Off
+max_execution_time = 300
+max_input_time = 60
+max_input_vars = 6000
+memory_limit = 49152M
+post_max_size = 24576M
+session.gc_maxlifetime = 1440
+session.save_path = "/var/cpanel/php/sessions/ea-php74"
+upload_max_filesize = 24576M
+zlib.output_compression = Off
+```
+^ This is the configuration on my CloudLinux cPanel server. CloudLinux will shit on your cock too because it has 2 php versions: ea-php74 and alt-php74 😭😭
+
+---
+
+Your .htaccess file:
 
 LiteSpeed Apache Websever on CloudLinux cPanel with PHP WHMCS under /billing (Production 🤑):
 ```

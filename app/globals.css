@@ -107,3 +107,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 600px),
+    fixed 0 0 / 30px 30px radial-gradient(#313131 1px, transparent 0),
+    fixed 15px 15px / 30px 30px radial-gradient(#313131 1px, transparent 0);
+}
+
+::-moz-selection {
+  background: #00c4aa;
+}
+::-webkit-selection {
+  background: #00c4aa;
+}
+::selection {
+  background: #00c4aa;
+}

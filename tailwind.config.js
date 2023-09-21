@@ -123,5 +123,15 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".blend-difference": {
+          "mix-blend-mode": "difference",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };

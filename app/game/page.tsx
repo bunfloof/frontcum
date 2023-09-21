@@ -112,8 +112,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "1 GB",
       price: "$2",
-      vCore: "1",
-      storage: "10 GB",
+      vCore: "16",
+      storage: "20/Unlimited GB",
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
@@ -125,8 +125,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "2 GB",
       price: "$4",
-      vCore: "2",
-      storage: "20 GB",
+      vCore: "16",
+      storage: "40/Unlimited GB",
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
@@ -138,8 +138,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "3 GB",
       price: "$6",
-      vCore: "3",
-      storage: "30 GB",
+      vCore: "16",
+      storage: "60/Unlimited GB",
       backupSlot: "1",
       containerSplit: "2",
       link: "https://example.com",
@@ -151,8 +151,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "4 GB",
       price: "$8",
-      vCore: "4",
-      storage: "40 GB",
+      vCore: "16",
+      storage: "80/Unlimited GB",
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
@@ -164,8 +164,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "5 GB",
       price: "$10",
-      vCore: "5",
-      storage: "50 GB",
+      vCore: "16",
+      storage: "100/Unlimited GB",
       backupSlot: "2",
       containerSplit: "3",
       link: "https://example.com",
@@ -177,8 +177,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "6 GB",
       price: "$12",
-      vCore: "6",
-      storage: "60 GB",
+      vCore: "16",
+      storage: "120/Unlimited GB",
       backupSlot: "3",
       containerSplit: "3",
       link: "https://example.com",
@@ -190,8 +190,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "8 GB",
       price: "$16",
-      vCore: "8",
-      storage: "80 GB",
+      vCore: "16",
+      storage: "160/Unlimited GB",
       backupSlot: "4",
       containerSplit: "4",
       link: "https://example.com",
@@ -203,8 +203,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "10 GB",
       price: "$20",
-      vCore: "8",
-      storage: "100 GB",
+      vCore: "16",
+      storage: "200/Unlimited GB",
       backupSlot: "5",
       containerSplit: "5",
       link: "https://example.com",
@@ -216,8 +216,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "16 GB",
       price: "$32",
-      vCore: "8",
-      storage: "160 GB",
+      vCore: "16",
+      storage: "320/Unlimited GB",
       backupSlot: "8",
       containerSplit: "8",
       link: "https://example.com",
@@ -229,8 +229,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "20 GB",
       price: "$40",
-      vCore: "8",
-      storage: "200 GB",
+      vCore: "16",
+      storage: "400/Unlimited GB",
       backupSlot: "10",
       containerSplit: "10",
       link: "https://example.com",
@@ -242,8 +242,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "24 GB",
       price: "$48",
-      vCore: "8",
-      storage: "240 GB",
+      vCore: "16",
+      storage: "480/Unlimited GB",
       backupSlot: "12",
       containerSplit: "12",
       link: "https://example.com",
@@ -255,8 +255,8 @@ export default function Minecraft() {
       location: "Dallas, Texas",
       ram: "32 GB",
       price: "$64",
-      vCore: "8",
-      storage: "320 GB",
+      vCore: "16",
+      storage: "640/Unlimited GB",
       backupSlot: "16",
       containerSplit: "16",
       link: "https://example.com",
@@ -269,7 +269,7 @@ export default function Minecraft() {
       ram: "1 GB",
       price: "$2",
       vCore: "1",
-      storage: "18 GB",
+      storage: "18 GB/Unlimited",
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
@@ -282,7 +282,7 @@ export default function Minecraft() {
       ram: "2 GB",
       price: "$4",
       vCore: "2",
-      storage: "36 GB",
+      storage: "36 GB/Unlimited",
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
@@ -295,7 +295,7 @@ export default function Minecraft() {
       ram: "3 GB",
       price: "$6",
       vCore: "3",
-      storage: "54 GB",
+      storage: "54 GB/Unlimited",
       backupSlot: "1",
       containerSplit: "2",
       link: "https://example.com",
@@ -308,7 +308,7 @@ export default function Minecraft() {
       ram: "4 GB",
       price: "$8",
       vCore: "4",
-      storage: "72 GB",
+      storage: "72 GB/Unlimited",
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
@@ -321,7 +321,7 @@ export default function Minecraft() {
       ram: "5 GB",
       price: "$10",
       vCore: "5",
-      storage: "90 GB",
+      storage: "90 GB/Unlimited",
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
@@ -334,7 +334,7 @@ export default function Minecraft() {
       ram: "6 GB",
       price: "$12",
       vCore: "6",
-      storage: "108 GB",
+      storage: "108 GB/Unlimited",
       backupSlot: "3",
       containerSplit: "2",
       link: "https://example.com",
@@ -347,7 +347,7 @@ export default function Minecraft() {
       ram: "8 GB",
       price: "$16",
       vCore: "8",
-      storage: "144 GB",
+      storage: "144 GB/Unlimited",
       backupSlot: "4",
       containerSplit: "2",
       link: "https://example.com",
@@ -360,7 +360,7 @@ export default function Minecraft() {
       ram: "10 GB",
       price: "$20",
       vCore: "8",
-      storage: "170 GB",
+      storage: "170 GB/Unlimited",
       backupSlot: "5",
       containerSplit: "5",
       link: "https://example.com",
@@ -373,7 +373,7 @@ export default function Minecraft() {
       ram: "16 GB",
       price: "$32",
       vCore: "8",
-      storage: "288 GB",
+      storage: "288 GB/Unlimited",
       backupSlot: "8",
       containerSplit: "8",
       link: "https://example.com",
@@ -477,6 +477,13 @@ export default function Minecraft() {
       wsUrl:
         "wss://am5.speedtest.gslnetworks.com.prod.hosts.ooklaserver.net:8080/ws?",
     },
+    {
+      codename: "sjc1",
+      name: "San Jose, California (FREE)",
+      flag: "/images/usflag.svg",
+      wsUrl:
+        "wss://stosat-scla-01.sys.comcast.net.prod.hosts.ooklaserver.net:8080/ws?",
+    },
     // ... other locations
   ];
 
@@ -576,12 +583,12 @@ export default function Minecraft() {
       <div
         style={{
           backgroundImage:
-            "linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/minecraft.webp)",
+            "linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/minecraftbgfade1.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center center",
         }}
-        className="pt-10"
+        className="pt-32"
       >
         {/* Grid */}
         <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 container">
@@ -592,6 +599,15 @@ export default function Minecraft() {
               </div>
               <p className="py-5 text-md sm:text-lg text-muted-foreground">
                 Order a Minecraft server today and get started within minutes.
+              </p>
+              <p className="text-md sm:text-lg text-muted-foreground">
+                Server CPU Specifications:
+                <br />
+                Dallas (Intel Core i9-13900KS OC @ 6.3 GHz)
+                <br />
+                Amsterdam (AMD Ryzen R9 7950X3D @ Stock GHz)
+                <br />
+                San Jose (Intel Core i9-10900K OC @ 5.2 GHz)
               </p>
             </div>
           </div>
@@ -713,23 +729,6 @@ export default function Minecraft() {
                 <Card className="cursor-not-allowed opacity-25">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
                     <CardTitle className="text-lg font-bold">
-                      San Jose, California
-                    </CardTitle>
-                    <img
-                      src="/images/usflag.svg"
-                      alt="usflag"
-                      className="h-6 w-6 mr-2"
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm font-medium text-muted-foreground">
-                      Unavailable
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="cursor-not-allowed opacity-25">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
-                    <CardTitle className="text-lg font-bold">
                       Chicago, Illinois
                     </CardTitle>
                     <img
@@ -789,6 +788,40 @@ export default function Minecraft() {
                 alt="World Map"
                 className="w-full h-full opacity-20"
               />
+
+              {/* Marker for San Jose */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "6.23%", top: "25.1%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation === "San Jose, California (FREE)"
+                            ? "selectedMarker"
+                            : "marker"
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        San Jose
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
 
               {/* Marker for Dallas */}
               <Tooltip.Provider>
@@ -939,6 +972,61 @@ export default function Minecraft() {
                   Next, select your plan...
                 </div>
                 <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+                  {selectedLocation == "San Jose, California (FREE)" && (
+                    <Card
+                      className={`relative hover:bg-muted/50 transition-colors cursor-pointer ${
+                        selectedPlan?.id === "sjc4gb"
+                          ? "bg-teal-100/10 border-teal-500 transition-colors"
+                          : ""
+                      }`}
+                      onClick={() =>
+                        setSelectedPlan({
+                          id: "sjc4gb",
+                          locationtag: "sjc",
+                          location: "San jose, California (FREE)",
+                          ram: "4 GB",
+                          price: "FREE",
+                          vCore: "4",
+                          storage: "20 GB",
+                          backupSlot: "1",
+                          containerSplit: "1",
+                          link: "https://example.com",
+                          whmcspid: "41",
+                        })
+                      }
+                    >
+                      <div className="absolute top-1/2 right-6 transform -translate-y-1/2 text-muted-forground- opacity-10 text-2xl font-bold">
+                        sjc4gb
+                      </div>
+                      <CardHeader className="space-y-0 pb-0">
+                        <CardTitle>
+                          <span className="text-lg font-bold">4 GB</span>{" "}
+                          <span className="text-sm text-muted-foreground">
+                            of RAM
+                          </span>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="pb-2">
+                          <span className="text-md pb-1 font-medium">$0</span>{" "}
+                          <span className="text-sm font-medium text-muted-foreground">
+                            per month
+                          </span>
+                        </div>
+                        <p className="text-sm font-medium text-muted-foreground">
+                          2 vCores
+                          <br />
+                          20 GB Hard limit of storage
+                          <br />
+                          2 Backup slot
+                          <br />
+                          2 Container split
+                          <br />
+                        </p>
+                      </CardContent>
+                    </Card>
+                  )}
+
                   {plans
                     .filter((plan) => plan.location === selectedLocation) // Filter the plans based on the selected location
                     .map((plan, index) => (
@@ -989,55 +1077,61 @@ export default function Minecraft() {
                       </Card>
                     ))}
                 </div>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Unmetered and unlimited specifications goes towards the fair
+                  usage policy.
+                </p>
               </div>
             </div>
           </div>
         )}
-        {selectedLocation && selectedPlan && (
-          <div className="mt-4 grid gap-4 container">
-            <div className="flex flex-col justify-between">
-              <div>
-                <div className="font-semibold text-2xl mt-8">
-                  Then, select optional addons...
-                </div>
-                <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-                  {addons.map((addon, index) => (
-                    <Card
-                      key={index}
-                      className={`hover:bg-muted/50 transition-colors cursor-pointer ${
-                        selectedAddons.includes(addon.name)
-                          ? "bg-teal-100/10 border-teal-500"
-                          : ""
-                      }`}
-                      onClick={() => toggleAddon(addon.name)}
-                    >
-                      <CardHeader className="space-y-0 pb-0">
-                        <CardTitle>
-                          <span className="text-lg font-bold">
-                            {addon.name}
-                          </span>
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="pb-2">
-                          <span className="text-md pb-1 font-medium">
-                            {addon.price}
-                          </span>{" "}
-                          <span className="text-sm font-medium text-muted-foreground">
-                            per month
-                          </span>
-                        </div>
-                        <p className="text-sm font-medium text-muted-foreground">
-                          {addon.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
+        {selectedLocation &&
+          selectedPlan &&
+          selectedLocation !== "San Jose, California (FREE)" && (
+            <div className="mt-4 grid gap-4 container">
+              <div className="flex flex-col justify-between">
+                <div>
+                  <div className="font-semibold text-2xl mt-8">
+                    Then, select optional addons...
+                  </div>
+                  <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+                    {addons.map((addon, index) => (
+                      <Card
+                        key={index}
+                        className={`hover:bg-muted/50 transition-colors cursor-pointer ${
+                          selectedAddons.includes(addon.name)
+                            ? "bg-teal-100/10 border-teal-500"
+                            : ""
+                        }`}
+                        onClick={() => toggleAddon(addon.name)}
+                      >
+                        <CardHeader className="space-y-0 pb-0">
+                          <CardTitle>
+                            <span className="text-lg font-bold">
+                              {addon.name}
+                            </span>
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="pb-2">
+                            <span className="text-md pb-1 font-medium">
+                              {addon.price}
+                            </span>{" "}
+                            <span className="text-sm font-medium text-muted-foreground">
+                              per month
+                            </span>
+                          </div>
+                          <p className="text-sm font-medium text-muted-foreground">
+                            {addon.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
         {/* Next Section */}
         {selectedLocation && selectedPlan && (
           <div className="mt-4 grid gap-4 container">
@@ -1060,6 +1154,53 @@ export default function Minecraft() {
                           </div>
                           <div className="text-sm">{selectedPlan?.price}</div>
                         </div>
+                        {selectedPlan?.id == "sjc4gb" && (
+                          <div className="bg-zinc-800 p-5 rounded-lg shadow-md">
+                            <h2 className="text-xl font-bold mb-4">
+                              Free Game Hosting Plan - Important Notice
+                            </h2>
+
+                            <p className="mb-2">
+                              Thank you for choosing our Free Game Hosting plan.
+                              The free plan is supported by our development
+                              server. We’d like to clarify a few points for our
+                              free plan:
+                            </p>
+
+                            <ol className="list-decimal pl-5 mb-4">
+                              <li className="mb-2">
+                                <strong>No Guarantees:</strong> This is a
+                                complimentary service, and therefore, we do not
+                                guarantee any uptime, performance, or
+                                availability.
+                              </li>
+                              <li className="mb-2">
+                                <strong>
+                                  No SLA (Service Level Agreement):
+                                </strong>{" "}
+                                There is no Service Level Agreement attached to
+                                this free plan. This free plan has{" "}
+                                <b className="text-red-500">
+                                  experimental and limited DDoS protection
+                                </b>
+                                .
+                              </li>
+                              <li className="mb-2">
+                                <strong>Support Limitations:</strong> Due to the
+                                nature of this free offering, our support may be
+                                limited compared to our premium plans. We
+                                recommend our paid plans if you need dedicated
+                                support.
+                              </li>
+                              <li className="mb-2">
+                                <strong>Plan Changes:</strong> We reserve the
+                                right to modify, suspend, or discontinue this
+                                free plan at any time without prior notice.
+                              </li>
+                            </ol>
+                          </div>
+                        )}
+
                         {selectedAddons.length > 0 && (
                           <>
                             <div className="flex justify-between text-sm text-gray-400 mb-1">
@@ -1110,445 +1251,6 @@ export default function Minecraft() {
             </div>
           </div>
         )}
-      </div>
-      <div className="flex flex-col">
-        <div className="container mt-20">
-          {/* Testing */}
-          <div>
-            <p className="font-semibold text-3xl sm:text-5xl text-center">
-              Our Game Panel
-            </p>
-            <p className="py-5 text-md sm:text-lg text-center text-muted-foreground">
-              {`Easily manage your server with Pterodactyl Panel. Designed with our clients in mind, we continually listen to feedback and develop custom modifications, enhancing your experience and simplifying server management.`}
-            </p>
-            <div className="flex justify-center space-x-4 mb-2">
-              <span>Our custom features:</span>
-              {images.map((image, index) => (
-                <button
-                  key={image}
-                  onClick={() => handleTabClick(index)}
-                  className={index === activeTab ? "font-bold" : ""}
-                >
-                  {
-                    ["Players", "Config", "Plugins", "Modpacks", "Splitter"][
-                      index
-                    ]
-                  }
-                </button>
-              ))}
-            </div>
-            <Slider ref={sliderRef} {...settings}>
-              {images.map((image) => (
-                <div key={image}>
-                  <Image
-                    src={image}
-                    alt="image"
-                    className="mx-auto"
-                    width={1280}
-                    height={1600}
-                    priority
-                  />
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
-      </div>
-      {/* Next Section */}
-      <div className="flex justify-center">
-        <div className="container mx-auto my-auto mt-15">
-          <p className="font-semibold text-3xl sm:text-5xl text-center">
-            AS200360
-          </p>
-          <p className="py-5 text-2xl text-center text-muted-foreground">
-            BunArcticFloof
-          </p>
-
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-            <div className="flex flex-col justify-between">
-              <div className="grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                {(
-                  ["AS30277", "AS20278", "AS18779", "AS399820"] as CardType[]
-                ).map((card) => (
-                  <Card
-                    key={card}
-                    onClick={() => handleCardClick(card)}
-                    className={`hover:bg-muted/50 transition-colors cursor-pointer ${
-                      selectedCard === card
-                        ? "bg-teal-100/10 border-teal-500"
-                        : ""
-                    }`}
-                  >
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                      <CardTitle className="text-lg font-bold">
-                        {(card === "AS30277" && "Dallas, Texas") ||
-                          (card === "AS399820" && "Amsterdam, Netherlands") ||
-                          (card === "AS18779" && "San Jose, California") ||
-                          (card === "AS20278" && "Chicago, Illinois")}
-                      </CardTitle>
-                      <img
-                        src={`/images/${
-                          (card === "AS30277" && "usflag") ||
-                          (card === "AS399820" && "nlflag") ||
-                          (card === "AS18779" && "usflag") ||
-                          (card === "AS20278" && "usflag")
-                        }.svg`}
-                        alt="flag"
-                        className="h-6 w-6 mr-2"
-                      />
-                    </CardHeader>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            {selectedCard === "AS30277" && (
-              <Card>
-                <CardContent className="pb-2 pt-6">
-                  <p className="text-xl font-bold mb-2">Network</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Test IPv4
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">202.5.26.13</p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">Address</p>
-                      </div>
-                      <p className="text-md font-bold">
-                        1515 Round Table Dr, Dallas, Texas 75247
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Facility
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">Carrier-1</p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          LookingGlass
-                        </p>
-                      </div>
-                      <Link
-                        href="http://lg-dfw1.bunis.gay/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        className="text-md font-bold hover:text-muted-foreground transition"
-                      >
-                        lg-dfw1.bunis.gay
-                      </Link>
-                    </div>
-                  </div>
-                  <p className="text-xl font-bold mb-2">
-                    Upstreams for AS30277
-                  </p>
-                  <Table>
-                    <TableCaption></TableCaption>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-[150px]">ASN</TableHead>
-
-                        <TableHead className="">Name</TableHead>
-                        <TableHead className="">Description</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell className="font-medium">AS3223</TableCell>
-                        <TableCell className="font-medium">
-                          Voxility LLP
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          DDoS Protected
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS393398</TableCell>
-                        <TableCell className="font-medium">
-                          1515 ROUNDTABLE DR PROPERTY, LLC
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          US Datacenter
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            )}
-            {selectedCard === "AS399820" && (
-              <Card>
-                <CardContent className="pb-2 pt-6">
-                  <p className="text-xl font-bold mb-2">Network</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Test IPv4
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">204.137.14.2</p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">Address</p>
-                      </div>
-                      <p className="text-md font-bold">
-                        Science Park 121, 1098 XG Amsterdam, Netherlands
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Facility
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">Dutch FurCon</p>
-                    </div>
-                  </div>
-                  <p className="text-xl font-bold mb-2">
-                    Upstreams for AS399820
-                  </p>
-
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-[150px]">ASN</TableHead>
-
-                        <TableHead className="">Name</TableHead>
-                        <TableHead className="">Description</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell className="font-medium">AS396998</TableCell>
-                        <TableCell className="font-medium">
-                          Path Network, Inc.
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          DDoS Protected
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS49581</TableCell>
-                        <TableCell className="font-medium">
-                          Ferdinand Zink trading as Tube-Hosting
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          Amsterdam Datacenter
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS29802</TableCell>
-                        <TableCell className="font-medium">
-                          HIVELOCITY, Inc.
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          US Datacenter
-                        </TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            )}
-            {selectedCard === "AS18779" && (
-              <Card>
-                <CardContent className="pb-2 pt-6">
-                  <p className="text-xl font-bold mb-2">Network</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Test IPv4
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">173.249.199.2</p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">Address</p>
-                      </div>
-                      <p className="text-md font-bold">
-                        1 S Market St San Jose, CA 95113
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Facility
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">
-                        {`Pls dont ddos me or i’ll cum :3`}
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          LookingGlass
-                        </p>
-                      </div>
-                      <Link
-                        href="http://lg-sjc1.bunis.gay/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        className="text-md font-bold hover:text-muted-foreground transition"
-                      >
-                        lg-sjc1.bunis.gay
-                      </Link>
-                    </div>
-                  </div>
-                  <p className="text-xl font-bold mb-2">
-                    Upstreams for AS11878
-                  </p>
-                  <Table>
-                    <TableCaption></TableCaption>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-[150px]">ASN</TableHead>
-
-                        <TableHead className="">Name</TableHead>
-                        <TableHead className="">Description</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell className="font-medium">AS36236</TableCell>
-                        <TableCell className="font-medium">
-                          NetActuate
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            )}
-            {selectedCard === "AS20278" && (
-              <Card>
-                <CardContent className="pb-2 pt-6">
-                  <p className="text-xl font-bold mb-2">Network</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Test IPv4
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">23.146.184.1</p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">Address</p>
-                      </div>
-                      <p className="text-md font-bold">
-                        603 Discovery Drive, West Chicago, IL 60185
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Facility
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">MFF</p>
-                    </div>
-                  </div>
-                  <p className="text-xl font-bold mb-2">
-                    Upstreams for AS20278
-                  </p>
-                  <Table>
-                    <TableCaption></TableCaption>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-[150px]">ASN</TableHead>
-
-                        <TableHead className="">Name</TableHead>
-                        <TableHead className="">Description</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell className="font-medium">AS396998</TableCell>
-                        <TableCell className="font-medium">
-                          Path Network, Inc.
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          DDoS Protected
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS53264</TableCell>
-                        <TableCell className="font-medium">
-                          SBA Edge, LLC
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          US Datacenter
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS394437</TableCell>
-                        <TableCell className="font-medium">
-                          PS Lightwave
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS20473</TableCell>
-                        <TableCell className="font-medium">
-                          The Constant Company, LLC
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS6939</TableCell>
-                        <TableCell className="font-medium">
-                          Hurricane Electric LLC
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS3257</TableCell>
-                        <TableCell className="font-medium">
-                          GTT Communications Inc.
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS19151</TableCell>
-                        <TableCell className="font-medium">
-                          BroadbandONE, LLC
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AS5580</TableCell>
-                        <TableCell className="font-medium">
-                          GTT Communications Netherlands B.V.
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            )}
-          </div>
-        </div>
-      </div>
-      <div>
-        <div className="container mt-20">
-          <SupportCard />
-        </div>
       </div>
     </>
   );

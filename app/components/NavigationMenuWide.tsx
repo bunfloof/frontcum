@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -21,111 +22,111 @@ const gameServers: {
   description?: string;
   gameIcon?: string;
 }[] = [
-  {
-    title: "7 Days to Die",
-    href: "/game",
-  },
-  {
-    title: "Ark: Survival Evolved",
-    href: "/game",
-  },
-  {
-    title: "Arma 3",
-    href: "/game",
-  },
-  {
-    title: "Barotrauma",
-    href: "/game",
-  },
-  {
-    title: "BeamMP",
-    href: "/game",
-  },
-  {
-    title: "Factorio",
-    href: "/game",
-  },
-  {
-    title: "Garry's Mod",
-    href: "/game",
-  },
-  {
-    title: "Grand Theft Auto",
-    href: "/game",
-  },
-  {
-    title: "Icarus",
-    href: "/game",
-  },
-  {
-    title: "Killing Floor 2",
-    href: "/game",
-  },
-  {
-    title: "Left 4 Dead 2",
-    href: "/game",
-  },
+  // {
+  //   title: "7 Days to Die",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Ark: Survival Evolved",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Arma 3",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Barotrauma",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "BeamMP",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Factorio",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Garry's Mod",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Grand Theft Auto",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Icarus",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Killing Floor 2",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Left 4 Dead 2",
+  //   href: "/game",
+  // },
   {
     title: "Minecraft",
     href: "/game",
     gameIcon: "/gameIcons/minecraftgrassblock.png",
   },
-  {
-    title: "Mordhau",
-    href: "/game",
-  },
-  {
-    title: "Project Zomboid",
-    href: "/game",
-  },
-  {
-    title: "Rust",
-    href: "/game",
-  },
-  {
-    title: "Satisfactory",
-    href: "/game",
-  },
-  {
-    title: "SCP: Secret Laboratory",
-    href: "/game",
-  },
-  {
-    title: "Sons of the Forest",
-    href: "/game",
-  },
-  {
-    title: "Starbound",
-    href: "/game",
-  },
-  {
-    title: "Stardew Valley",
-    href: "/game",
-  },
-  {
-    title: "Team Fortress 2",
-    href: "/game",
-  },
-  {
-    title: "The Forest",
-    href: "/game",
-  },
-  {
-    title: "The Isle",
-    href: "/game",
-  },
-  {
-    title: "Unturned",
-    href: "/game",
-  },
-  {
-    title: "V Rising",
-    href: "/game",
-  },
-  {
-    title: "Valheim",
-    href: "/game",
-  },
+  // {
+  //   title: "Mordhau",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Project Zomboid",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Rust",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Satisfactory",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "SCP: Secret Laboratory",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Sons of the Forest",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Starbound",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Stardew Valley",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Team Fortress 2",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "The Forest",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "The Isle",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Unturned",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "V Rising",
+  //   href: "/game",
+  // },
+  // {
+  //   title: "Valheim",
+  //   href: "/game",
+  // },
 ];
 
 const cloudHosting: {
@@ -163,11 +164,15 @@ const LoginDropdown: {
     href: "https://us1.rapidcpanelserver.com:2087/",
   },
   {
-    title: "Pterodactyl (panel.fox)",
+    title: "Pterodactyl Old (panel.fox)",
     href: "https://panel.foxomy.com",
   },
   {
     title: "Pterodactyl 2 (panel2.fox)",
+    href: "https://panel2.foxomy.com",
+  },
+  {
+    title: "Pterodactyl New (panel.fur)",
     href: "https://panel2.foxomy.com",
   },
 ];
@@ -195,17 +200,23 @@ export function NavigationMenuWide() {
   };
   return (
     <nav
-      className={`sticky top-0 h-16 z-50 border-b border-transparent transition-colors duration-300 ease-in-out ${
+      className={`fixed top-0 w-full h-16 z-50 border-b border-transparent transition-colors duration-300 ease-in-out ${
         isScrolled ? "border-zinc-950/30" : ""
       } flex items-center justify-center px-8 py-4 backdrop-blur bg-zinc/50`}
     >
       <div className="w-full flex flex-row justify-between items-center py-4 px-10 mx-auto container">
         <div className="flex items-center space-x-4">
-          {/* Add your logo image here */}
           <Link href="/">
-            <p className="hover:text-muted-foreground transition-colors">
-              Foxomy
-            </p>
+            <svg
+              width="36"
+              height="36"
+              version="1.1"
+              viewBox="0 0 210 210"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="m81.854 171.68c-51.546-5.4939-72.446-73.163-31.859-103.15l1.6113-1.1906 0.31351-2.5135c1.4879-11.929 5.947-23.354 11.09-28.414l1.3153-1.2941 0.83087 0.89721c2.8391 3.0658 6.5906 10.398 8.6031 16.815l0.51136 1.6305 1.3304 0.16768c0.7317 0.09223 2.4388 0.44186 3.7935 0.77696l2.4632 0.60927 0.67698-1.3491c3.0642-6.1066 12.093-13.24 14.71-11.623 0.96747 6.0124-2.6133 17.888-0.37131 20.341 1.0166 1.1123 1.9681 2.7392 3.8998 6.6682 4.4114 8.9724 8.6785 12.293 17.624 13.713 4.3124 0.68462 6.5724 2.6542 5.4226 4.7256-2.9401 5.2962-9.8157 8.0924-20.562 8.3624-53.108 1.3345 11.19 61.284 11.19 61.284s-81.77-48.37-20.662-51.242c11.238-4e-3 21.159 3.3794 29.052 9.9088 14.869 12.301 34.29 11.245 43.66-2.3744 3.554-5.1655 4.7844-14.74 2.473-19.243-1.059-2.0633 2.4886 1.4859 4.9734 4.9755 18.977 26.651 6.2407 64.105-24.176 71.099-2.6741 0.61486-62.609 0.98774-67.912 0.42251zm8.4734-91.446c-2.3916-4.4637-7.8859-5.8288-11.705-2.9081-1.5465 1.1828-1.5396 1.4037 0.04063 1.2942 2.186-0.15144 6.5814 0.47678 8.8507 1.265 2.6394 0.91676 3.1515 0.98028 2.8132 0.34891z" />
+            </svg>
           </Link>
           <div>
             {/* Navigation Items */}
@@ -218,7 +229,7 @@ export function NavigationMenuWide() {
                 <NavigationMenuItem className="relative">
                   <NavigationMenuTrigger>Game Server</NavigationMenuTrigger>
                   <NavigationMenuContent className="absolute">
-                    <ul className="grid w-[800px] p-4 md:w-[1000px] md:grid-cols-5 lg:w-[1200px] ">
+                    <ul className="grid w-[400px] p-4 md:w-[400px] lg:w-[400px] ">
                       {gameServers.map((gameServers) => (
                         <ListItem
                           value={gameServers.title}
@@ -294,7 +305,11 @@ export function NavigationMenuWide() {
             >
               <NavigationMenuList>
                 <NavigationMenuItem className="relative">
-                  <Link href="https://foxomy.com/billing/submitticket.php" legacyBehavior passHref>
+                  <Link
+                    href="https://foxomy.com/billing/submitticket.php"
+                    legacyBehavior
+                    passHref
+                  >
                     <NavigationMenuLink
                       className={navigationMenuTriggerStyle()}
                     >
