@@ -109,11 +109,33 @@
 }
 
 body {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 600px),
-    fixed 0 0 / 30px 30px radial-gradient(#313131 1px, transparent 0),
-    fixed 15px 15px / 30px 30px radial-gradient(#313131 1px, transparent 0);
+  background-color: #000; /* Set a base black color to ensure the body has a black background */
+  background-image: 
+    linear-gradient(to bottom, transparent 0%, #000 600px), /* Gradient from transparent to black */
+    radial-gradient(#313131 1px, transparent 0), /* First set of dots */
+    radial-gradient(#313131 1px, transparent 0); /* Second set of dots */
+  background-size: 
+    100% 100%, /* Full size for gradient */
+    30px 30px, /* Size for the first set of dots */
+    30px 30px; /* Size for the second set of dots */
+  background-position: 
+    0 0, /* Start gradient from top left */
+    0 0, /* Start the first set of dots from top left */
+    15px 15px; /* Offset the second set of dots */
+  background-attachment: scroll, fixed, fixed; /* Ensure gradient scrolls while dots remain fixed */
 }
 
+body::before {
+  content: "";
+  position: fixed; /* Fixed position */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; /* Full viewport coverage */
+  z-index: -1; /* Place it behind the content */
+
+  background: linear-gradient(to bottom, #111, #000 600px, #000);
+}
 ::-moz-selection {
   background: #00c4aa;
 }
