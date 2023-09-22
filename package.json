@@ -41,6 +41,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-slick": "^0.29.0",
+    "react-youtube": "^10.1.0",
     "recharts": "^2.7.2",
     "slick-carousel": "^1.8.1",
     "solid": "link:@heroicons/react/20/solid",

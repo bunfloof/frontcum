@@ -63,16 +63,16 @@ export default function Colocation() {
 
   const plans: Plan[] = [
     {
-      name: "1U shared",
-      id: "sjc1u",
+      name: "1U-4U shared",
+      id: "sjc1u-4",
       locationtag: "sjc",
       location: "San Jose, California",
       rackspace: "1U",
       power: "1 Amp (208V)",
       bandwidth: "20 TB",
-      port: "1 Gbps Dedicated",
+      port: "10 Gbps Dedicated",
       ipv4address: "/29 (5 Usable)",
-      price: "$150",
+      price: "$359",
       link: "https://example.com",
       whmcspid: "2",
     },
@@ -86,7 +86,7 @@ export default function Colocation() {
       bandwidth: "Unmetered",
       port: "10 Gbps Dedicated",
       ipv4address: "/27 (29 Usable)",
-      price: "$3000",
+      price: "$4500",
       link: "https://example.com",
       whmcspid: "2",
     },
@@ -100,7 +100,7 @@ export default function Colocation() {
       bandwidth: "Unmetered",
       port: "10 Gbps Dedicated",
       ipv4address: "/27 (29 Usable)",
-      price: "$6750",
+      price: "$11000",
       link: "https://example.com",
       whmcspid: "2",
     },
@@ -202,12 +202,12 @@ export default function Colocation() {
       <div
         style={{
           backgroundImage:
-            "linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/blmserver.jpeg)",
+            "linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/colocationcard1.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top center",
         }}
-        className="pt-10"
+        className="pt-32"
       >
         {/* Grid */}
         <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 container">
@@ -474,9 +474,11 @@ export default function Colocation() {
                     </div>
 
                     <div className="flex mt-6 justify-end space-x-3">
-                      <button className="text-teal-500 font-bold bg-teal-500/30 hover:bg-teal-500/40 py-2 px-4 rounded focus:outline-none transition-colors">
-                        Contact
-                      </button>
+                      <a href="mailto:bun+sales@furweb.com">
+                        <button className="text-teal-500 font-bold bg-teal-500/30 hover:bg-teal-500/40 py-2 px-4 rounded focus:outline-none transition-colors">
+                          Contact
+                        </button>
+                      </a>
                     </div>
                   </Card>
                 </div>
@@ -487,119 +489,7 @@ export default function Colocation() {
       </div>
 
       {/* Next Section */}
-      <div className="flex justify-center mt-20">
-        <div className="container mx-auto my-auto mt-15">
-          <p className="font-semibold text-3xl sm:text-5xl text-center">
-            AS200360
-          </p>
-          <p className="py-5 text-2xl text-center text-muted-foreground">
-            BunArcticFloof
-          </p>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-            <div className="flex flex-col justify-between">
-              <div className="grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                {(["AS11878"] as CardType[]).map((card) => (
-                  <Card
-                    key={card}
-                    onClick={() => handleCardClick(card)}
-                    className={`hover:bg-muted/50 transition-colors cursor-pointer ${
-                      selectedCard === card
-                        ? "bg-teal-100/10 border-teal-500"
-                        : ""
-                    }`}
-                  >
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                      <CardTitle className="text-lg font-bold">
-                        {card === "AS11878" && "San Jose, California"}
-                      </CardTitle>
-                      <img
-                        src={`/images/${card === "AS11878" && "usflag"}.svg`}
-                        alt="flag"
-                        className="h-6 w-6 mr-2"
-                      />
-                    </CardHeader>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            {selectedCard === "AS11878" && (
-              <Card>
-                <CardContent className="pb-2 pt-6">
-                  <p className="text-xl font-bold mb-2">Network</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 mb-6">
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Test IPv4
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">173.249.199.2</p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">Address</p>
-                      </div>
-                      <p className="text-md font-bold">
-                        1 S Market St San Jose, CA 95113
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          Facility
-                        </p>
-                      </div>
-                      <p className="text-md font-bold">
-                        {`Pls dont ddos me or i'll cum :3`}
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-between mb-1">
-                        <p className="text-xs text-muted-foreground">
-                          LookingGlass
-                        </p>
-                      </div>
-                      <Link
-                        href="http://lg-sjc1.bunis.gay/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        className="text-md font-bold hover:text-muted-foreground transition"
-                      >
-                        lg-sjc1.bunis.gay
-                      </Link>
-                    </div>
-                  </div>
-                  <p className="text-xl font-bold mb-2">
-                    Upstreams for AS11878
-                  </p>
-                  <Table>
-                    <TableCaption></TableCaption>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-[150px]">ASN</TableHead>
-
-                        <TableHead className="">Name</TableHead>
-                        <TableHead className="">Description</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell className="font-medium">AS36236</TableCell>
-                        <TableCell className="font-medium">
-                          NetActuate
-                        </TableCell>
-                        <TableCell className="font-medium">Peering</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            )}
-          </div>
-        </div>
-      </div>
       <div>
         <div className="container mt-20">
           <SupportCard />

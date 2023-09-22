@@ -130,17 +130,12 @@ export function NavigationMenuShort() {
                   cPanel Login
                 </button>
               </Link>
-              <Link href="https://panel.foxomy.com">
-                <button className="hover:bg-teal-100/10 transition-colors group flex w-full items-center rounded-md px-2 py-2 text-sm">
-                  Pterodactyl panel.fox Login
-                </button>
-              </Link>
-              <Link href="https://panel.foxomy.com">
+              <Link href="https://panel2.foxomy.com">
                 <button className="hover:bg-teal-100/10 transition-colors group flex w-full items-center rounded-md px-2 py-2 text-sm">
                   Pterodactyl panel2.fox Login
                 </button>
               </Link>
-              <Link href="https://panel.foxomy.com">
+              <Link href="https://panel.furweb.com">
                 <button className="hover:bg-teal-100/10 transition-colors group flex w-full items-center rounded-md px-2 py-2 text-sm">
                   Pterodactyl panel.fur Login
                 </button>

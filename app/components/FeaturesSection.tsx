@@ -5,7 +5,7 @@ export function FeaturesSection() {
   return (
     <div className="bg-no-repeat flex flex-col">
       <div
-        className="border-t text-gray-200 pt-12 bg-black border-zinc-800 border-solid"
+        className="border-t text-gray-200 py-12 bg-black border-zinc-800 border-solid"
         style={{
           backgroundImage: "linear-gradient(rgb(17, 17, 17), rgb(0, 0, 0))",
         }}
@@ -86,14 +86,14 @@ export function FeaturesSection() {
                 </div>
               </div>
               <div className="pr-5">
-                <h3 className="text-2xl font-bold">DDoS Protection</h3>
+                <h3 className="text-2xl font-bold text-green-50">DDoS Protection</h3>
                 <p className="text-neutral-400 mt-3">
                   1 Tbps+ DDoS Protection from Path for your servers at the
                   network (L3), transport (L4), and application (L7) layers.
                 </p>
               </div>
             </div>
-            <div className="items-start gap-1 flex flex-col flex-grow justify-start">
+            <div className="items-start gap-1 flex flex-col flex-grow justify-start mb-8">
               <div className="items-center flex justify-center mb-6 rounded-lg">
                 <div
                   style={
@@ -166,14 +166,14 @@ export function FeaturesSection() {
                 </div>
               </div>
               <div className="pr-5">
-                <h3 className="text-2xl font-bold">Instant Setup</h3>
+                <h3 className="text-2xl font-bold text-green-50">Instant Setup</h3>
                 <p className="text-neutral-400 mt-3">
                   All services are automatically set up instantly after after
                   payment has been received.
                 </p>
               </div>
             </div>
-            <div className="items-start gap-1 flex flex-col flex-grow justify-start">
+            <div className="items-start gap-1 flex flex-col flex-grow justify-start mb-8">
               <div className="items-center flex justify-center mb-6 rounded-lg">
                 <div
                   style={
@@ -246,14 +246,14 @@ export function FeaturesSection() {
                 </div>
               </div>
               <div className="pr-5">
-                <h3 className="text-2xl font-bold">Scale up and down</h3>
+                <h3 className="text-2xl font-bold text-green-50">Scale up and down</h3>
                 <p className="text-neutral-400 mt-3">
                   Easily upgrade and downgrade your service at any time while
                   only paying for the difference.
                 </p>
               </div>
             </div>
-            <div className="items-start gap-1 flex flex-col flex-grow justify-start">
+            <div className="items-start gap-1 flex flex-col flex-grow justify-start mb-8">
               <div className="items-center flex justify-center mb-6 rounded-lg">
                 <div
                   style={
@@ -326,14 +326,14 @@ export function FeaturesSection() {
                 </div>
               </div>
               <div className="pr-5">
-                <h3 className="text-2xl font-bold">Managed Support</h3>
+                <h3 className="text-2xl font-bold text-green-50">Managed Support</h3>
                 <p className="text-neutral-400 mt-3">
                   Our support team is knowledgeable in all services we have to
                   offer.
                 </p>
               </div>
             </div>
-            <div className="items-start gap-1 flex flex-col flex-grow justify-start">
+            <div className="items-start gap-1 flex flex-col flex-grow justify-start mb-8">
               <div className="items-center flex justify-center mb-6 rounded-lg">
                 <div
                   style={
@@ -412,14 +412,14 @@ export function FeaturesSection() {
                 </div>
               </div>
               <div className="pr-5">
-                <h3 className="text-2xl font-bold">Over 99% Uptime </h3>
+                <h3 className="text-2xl font-bold text-green-50">Over 99% Uptime </h3>
                 <p className="text-neutral-400 mt-3">
                   Our infrastructure is consistently monitored to ensure high
                   uptime.
                 </p>
               </div>
             </div>
-            <div className="items-start gap-1 flex flex-col flex-grow justify-start">
+            <div className="items-start gap-1 flex flex-col flex-grow justify-start mb-8">
               <div className="items-center flex justify-center mb-6 rounded-lg">
                 <div
                   style={
@@ -498,7 +498,7 @@ export function FeaturesSection() {
                 </div>
               </div>
               <div className="pr-5">
-                <h3 className="text-2xl font-bold">Powerful Hardware</h3>
+                <h3 className="text-2xl font-bold text-green-50">Powerful Hardware</h3>
                 <p className="text-neutral-400 mt-3">
                   We use appropriate hardware specifically according to the
                   services.

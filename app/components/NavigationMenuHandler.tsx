@@ -6,12 +6,12 @@ export function NavigationMenuHandler() {
   return (
     <>
       {/* For screens smaller than lg (1024px), show NavigationMenuShort */}
-      <span className="lg:hidden">
+      <span className="md:hidden">
         <NavigationMenuShort />
       </span>
 
       {/* For screens larger than or equal to lg (1024px), show NavigationMenuWide */}
-      <span className="hidden lg:inline">
+      <span className="hidden md:inline">
         <NavigationMenuWide />
       </span>
     </>

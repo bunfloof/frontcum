@@ -48,7 +48,7 @@ export default function sla() {
               “Credit, Balance”: Virtual, non-cash valued currency credit on the
               Bun billing area, exchangeable for services;
             </p>
-            <p>“Act of God”: A term for unforeseeable and inevitable events;</p>
+            <p>“Natural disaster”: A term for unforeseeable and inevitable events;</p>
             <p>“Maintenance”: The state where a service is in maintenance;</p>
           </div>
 
@@ -61,7 +61,7 @@ export default function sla() {
           </p>
           <div className="text-muted-foreground">
             <ul className="list-inside list-decimal pl-5">
-              <li>Service halted due to an Act of God;</li>
+              <li>Service halted due to a natural disaster;</li>
               <li>Service halted due to fire;</li>
               <li>Service halted by the Consumer’s actions;</li>
               <li>

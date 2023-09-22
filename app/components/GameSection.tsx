@@ -27,7 +27,7 @@ export function GameSection() {
         >
           Game Hosting
         </h1>
-        
+
         <p className="text-[1.30rem] leading-7 font-medium mt-5 text-green-50">
           Powered by Intel Core i9-13900KS and AMD Ryzen 9 7950X3D.
         </p>
@@ -35,11 +35,8 @@ export function GameSection() {
 
       <div className="p-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {games.map((game) => (
-          <Link href={game.link}>
-            <div
-              key={game.name}
-              className="relative rounded-md overflow-hidden transition-transform transform hover:scale-105 h-48"
-            >
+          <Link href={game.link} key={game.name}>
+            <div className="relative rounded-md overflow-hidden transition-transform transform hover:scale-105 h-48 border">
               <img
                 src={game.bg}
                 alt={game.name}

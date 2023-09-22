@@ -15,6 +15,8 @@ import Divider from "./components/Divider";
 import FeaturesSection from "./components/FeaturesSection";
 import GameSection from "./components/GameSection";
 import WebSection from "./components/OtherSection";
+import MissionSection from "./components/FasterSection";
+import ProofSection from "./components/ProofSection";
 
 function SectionWithGrid({ children }: { children: React.ReactNode }) {
   const gridBackgroundStyle = {
@@ -52,9 +54,13 @@ export default function Home() {
         <div className="py-12" />
       </SectionWithGrid>
       <FeaturesSection />
-      <div className="py-12" />
+      <Divider />
       <WorldMapSection />
       <div className="py-6" />
+      <MissionSection />
+      <div className="py-6" />
+      <ProofSection />
+
       <SupportCard />
     </>
   );

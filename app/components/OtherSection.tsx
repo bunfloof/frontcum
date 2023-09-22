@@ -9,13 +9,13 @@ export function OtherSection() {
     },
     {
       name: "Dedicated",
-      price: "from $130.00/mo",
+      price: "from $459.00/mo",
       bg: "/images/dedicatedcard1.jpg",
       link: "/dedicated",
     },
     {
       name: "Colocation",
-      price: "from $150.00/mo",
+      price: "from $359.00/mo",
       bg: "/images/colocationcard1.jpg",
       link: "/colocation",
     },
@@ -40,11 +40,8 @@ export function OtherSection() {
 
       <div className="p-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {others.map((other) => (
-          <Link href={other.link}>
-            <div
-              key={other.name}
-              className="relative rounded-md overflow-hidden transition-transform transform hover:scale-105 h-48"
-            >
+          <Link href={other.link} key={other.name}>
+            <div className="relative rounded-md overflow-hidden transition-transform transform hover:scale-105 h-48 border">
               <img
                 src={other.bg}
                 alt={other.name}

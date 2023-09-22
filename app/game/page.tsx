@@ -583,7 +583,7 @@ export default function Minecraft() {
       <div
         style={{
           backgroundImage:
-            "linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/minecraftbgfade1.jpg)",
+            "linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), linear-gradient(rgba(0, 140, 115, 0.5), rgba(0, 0, 0, 0)), url(/images/minecraftborderfade.png)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center center",
@@ -687,7 +687,7 @@ export default function Minecraft() {
         {/* End of Grid */}
       </div>
       {/* Next section */}
-      <div className="flex flex-col">
+      <div className="flex flex-col bg-black">
         {/* Grid */}
         <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 container mt-8">
           <div className="flex flex-col justify-between">

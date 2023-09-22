@@ -108,51 +108,25 @@ export default function Dedicated() {
 
   const plans: Plan[] = [
     {
-      id: "dfwi9-10900k",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      ram: "32 GB",
-      price: "$170",
-      cpuname: "Core i9-10900K",
-      cores: "20 CPUs",
-      storage: "1 TB",
-      ipaddresses: "1",
-      link: "https://example.com",
-      whmcspid: "2",
-    },
-    {
-      id: "dfwi9-13900k",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      ram: "48 GB",
-      price: "$220",
-      cpuname: "Core i9-13900K",
-      cores: "32 CPUs",
-      storage: "1 TB",
-      ipaddresses: "1",
-      link: "https://example.com",
-      whmcspid: "2",
-    },
-    {
-      id: "dfwr9-7950x",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      ram: "48 GB",
-      price: "$220",
-      cpuname: "Ryzen 9 7950X",
-      cores: "32 CPUs",
-      storage: "1 TB",
-      ipaddresses: "1",
-      link: "https://example.com",
-      whmcspid: "2",
-    },
-    {
       id: "dfwr9-7950x3d",
       locationtag: "dfw",
       location: "Dallas, Texas",
       ram: "48 GB",
-      price: "$260",
+      price: "$459",
       cpuname: "Ryzen 9 7950X3D",
+      cores: "32 CPUs",
+      storage: "1 TB",
+      ipaddresses: "1",
+      link: "https://example.com",
+      whmcspid: "2",
+    },
+    {
+      id: "dfwi9-13900ks",
+      locationtag: "dfw",
+      location: "Dallas, Texas",
+      ram: "48 GB",
+      price: "$519",
+      cpuname: "Core i9-13900KS",
       cores: "32 CPUs",
       storage: "1 TB",
       ipaddresses: "1",
@@ -170,39 +144,21 @@ export default function Dedicated() {
 
   const ram: Ram[] = [
     {
-      compatibleid: ["dfwi9-10900k"],
-      name: "32 GB DDR4 RAM",
-      price: "$0",
-      urlparams: "&addons[2]=1",
-    },
-    {
-      compatibleid: ["dfwi9-10900k"],
-      name: "64 GB DDR4 RAM",
-      price: "$40",
-      urlparams: "&addons[2]=1",
-    },
-    {
-      compatibleid: ["dfwi9-10900k"],
-      name: "128 GB DDR4 RAM",
-      price: "$80",
-      urlparams: "&addons[2]=1",
-    },
-    {
-      compatibleid: ["dfwi9-13900k", "dfwr9-7950x", "dfwr9-7950x3d"],
+      compatibleid: ["dfwi9-13900ks", "dfwr9-7950x", "dfwr9-7950x3d"],
       name: "48 GB DDR5 RAM",
       price: "$0",
       urlparams: "&addons[2]=1",
     },
     {
-      compatibleid: ["dfwi9-13900k", "dfwr9-7950x", "dfwr9-7950x3d"],
+      compatibleid: ["dfwi9-13900ks", "dfwr9-7950x", "dfwr9-7950x3d"],
       name: "96 GB DDR5 RAM",
       price: "$60",
       urlparams: "&addons[2]=1",
     },
     {
-      compatibleid: ["dfwi9-13900k", "dfwr9-7950x", "dfwr9-7950x3d"],
+      compatibleid: ["dfwi9-13900ks", "dfwr9-7950x", "dfwr9-7950x3d"],
       name: "192 GB DDR5 RAM",
-      price: "$120",
+      price: "$180",
       urlparams: "&addons[2]=1",
     },
     // More addons...
@@ -218,8 +174,8 @@ export default function Dedicated() {
   const storage: Storage[] = [
     {
       compatibleid: [
-        "dfwi9-10900k",
-        "dfwi9-13900k",
+        "dfwi9-10900ks",
+        "dfwi9-13900ks",
         "dfwr9-7950x",
         "dfwr9-7950x3d",
       ],
@@ -234,8 +190,8 @@ export default function Dedicated() {
         "dfwr9-7950x",
         "dfwr9-7950x3d",
       ],
-      name: "2 TB NVMe SSD",
-      price: "$40",
+      name: "2 x 2 TB NVMe SSD",
+      price: "$70",
       urlparams: "&addons[2]=1",
     },
     {
@@ -245,8 +201,8 @@ export default function Dedicated() {
         "dfwr9-7950x",
         "dfwr9-7950x3d",
       ],
-      name: "4 TB NVMe SSD",
-      price: "$80",
+      name: "2 x 4 TB NVMe SSD",
+      price: "$170",
       urlparams: "&addons[2]=1",
     },
     {
@@ -256,8 +212,8 @@ export default function Dedicated() {
         "dfwr9-7950x",
         "dfwr9-7950x3d",
       ],
-      name: "8 TB NVMe SSD",
-      price: "$160",
+      name: "2 x 8 TB NVMe SSD",
+      price: "$380",
       urlparams: "&addons[2]=1",
     },
   ];
@@ -273,7 +229,7 @@ export default function Dedicated() {
     {
       compatibleid: [
         "dfwi9-10900k",
-        "dfwi9-13900k",
+        "dfwi9-13900ks",
         "dfwr9-7950x",
         "dfwr9-7950x3d",
       ],
@@ -284,12 +240,12 @@ export default function Dedicated() {
     {
       compatibleid: [
         "dfwi9-10900k",
-        "dfwi9-13900k",
+        "dfwi9-13900ks",
         "dfwr9-7950x",
         "dfwr9-7950x3d",
       ],
       name: "8 IP Addresses",
-      price: "$16",
+      price: "$21",
       urlparams: "&addons[2]=1",
     },
     {
@@ -311,7 +267,7 @@ export default function Dedicated() {
         "dfwr9-7950x3d",
       ],
       name: "32 IP Addresses",
-      price: "$64",
+      price: "$50",
       urlparams: "&addons[2]=1",
     },
   ];
@@ -666,7 +622,7 @@ export default function Dedicated() {
                           <p className="text-sm font-medium text-muted-foreground">
                             {plan.ram} DDR
                             {(plan.id === "dfwi9-10900k" && "4") ||
-                              (plan.id === "dfwi9-13900k" && "5") ||
+                              (plan.id === "dfwi9-13900ks" && "5") ||
                               (plan.id === "dfwr9-7950x" && "5") ||
                               (plan.id === "dfwr9-7950x3d" && "5")}
                             <br />
@@ -922,9 +878,11 @@ export default function Dedicated() {
                     </div>
 
                     <div className="flex mt-6 justify-end space-x-3">
-                      <button className="text-teal-500 font-bold bg-teal-500/30 hover:bg-teal-500/40 py-2 px-4 rounded focus:outline-none transition-colors">
-                        Contact
-                      </button>
+                      <a href="mailto:bun+sales@furweb.com">
+                        <button className="text-teal-500 font-bold bg-teal-500/30 hover:bg-teal-500/40 py-2 px-4 rounded focus:outline-none transition-colors">
+                          Contact
+                        </button>
+                      </a>
                     </div>
                   </Card>
                 </div>
