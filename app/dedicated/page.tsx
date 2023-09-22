@@ -941,7 +941,7 @@ export default function Dedicated() {
                           Test IPv4
                         </p>
                       </div>
-                      <p className="text-md font-bold">202.5.26.13</p>
+                      <p className="text-md font-bold">64.44.147.6</p>
                     </div>
                     <div className="flex flex-col">
                       <div className="flex justify-between mb-1">

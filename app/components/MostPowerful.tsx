@@ -3,9 +3,13 @@ export function MostPowerful() {
     <div
       className="bg-repeat text-green-100 py-64 relative overflow-hidden"
       style={{
-        backgroundClip: "border-box, border-box",
+        backgroundClip:
+          "border-box, border-box, border-box, border-box, border-box",
         backgroundImage:
-          "linear-gradient(27deg, rgba(17,168,169,0.24) 10%, rgba(0, 0, 136, 0) 40.5%), linear-gradient(327deg, rgba(4,129,205,0.24) 10%, rgba(0, 67, 136, 0) 40.5%)",
+          "linear-gradient(27deg, rgba(17,168,169,0.24) 10%, rgba(0, 0, 136, 0) 40.5%), linear-gradient(327deg, rgba(4,129,205,0.24) 10%, rgba(0, 67, 136, 0) 40.5%), linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%), radial-gradient(#313131 1px, transparent 0), radial-gradient(#313131 1px, transparent 0)",
+        backgroundPosition: "0 0, 0 0, 0 0, 0 0, 15px 15px",
+        backgroundSize: "100% 100%, 100% 100%, 100% 100%, 30px 30px, 30px 30px",
+        backgroundAttachment: "scroll, scroll, scroll, fixed, fixed",
       }}
     >
       <div className="bg-no-repeat flex flex-col justify-center container">

@@ -200,7 +200,7 @@ export function NavigationMenuWide() {
   return (
     <nav
       className={`fixed top-0 w-full h-16 z-50 border-b border-transparent transition-colors duration-300 ease-in-out ${
-        isScrolled ? "border-zinc-950/30" : ""
+        isScrolled ? "border-zinc-50/5" : ""
       } flex items-center justify-center px-8 py-4 backdrop-blur bg-zinc/50`}
     >
       <div className="w-full flex flex-row justify-between items-center py-4 px-10 mx-auto container">
