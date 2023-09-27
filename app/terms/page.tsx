@@ -1,4 +1,34 @@
+"use client";
+import { useState, useEffect } from "react";
+
 export default function terms() {
+  interface AddressDetail {
+    title: string;
+    name: string;
+    address: string[];
+  }
+
+  interface Addresses {
+    california: AddressDetail;
+    vietnam: AddressDetail;
+  }
+
+  const [data, setData] = useState<{
+    addresses: Addresses;
+    protectedInfo: any;
+  } | null>(null);
+
+  /* Just a handshake to prevent scrapers from scraping URLs */
+  useEffect(() => {
+    fetch(
+      "https://foxomy.com/publicapi/diachi.php?key=fYqc1LvT66bkiN548VZl71gRB6kjdDpvQdz75R4PqLILvWGmYzYvNMsCL4mNEsex9wgUzJbRlC9QK66Czh5HmrveT6JG5US11rj8n4goQKIelA7wlt2512F8s8He0lKyr9Gn6prpCkkJKwkNiF6Z1LxRr6uvm5krVavR31yBaAOqByr1K1XTCr15CCtV0R2Nj9QYctzO"
+    )
+      .then((response) => response.json())
+      .then((fetchedData) => {
+        setData(fetchedData);
+      });
+  }, []);
+
   return (
     <>
       <div className="container">
@@ -65,33 +95,27 @@ export default function terms() {
             Mail-in payments and server equipment
             <br />
           </p>
-          <div className="flex">
-            <p className="text-muted-foreground">
-              <strong>California Operating Address:</strong>
-              <br />
-              Joey Ma
-              <br />
-              1 S Market St #2004
-              <br />
-              San Jose, California 95113
-              <br />
-              United States
-            </p>
-            <p className="ml-5 text-muted-foreground">
-              <strong>Vietnam Operating Address:</strong>
-              <br />
-              Bun Ma
-              <br />
-              S391 Villa Saroma
-              <br />
-              Hoàng Thế Thiện, An Lợi Đông,
-              <br />
-              Quận 2,
-              <br />
-              Thành phố Hồ Chí Minh 700000,
-              <br />
-              Viet Nam
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {data?.addresses &&
+              Object.values(data.addresses).map(
+                (address: AddressDetail, idx: number) => (
+                  <div
+                    key={idx}
+                    className=" border-gray-300 text-muted-foreground"
+                  >
+                    <strong>{address.title}</strong>
+                    <br />
+                    {address.name}
+                    <br />
+                    {address.address.map((line: string, lineIdx: number) => (
+                      <span key={lineIdx}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
+                  </div>
+                )
+              )}
           </div>
 
           <p className="py-3 text-muted-foreground italic">
@@ -112,19 +136,18 @@ export default function terms() {
           </p>
 
           <p className="text-muted-foreground py-6">
-            <strong>California Company Details:</strong>
+            <strong>{data?.protectedInfo.companyDetails.title}</strong>
             <br />
-            Entity Information: Dai Thanh Capital (5243711)
+            {data?.protectedInfo.companyDetails.entityInfo}
             <br />
-            Entity Type: Stock Corporation - California - General
+            {data?.protectedInfo.companyDetails.entityType}
           </p>
           <p className="text-muted-foreground italic">
-            <strong>Business Usage Policy:</strong>
+            <strong>{data?.protectedInfo.usagePolicy.title}</strong>
             <br />
-            {`Under explicit permission from Alana Hua. Our operations,
-            while distinct and unrelated to their
-            business, are conducted under consent.`}
+            {data?.protectedInfo.usagePolicy.description}
           </p>
+
           <p className="font-semibold text-xl mt-4">NOTE</p>
           <p className="py-3 text-muted-foreground">{`This document may be updated at any time to ensure accuracy, as defined under the section "Changes to Terms."`}</p>
         </div>

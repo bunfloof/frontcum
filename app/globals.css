@@ -110,18 +110,14 @@
 
 body {
   background-color: #000; /* Set a base black color to ensure the body has a black background */
-  background-image: 
-    linear-gradient(to bottom, transparent 0%, #000 600px), /* Gradient from transparent to black */
-    radial-gradient(#313131 1px, transparent 0), /* First set of dots */
-    radial-gradient(#313131 1px, transparent 0); /* Second set of dots */
-  background-size: 
-    100% 100%, /* Full size for gradient */
-    30px 30px, /* Size for the first set of dots */
-    30px 30px; /* Size for the second set of dots */
-  background-position: 
-    0 0, /* Start gradient from top left */
-    0 0, /* Start the first set of dots from top left */
-    15px 15px; /* Offset the second set of dots */
+  background-image: linear-gradient(to bottom, transparent 0%, #000 600px),
+    /* Gradient from transparent to black */
+      radial-gradient(#313131 1px, transparent 0),
+    /* First set of dots */ radial-gradient(#313131 1px, transparent 0); /* Second set of dots */
+  background-size: 100% 100%, /* Full size for gradient */ 30px 30px,
+    /* Size for the first set of dots */ 30px 30px; /* Size for the second set of dots */
+  background-position: 0 0, /* Start gradient from top left */ 0 0,
+    /* Start the first set of dots from top left */ 15px 15px; /* Offset the second set of dots */
   background-attachment: scroll, fixed, fixed; /* Ensure gradient scrolls while dots remain fixed */
 }
 
@@ -138,10 +134,13 @@ body::before {
 }
 ::-moz-selection {
   background: #00c4aa;
+  color: #ffffff;
 }
 ::-webkit-selection {
   background: #00c4aa;
+  color: #ffffff;
 }
 ::selection {
   background: #00c4aa;
+  color: #ffffff;
 }
