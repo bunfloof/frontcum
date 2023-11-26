@@ -475,7 +475,7 @@ export default function Minecraft() {
       name: "Amsterdam, Netherlands",
       flag: "/images/nlflag.svg",
       wsUrl:
-        "wss://am5.speedtest.gslnetworks.com.prod.hosts.ooklaserver.net:8080/ws?",
+        "wss://speedtesta.kpn.com:8080/ws?",
     },
     // ... other locations
   ];

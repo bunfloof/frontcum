@@ -470,20 +470,12 @@ export default function Minecraft() {
       wsUrl:
         "wss://speedtest.dal.hivelocity.net.prod.hosts.ooklaserver.net:8080/ws?",
     },
-    {
-      codename: "ams1",
-      name: "Amsterdam, Netherlands",
-      flag: "/images/nlflag.svg",
-      wsUrl:
-        "wss://am5.speedtest.gslnetworks.com.prod.hosts.ooklaserver.net:8080/ws?",
-    },
-    {
-      codename: "sjc1",
-      name: "San Jose, California (FREE)",
-      flag: "/images/usflag.svg",
-      wsUrl:
-        "wss://stosat-scla-01.sys.comcast.net.prod.hosts.ooklaserver.net:8080/ws?",
-    },
+    // {
+    //   codename: "ams1",
+    //   name: "Amsterdam, Netherlands",
+    //   flag: "/images/nlflag.svg",
+    //   wsUrl: "wss://speedtesta.kpn.com:8080/ws?",
+    // },
     // ... other locations
   ];
 
@@ -606,8 +598,6 @@ export default function Minecraft() {
                 Dallas (Intel Core i9-13900KS OC @ 6.3 GHz)
                 <br />
                 Amsterdam (AMD Ryzen R9 7950X3D @ Stock GHz)
-                <br />
-                San Jose (Intel Core i9-10900K OC @ 5.2 GHz)
               </p>
             </div>
           </div>
@@ -725,7 +715,23 @@ export default function Minecraft() {
                     </CardContent>
                   </Card>
                 ))}
-
+                <Card className="cursor-not-allowed opacity-25">
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
+                    <CardTitle className="text-lg font-bold">
+                      Amsterdam, Netherlands
+                    </CardTitle>
+                    <img
+                      src="/images/nlflag.svg"
+                      alt="nlflag"
+                      className="h-6 w-6 mr-2"
+                    />
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      Out of stock
+                    </p>
+                  </CardContent>
+                </Card>
                 <Card className="cursor-not-allowed opacity-25">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
                     <CardTitle className="text-lg font-bold">

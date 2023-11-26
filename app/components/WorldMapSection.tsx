@@ -38,7 +38,7 @@ export function WorldMapSection() {
     {
       name: "Amsterdam",
       flag: "/images/nlflag.svg",
-      ws: "wss://am5.speedtest.gslnetworks.com.prod.hosts.ooklaserver.net:8080/ws?",
+      ws: "wss://speedtesta.kpn.com:8080/ws?",
       ping: 0,
     },
   ]);
