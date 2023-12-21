@@ -88,7 +88,7 @@ export function FeaturesSection() {
               <div className="pr-5">
                 <h3 className="text-2xl font-bold text-green-50">DDoS Protection</h3>
                 <p className="text-neutral-400 mt-3">
-                  1 Tbps+ DDoS Protection from Path for your servers at the
+                  Included DDoS Protection for your servers at the
                   network (L3), transport (L4), and application (L7) layers.
                 </p>
               </div>
@@ -412,10 +412,10 @@ export function FeaturesSection() {
                 </div>
               </div>
               <div className="pr-5">
-                <h3 className="text-2xl font-bold text-green-50">Over 99% Uptime </h3>
+                <h3 className="text-2xl font-bold text-green-50">Over 99.99% Uptime </h3>
                 <p className="text-neutral-400 mt-3">
-                  Our infrastructure is consistently monitored to ensure high
-                  uptime.
+                  Our infrastructure is selectively ch to ensure high
+                  availability.
                 </p>
               </div>
             </div>
