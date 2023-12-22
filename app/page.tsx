@@ -16,6 +16,7 @@ import FeaturesSection from "./components/FeaturesSection";
 import GameSection from "./components/GameSection";
 import WebSection from "./components/OtherSection";
 import MissionSection from "./components/FasterSection";
+import DDoSSection from "./components/DDoSSection";
 import ProofSection from "./components/ProofSection";
 
 function SectionWithGrid({ children }: { children: React.ReactNode }) {
@@ -55,12 +56,14 @@ export default function Home() {
       </SectionWithGrid>
       <FeaturesSection />
       <Divider />
+      <DDoSSection />
+      <div className="py-6" />
       <WorldMapSection />
       <div className="py-6" />
       <MissionSection />
       <div className="py-6" />
       <ProofSection />
-
+      <div className="py-6" />
       <SupportCard />
     </>
   );
