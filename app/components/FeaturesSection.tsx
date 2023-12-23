@@ -414,7 +414,7 @@ export function FeaturesSection() {
               <div className="pr-5">
                 <h3 className="text-2xl font-bold text-green-50">Over 99.99% Uptime </h3>
                 <p className="text-neutral-400 mt-3">
-                  Our infrastructure is selectively ch to ensure high
+                  Our infrastructure is selectively chosen to ensure high
                   availability.
                 </p>
               </div>

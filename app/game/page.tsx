@@ -9,6 +9,9 @@ import Slider from "react-slick";
 import SupportCard from "../components/SupportCard";
 import Link from "next/link";
 import { Checkbox } from "@radix-ui/themes";
+import { Badge } from "@radix-ui/themes";
+import * as Popover from "@radix-ui/react-popover";
+import { Separator } from "@/components/ui/separator";
 
 import {
   Table,
@@ -87,10 +90,49 @@ const MarkerSVG = (
 export default function Minecraft() {
   const [location, setLocation] = useState<string | null>(null);
   const [planSize, setPlanSize] = useState<string | null>(null);
-  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<LocationType | null>(
+    null
+  );
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
   const [pingResults, setPingResults] = useState<PingResultType>({});
+
+  /* Pop over */
+  const [copyButtonText, setCopyButtonText] = useState<string>("Copy username");
+  const discordUsername = "furcon";
+  const telegramURL = "https://t.me/bun2003";
+  const discordServerURL = "https://discord.gg/uQkn7vVqj6";
+
+  const WHMCSURL =
+    "https://foxomy.com/billing/submitticket.php?step=2&deptid=2";
+
+  const handleJoinDiscordServer = () => {
+    window.open(discordServerURL, "_blank", "noopener,noreferrer");
+  };
+  const handleTelegramLink = () => {
+    window.open(telegramURL, "_blank", "noopener,noreferrer");
+  };
+  const handleWHMCSLink = () => {
+    window.open(WHMCSURL, "_blank", "noopener,noreferrer");
+  };
+  const handleCopyUsername = async () => {
+    try {
+      await navigator.clipboard.writeText(discordUsername);
+      setCopyButtonText("Username copied");
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
+  useEffect(() => {
+    if (copyButtonText === "Username copied") {
+      const timer = setTimeout(() => {
+        setCopyButtonText("Copy username");
+      }, 1500); // revert back to original text after 1.5 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [copyButtonText]);
 
   type Plan = {
     id: string;
@@ -99,6 +141,7 @@ export default function Minecraft() {
     ram: string;
     price: string;
     vCore: string;
+    CPUName: string;
     storage: string;
     backupSlot: string;
     containerSplit: string;
@@ -111,6 +154,7 @@ export default function Minecraft() {
       id: "dfw1gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "1 GB",
       price: "$2",
       vCore: "16",
@@ -124,6 +168,7 @@ export default function Minecraft() {
       id: "dfw2gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "2 GB",
       price: "$4",
       vCore: "16",
@@ -137,6 +182,7 @@ export default function Minecraft() {
       id: "dfw3gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "3 GB",
       price: "$6",
       vCore: "16",
@@ -150,6 +196,7 @@ export default function Minecraft() {
       id: "dfw4gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "4 GB",
       price: "$8",
       vCore: "16",
@@ -163,6 +210,7 @@ export default function Minecraft() {
       id: "dfw5gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "5 GB",
       price: "$10",
       vCore: "16",
@@ -176,6 +224,7 @@ export default function Minecraft() {
       id: "dfw6gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "6 GB",
       price: "$12",
       vCore: "16",
@@ -189,6 +238,7 @@ export default function Minecraft() {
       id: "dfw8gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "8 GB",
       price: "$16",
       vCore: "16",
@@ -202,6 +252,7 @@ export default function Minecraft() {
       id: "dfw10gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "10 GB",
       price: "$20",
       vCore: "16",
@@ -215,6 +266,7 @@ export default function Minecraft() {
       id: "dfw16gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "16 GB",
       price: "$32",
       vCore: "16",
@@ -228,6 +280,7 @@ export default function Minecraft() {
       id: "dfw20gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "20 GB",
       price: "$40",
       vCore: "16",
@@ -241,6 +294,7 @@ export default function Minecraft() {
       id: "dfw24gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "24 GB",
       price: "$48",
       vCore: "16",
@@ -254,6 +308,7 @@ export default function Minecraft() {
       id: "dfw32gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
+      CPUName: "13900KS",
       ram: "32 GB",
       price: "$64",
       vCore: "16",
@@ -267,10 +322,11 @@ export default function Minecraft() {
       id: "ams1gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "1 GB",
       price: "$2",
       vCore: "1",
-      storage: "18 GB/Unlimited",
+      storage: "18 GB/Unlimited GB",
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
@@ -280,10 +336,11 @@ export default function Minecraft() {
       id: "ams2gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "2 GB",
       price: "$4",
       vCore: "2",
-      storage: "36 GB/Unlimited",
+      storage: "36 GB/Unlimited GB",
       backupSlot: "1",
       containerSplit: "1",
       link: "https://example.com",
@@ -293,10 +350,11 @@ export default function Minecraft() {
       id: "ams3gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "3 GB",
       price: "$6",
       vCore: "3",
-      storage: "54 GB/Unlimited",
+      storage: "54 GB/Unlimited GB",
       backupSlot: "1",
       containerSplit: "2",
       link: "https://example.com",
@@ -306,10 +364,11 @@ export default function Minecraft() {
       id: "ams4gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "4 GB",
       price: "$8",
       vCore: "4",
-      storage: "72 GB/Unlimited",
+      storage: "72 GB/Unlimited GB",
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
@@ -319,10 +378,11 @@ export default function Minecraft() {
       id: "ams5gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "5 GB",
       price: "$10",
       vCore: "5",
-      storage: "90 GB/Unlimited",
+      storage: "90 GB/Unlimited GB",
       backupSlot: "2",
       containerSplit: "2",
       link: "https://example.com",
@@ -332,10 +392,11 @@ export default function Minecraft() {
       id: "ams6gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "6 GB",
       price: "$12",
       vCore: "6",
-      storage: "108 GB/Unlimited",
+      storage: "108 GB/Unlimited GB",
       backupSlot: "3",
       containerSplit: "2",
       link: "https://example.com",
@@ -345,10 +406,11 @@ export default function Minecraft() {
       id: "ams8gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "8 GB",
       price: "$16",
       vCore: "8",
-      storage: "144 GB/Unlimited",
+      storage: "144 GB/Unlimited GB",
       backupSlot: "4",
       containerSplit: "2",
       link: "https://example.com",
@@ -358,10 +420,11 @@ export default function Minecraft() {
       id: "ams10gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "10 GB",
       price: "$20",
       vCore: "8",
-      storage: "170 GB/Unlimited",
+      storage: "170 GB/Unlimited GB",
       backupSlot: "5",
       containerSplit: "5",
       link: "https://example.com",
@@ -371,14 +434,212 @@ export default function Minecraft() {
       id: "ams16gb",
       locationtag: "ams",
       location: "Amsterdam, Netherlands",
+      CPUName: "7950X3D",
       ram: "16 GB",
       price: "$32",
       vCore: "8",
-      storage: "288 GB/Unlimited",
+      storage: "288 GB/Unlimited GB",
       backupSlot: "8",
       containerSplit: "8",
       link: "https://example.com",
       whmcspid: "35",
+    },
+    {
+      id: "fra1gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "1 GB",
+      price: "$1",
+      vCore: "1",
+      storage: "10 GB/Limited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "43",
+    },
+    {
+      id: "fra2gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "2 GB",
+      price: "$2",
+      vCore: "2",
+      storage: "20 GB/Limited GB",
+      backupSlot: "2",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "44",
+    },
+    {
+      id: "fra3gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "3 GB",
+      price: "$3",
+      vCore: "3",
+      storage: "30 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "45",
+    },
+    {
+      id: "fra4gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "4 GB",
+      price: "$4",
+      vCore: "4",
+      storage: "40 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "46",
+    },
+    {
+      id: "fra5gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "5 GB",
+      price: "$5",
+      vCore: "4",
+      storage: "50 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "47",
+    },
+    {
+      id: "fra6gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "6 GB",
+      price: "$6",
+      vCore: "4",
+      storage: "60 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "48",
+    },
+
+    {
+      id: "fra7gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "7 GB",
+      price: "$7",
+      vCore: "4",
+      storage: "70 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "49",
+    },
+    {
+      id: "fra8gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "8 GB",
+      price: "$8",
+      vCore: "4",
+      storage: "80 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "4",
+      link: "https://example.com",
+      whmcspid: "50",
+    },
+    {
+      id: "fra9gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "9 GB",
+      price: "$9",
+      vCore: "4",
+      storage: "90 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "4",
+      link: "https://example.com",
+      whmcspid: "51",
+    },
+    {
+      id: "fra10gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "10 GB",
+      price: "$10",
+      vCore: "4",
+      storage: "100 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "5",
+      link: "https://example.com",
+      whmcspid: "52",
+    },
+    {
+      id: "fra12gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "12 GB",
+      price: "$12",
+      vCore: "4",
+      storage: "120 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "6",
+      link: "https://example.com",
+      whmcspid: "53",
+    },
+    {
+      id: "fra14gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "14 GB",
+      price: "$14",
+      vCore: "4",
+      storage: "140 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "7",
+      link: "https://example.com",
+      whmcspid: "54",
+    },
+    {
+      id: "fra16gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "16 GB",
+      price: "$16",
+      vCore: "4",
+      storage: "160 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "8",
+      link: "https://example.com",
+      whmcspid: "55",
+    },
+    {
+      id: "fra20gb",
+      locationtag: "fra",
+      location: "Frankfurt, Germany",
+      CPUName: "7900X",
+      ram: "20 GB",
+      price: "$20",
+      vCore: "4",
+      storage: "200 GB/Limited GB",
+      backupSlot: "3",
+      containerSplit: "10",
+      link: "https://example.com",
+      whmcspid: "56",
     },
   ];
 
@@ -457,6 +718,9 @@ export default function Minecraft() {
     name: string;
     flag: string;
     wsUrl?: string;
+    outOfStock: boolean;
+    content?: string;
+    CPUcontent?: string;
   };
 
   type PingResultType = {
@@ -470,13 +734,28 @@ export default function Minecraft() {
       flag: "/images/usflag.svg",
       wsUrl:
         "wss://speedtest.dal.hivelocity.net.prod.hosts.ooklaserver.net:8080/ws?",
+      outOfStock: false,
+      content: "Premium ($2/GB)",
+      CPUcontent: "Intel Core i9-13900KS",
     },
-    // {
-    //   codename: "ams1",
-    //   name: "Amsterdam, Netherlands",
-    //   flag: "/images/nlflag.svg",
-    //   wsUrl: "wss://speedtesta.kpn.com:8080/ws?",
-    // },
+    {
+      codename: "ams1",
+      name: "Amsterdam, Netherlands",
+      flag: "/images/nlflag.svg",
+      wsUrl: "wss://speedtesta.kpn.com:8080/ws?",
+      outOfStock: true,
+      content: "Premium ($2/GB)",
+      CPUcontent: "AMD Ryzen 9 7950X3D",
+    },
+    {
+      codename: "fra1",
+      name: "Frankfurt, Germany",
+      flag: "/images/deflag.svg",
+      wsUrl: "wss://speedtest-fra.melbicom.net:8080/ws?",
+      outOfStock: false,
+      content: "Budget ($1/GB)",
+      CPUcontent: "AMD Ryzen 9 7900X",
+    },
     // ... other locations
   ];
 
@@ -594,11 +873,82 @@ export default function Minecraft() {
                 Order a Minecraft server today and get started within minutes.
               </p>
               <p className="text-md sm:text-lg text-muted-foreground">
-                Server CPU Specifications:
+                Need help or have questions?
                 <br />
-                Dallas (Intel Core i9-13900KS OC @ 6.3 GHz)
-                <br />
-                Amsterdam (AMD Ryzen R9 7950X3D @ Stock GHz)
+                <Popover.Root>
+                  Please open an on-site{" "}
+                  <Button variant="secondary" onClick={handleWHMCSLink}>
+                    ticket
+                  </Button>{" "}
+                  or direct{" "}
+                  <Popover.Trigger asChild>
+                    <Button variant="secondary">message</Button>
+                  </Popover.Trigger>{" "}
+                  a staff.
+                  <Popover.Portal>
+                    <Popover.Content
+                      className="bg-zinc-900 data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[300px] rounded-md bg-white p-5 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] data-[state=open]:transition-all"
+                      sideOffset={5}
+                    >
+                      <div className="flex flex-col gap-[7px]">
+                        <div className="flex flex-col gap-[10px]">
+                          <div className="text-sm font-medium">
+                            Message Bun on Telegram
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Message Bun directly on Telegram.
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Username: bun2003
+                          </div>
+                          <Button
+                            variant="secondary"
+                            className="p-1"
+                            onClick={handleTelegramLink}
+                          >
+                            t.me/bun2003
+                          </Button>
+                          <Separator />
+                          <div className="text-sm font-medium">
+                            Message Bun on Discord
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Send Bun a friend request on Discord and message
+                            them directly.
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Username: {discordUsername}
+                          </div>
+                          <Button
+                            variant="secondary"
+                            className="p-1"
+                            onClick={handleCopyUsername}
+                          >
+                            {copyButtonText}
+                          </Button>
+                          <Separator />
+                          <div className="text-sm font-medium">
+                            Community Discord Server
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Join the community Discord server to chat with the
+                            community and get help from other members.
+                          </div>
+
+                          <Button
+                            variant="secondary"
+                            className="p-1"
+                            onClick={handleJoinDiscordServer}
+                          >
+                            Join Discord server
+                          </Button>
+                        </div>
+                      </div>
+
+                      <Popover.Arrow className="fill-white/10" />
+                    </Popover.Content>
+                  </Popover.Portal>
+                </Popover.Root>
               </p>
             </div>
           </div>
@@ -606,8 +956,8 @@ export default function Minecraft() {
             <div className="bg-zinc-900/30 border rounded-md p-6">
               <Table>
                 <TableCaption>
-                  Explicit permissions to use Lunes Hosting and MewGem in
-                  comparison
+                  Lunes Host and Mewgem are my friends who gave me permission to
+                  compare them, don't bully them.
                 </TableCaption>
                 <TableHeader>
                   <TableRow>
@@ -690,23 +1040,50 @@ export default function Minecraft() {
                 {locations.map((location, index) => (
                   <Card
                     key={index}
-                    className={`hover:bg-muted/50 transition-colors cursor-pointer ${
-                      selectedLocation === location.name
+                    className={`relative hover:bg-muted/50 transition-colors cursor-pointer ${
+                      selectedLocation?.name === location.name
                         ? " bg-teal-100/10 border-teal-500"
                         : ""
-                    }`}
-                    onClick={() => setSelectedLocation(location.name)}
+                    } ${location.outOfStock ? "opacity-40" : ""}`}
+                    onClick={() => {
+                      setSelectedLocation(location);
+                      selectedLocation?.name != location.name && setSelectedPlan(null);
+                    }}
                   >
+                    <div className="absolute top-0 right-5 -translate-y-1/2">
+                      <span
+                        className={`items-center ${
+                          location.content?.toLowerCase().includes("premium") &&
+                          "border border-teal-700 bg-teal-900 text-teal-300"
+                        } ${
+                          location.content?.toLowerCase().includes("budget") &&
+                          "border border-gray-500 bg-gray-700 text-gray-200"
+                        } gap-1 text-xs font-medium break-words py-1 px-2 rounded mr-1`}
+                      >
+                        {location.CPUcontent}
+                      </span>
+                      <span
+                        className={`items-center ${
+                          location.content?.toLowerCase().includes("premium") &&
+                          "border border-teal-700 bg-teal-900 text-teal-300"
+                        } ${
+                          location.content?.toLowerCase().includes("budget") &&
+                          "border border-gray-500 bg-gray-700 text-gray-200"
+                        } gap-1 text-xs font-medium break-words py-1 px-2 rounded`}
+                      >
+                        {location.content}
+                      </span>
+                    </div>
                     <div className="flex flex-row">
                       <div className="p-6 pr-0 flex items-center justify-center">
                         <div
                           className={`p-1 border-2 rounded flex ${
-                            selectedLocation === location.name
+                            selectedLocation?.name === location.name
                               ? "bg-teal-100/10 border-teal-500"
                               : "border-zinc-600"
                           }`}
                         >
-                          {selectedLocation === location.name ? (
+                          {selectedLocation?.name === location.name ? (
                             <svg
                               className="h-4 w-4 text-teal-500"
                               viewBox="0 0 20 20"
@@ -752,28 +1129,24 @@ export default function Minecraft() {
                                 )} ms`
                               : "Pinging..."}
                           </p>
+                          <p>
+                            <span
+                              className={`text-sm font-medium ${
+                                location.outOfStock
+                                  ? "text-red-500"
+                                  : "text-teal-500"
+                              }`}
+                            >
+                              {location.outOfStock
+                                ? "Out of stock"
+                                : "In stock"}
+                            </span>
+                          </p>
                         </CardContent>
                       </div>
                     </div>
                   </Card>
                 ))}
-                <Card className="cursor-not-allowed opacity-40">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
-                    <CardTitle className="text-lg font-bold">
-                      Amsterdam, Netherlands
-                    </CardTitle>
-                    <img
-                      src="/images/nlflag.svg"
-                      alt="nlflag"
-                      className="h-6 w-6 mr-2"
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm font-medium text-muted-foreground text-red-500">
-                      Out of stock
-                    </p>
-                  </CardContent>
-                </Card>
               </div>
             </div>
           </div>
@@ -796,7 +1169,7 @@ export default function Minecraft() {
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation === "Dallas, Texas"
+                          selectedLocation?.name === "Dallas, Texas"
                             ? "selectedMarker"
                             : "marker"
                         }`}
@@ -830,7 +1203,7 @@ export default function Minecraft() {
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation === "Amsterdam, Netherlands"
+                          selectedLocation?.name === "Amsterdam, Netherlands"
                             ? "selectedMarker"
                             : "marker"
                         }`}
@@ -845,6 +1218,40 @@ export default function Minecraft() {
                         sideOffset={5}
                       >
                         Amsterdam
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+
+              {/* Marker for Frankfurt */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "48.32%", top: "16.3%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation?.name === "Frankfurt, Germany"
+                            ? "selectedMarker"
+                            : "marker"
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        Frankfurt
                         <Tooltip.Arrow
                           style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
                         />
@@ -936,7 +1343,7 @@ export default function Minecraft() {
                 </div>
                 <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
                   {plans
-                    .filter((plan) => plan.location === selectedLocation) // Filter the plans based on the selected location
+                    .filter((plan) => plan.location === selectedLocation.name) // Filter the plans based on the selected location
                     .map((plan, index) => (
                       <Card
                         key={index}
@@ -1007,7 +1414,7 @@ export default function Minecraft() {
                                 </span>
                               </div>
                               <p className="text-sm font-medium text-muted-foreground">
-                                {plan.vCore} shared vCore
+                                {plan.vCore} shared {plan.CPUName} vCore
                                 {Number(plan.vCore) > 1 ? "s" : ""}
                                 <br />
                                 {plan.storage} of storage
@@ -1034,7 +1441,7 @@ export default function Minecraft() {
         )}
         {selectedLocation &&
           selectedPlan &&
-          selectedLocation !== "San Jose, California (FREE)" && (
+          selectedLocation?.name !== "San Jose, California (FREE)" && (
             <div className="mt-4 grid gap-4 container">
               <div className="flex flex-col justify-between">
                 <div>
@@ -1136,12 +1543,14 @@ export default function Minecraft() {
                         </div>
                         <div className="flex justify-between">
                           <div className="text-md font-bold mb-1">
-                            {selectedPlan?.id}<br/>
-                            ├─ Location: {selectedPlan?.location}<br/>
-                            ├─ RAM: {selectedPlan?.ram} <br/>
-                            ├─ Storage: {selectedPlan?.storage} <br/>
-                            ├─ vCores: {selectedPlan?.vCore} <br/>
-                            ├─ Backups: {selectedPlan?.backupSlot} <br/>
+                            {selectedPlan?.id}
+                            <br />
+                            ├─ Location: {selectedPlan?.location}
+                            <br />
+                            ├─ RAM: {selectedPlan?.ram} <br />
+                            ├─ Storage: {selectedPlan?.storage} <br />
+                            ├─ vCores: {selectedPlan?.vCore} <br />
+                            ├─ Backups: {selectedPlan?.backupSlot} <br />
                             └─ Splits: {selectedPlan?.containerSplit}
                           </div>
                           <div className="text-sm">{selectedPlan?.price}</div>
@@ -1182,12 +1591,16 @@ export default function Minecraft() {
                     </div>
 
                     <div className="flex mt-6 justify-end space-x-3">
-                      {selectedPlan && (
+                      {selectedPlan && !selectedLocation.outOfStock ? (
                         <button
                           onClick={handleOpenWHMCSLink}
                           className="border border-teal-500 text-teal-500 font-bold bg-teal-800/30 hover:bg-teal-500/40 py-2 px-4 rounded focus:outline-none transition-colors"
                         >
                           Continue
+                        </button>
+                      ) : (
+                        <button className="cursor-not-allowed border border-red-500 text-red-500 font-bold bg-red-800/30 hover:bg-red-500/40 py-2 px-4 rounded focus:outline-none transition-colors">
+                          Out of stock
                         </button>
                       )}
                     </div>
