@@ -41,6 +41,12 @@ export function WorldMapSection() {
       ws: "wss://speedtesta.kpn.com:8080/ws?",
       ping: 0,
     },
+    {
+      name: "Frankfurt",
+      flag: "/images/deflag.svg",
+      ws: "wss://speedtest-fra.melbicom.net:8080/ws?",
+      ping: 0,
+    },
   ]);
 
   const [pingingServers, setPingingServers] = useState<Record<string, boolean>>(
@@ -48,6 +54,7 @@ export function WorldMapSection() {
       "San Francisco, California": false,
       "Dallas, Texas": false,
       "Amsterdam, Netherlands": false,
+      "Frankfurt, Germany": false,
     }
   );
 
@@ -202,10 +209,7 @@ export function WorldMapSection() {
               />
               {/* Marker for Dallas */}
               <Tooltip.Provider>
-                <div
-                  className="absolute"
-                  style={{ left: "6%", top: "25.5%" }}
-                >
+                <div className="absolute" style={{ left: "6%", top: "25.5%" }}>
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div className="marker">{MarkerSVG}</div>
@@ -267,6 +271,32 @@ export function WorldMapSection() {
                         sideOffset={5}
                       >
                         Amsterdam
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+
+              {/* Marker for Frankfurt */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "48.32%", top: "16.3%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div className="marker">{MarkerSVG}</div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        Frankfurt
                         <Tooltip.Arrow
                           style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
                         />
