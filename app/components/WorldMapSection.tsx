@@ -8,7 +8,7 @@ type Location = null | "Dallas" | "Amsterdam";
 type Server = {
   name: string;
   flag: string;
-  ws: string;
+  ws: string | undefined;
   ping: number;
 };
 
@@ -26,25 +26,49 @@ export function WorldMapSection() {
     {
       name: "San Jose",
       flag: "/images/usflag.svg",
-      ws: "wss://stosat-scla-01.sys.comcast.net.prod.hosts.ooklaserver.net:8080/ws?",
+      ws: process.env.NEXT_PUBLIC_SAN_JOSE_WSS_URI,
+      ping: 0,
+    },
+    {
+      name: "El Segundo",
+      flag: "/images/usflag.svg",
+      ws: process.env.NEXT_PUBLIC_EL_SEGUNDO_WSS_URI,
       ping: 0,
     },
     {
       name: "Dallas",
       flag: "/images/usflag.svg",
-      ws: "wss://speedtest.dal.hivelocity.net.prod.hosts.ooklaserver.net:8080/ws?",
+      ws: process.env.NEXT_PUBLIC_DALLAS_WSS_URI,
+      ping: 0,
+    },
+    {
+      name: "Chicago",
+      flag: "/images/usflag.svg",
+      ws: process.env.NEXT_PUBLIC_CHICAGO_WSS_URI,
+      ping: 0,
+    },
+    {
+      name: "New York",
+      flag: "/images/usflag.svg",
+      ws: process.env.NEXT_PUBLIC_NEW_YORK_WSS_URI,
       ping: 0,
     },
     {
       name: "Amsterdam",
       flag: "/images/nlflag.svg",
-      ws: "wss://speedtesta.kpn.com:8080/ws?",
+      ws: process.env.NEXT_PUBLIC_AMSTERDAM_WSS_URI,
       ping: 0,
     },
     {
       name: "Frankfurt",
       flag: "/images/deflag.svg",
-      ws: "wss://speedtest-fra.melbicom.net:8080/ws?",
+      ws: process.env.NEXT_PUBLIC_FRANKFURT_WSS_URI,
+      ping: 0,
+    },
+    {
+      name: "Helsinki",
+      flag: "/images/fiflag.svg",
+      ws: process.env.NEXT_PUBLIC_HELSINKI_WSS_URI,
       ping: 0,
     },
   ]);
@@ -254,6 +278,56 @@ export function WorldMapSection() {
                 </div>
               </Tooltip.Provider>
 
+              {/* Marker for Chicago */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "17.2%", top: "23.5%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div className="marker">{MarkerSVG}</div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        sideOffset={5}
+                      >
+                        Chicago
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+
+              {/* Marker for El Segundo */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "6.2%", top: "28.2%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div className="marker">{MarkerSVG}</div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        sideOffset={5}
+                      >
+                        Chicago
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+
               {/* Marker for Amsterdam */}
               <Tooltip.Provider>
                 <div
@@ -312,6 +386,32 @@ export function WorldMapSection() {
               >
                 <div className="soonmarker">{MarkerSVG}</div>
               </div>
+
+              {/* Marker for Frankfurt */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "51.32%", top: "8.3%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div className="marker">{MarkerSVG}</div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        Helsinki
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
 
               <style jsx>{`
                 .soonmarker {

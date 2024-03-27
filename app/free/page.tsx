@@ -467,17 +467,14 @@ export default function Minecraft() {
       codename: "dfw1",
       name: "Dallas, Texas",
       flag: "/images/usflag.svg",
-      wsUrl:
-        "wss://speedtest.dal.hivelocity.net.prod.hosts.ooklaserver.net:8080/ws?",
+      wsUrl: process.env.NEXT_PUBLIC_DALLAS_WSS_URI,
     },
     {
       codename: "ams1",
       name: "Amsterdam, Netherlands",
       flag: "/images/nlflag.svg",
-      wsUrl:
-        "wss://speedtesta.kpn.com:8080/ws?",
+      wsUrl: process.env.NEXT_PUBLIC_AMSTERDAM_WSS_URI,
     },
-    // ... other locations
   ];
 
   const getConcatenatedParams = () => {
@@ -591,7 +588,8 @@ export default function Minecraft() {
                 Free Game Hosting
               </div>
               <p className="py-5 text-md sm:text-lg text-muted-foreground">
-                Get a free Minecraft server today and get started within minutes.
+                Get a free Minecraft server today and get started within
+                minutes.
               </p>
             </div>
           </div>

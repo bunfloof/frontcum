@@ -26,19 +26,8 @@ export function DDoSSection() {
 
       {/* SVG Animated section */}
       <div className="container">
-        <div className="p-16 pt-4">
-          <img
-            src="/images/antiddos.svg"
-            alt="antiddos"
-            className="w-full"
-          />
-        </div>
-        <div className="p-16 pt-4">
-          <img
-            src="/images/DDoSDesign.svg"
-            alt="antiddos"
-            className="w-full"
-          />
+        <div className="pt-4 flex justify-center">
+          <img src="/images/antiddos.svg" alt="antiddos" className="w-full md:w-4/6 xl:w-2/4" />
         </div>
       </div>
     </div>

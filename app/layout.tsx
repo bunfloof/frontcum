@@ -12,8 +12,26 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Foxomy",
-  description: "Socially aware and caring",
+  description:
+    "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
   viewport: "width=device-width, initial-scale=1",
+  openGraph: {
+    siteName: "Foxomy",
+    title:
+      "Minecraft Hosting + Game Servers + Web Hosting + Bare Metal + Colocation - DDoS Protection",
+    description:
+      "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
+    images: ["https://foxomy.com/images/12-transferforfree.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Minecraft Hosting + Game Servers + Web Hosting + Bare Metal + Colocation - DDoS Protection",
+    description:
+      "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
+
+    images: ["https://foxomy.com/images/12-transferforfree.jpg"],
+  },
 };
 
 export default function RootLayout({

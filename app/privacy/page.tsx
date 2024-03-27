@@ -76,14 +76,14 @@ export default function privacy() {
             THE DATA PROTECTION OFFICER
           </p>
           <p className="py-3 text-muted-foreground">
-            {`Contact details for Bun's Data Protection Officer will be provided
+            {`Contact details for Foxomy's Data Protection Officer will be provided
             upon request. The Data Protection Officer may require personally
             identifiable information to confirm identity.`}
           </p>
 
           <p className="font-semibold text-xl mt-4">COOKIES</p>
           <p className="py-3 text-muted-foreground">
-            Bun uses cookies to ensure accurate data representation. These
+            Foxomy uses cookies to ensure accurate data representation. These
             cookies are never used for marketing unless consent is given.
           </p>
 
@@ -114,7 +114,7 @@ export default function privacy() {
 
           <p className="font-semibold text-xl mt-4">EMAIL MESSAGES</p>
           <p className="py-3 text-muted-foreground">
-            Bun reserves the right to send email messages for various reasons,
+            We reserve the right to send email messages for various reasons,
             including confirmations, account status, alerts, and emergencies.
           </p>
         </div>

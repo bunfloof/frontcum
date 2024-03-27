@@ -48,7 +48,7 @@ export default function terms() {
           <p className="font-semibold text-xl mt-4">LAW & JURISDICTION</p>
           <p className="py-3 text-muted-foreground">{`This agreement is subject to the laws of the United Kingdom, as well as regional, state, and local laws where the service is located. In legal disputes, hearings will be held within the state of California.`}</p>
           <p className="font-semibold text-xl mt-4">ACCEPTANCE OF TERMS</p>
-          <p className="py-3 text-muted-foreground">{`By using any service or visiting any website operated by Bun, the client agrees to these terms. Acceptance may also be indicated by a checkbox during account signup. Breach of contract may result in penalties, including legal action.`}</p>
+          <p className="py-3 text-muted-foreground">{`By using any service or visiting any website operated by us, the client agrees to these terms. Acceptance may also be indicated by a checkbox during account signup. Breach of contract may result in penalties, including legal action.`}</p>
           <p className="font-semibold text-xl mt-4">
             ELIGIBILITY TO ENTER INTO CONTRACT
           </p>
@@ -75,22 +75,22 @@ export default function terms() {
           <p className="font-semibold text-xl mt-4">TERMINATION</p>
           <p className="py-3 text-muted-foreground">{`Either party may terminate the service and this contract at their discretion.`}</p>
           <p className="font-semibold text-xl mt-4">PAYMENT & REFUNDS</p>
-          <p className="py-3 text-muted-foreground">{`Bun accepts payments via PayPal, debit, credit cards (through Stripe), and mail (through USPS).`}</p>
+          <p className="py-3 text-muted-foreground">{`We accepts payments via PayPal, debit, credit cards (through Stripe), and mail (through USPS).`}</p>
           <p className="py-3 text-muted-foreground">{`Prices and tax inclusion are subject to change without notice. Refunds are available for certain services within specific terms, as detailed in the Service Level Agreement.`}</p>
           <p className="py-3 text-muted-foreground">{`Chargebacks are discouraged and may result in termination of the relationship. Exceptions and refund eligibility for add-on purchases are also defined.`}</p>
           <p className="font-semibold text-xl mt-4">FAILURE OF PAYMENT</p>
           <p className="py-3 text-muted-foreground">{`Services may be terminated if an invoice is overdue for more than 3 days. Fees may apply for content retrieval after suspension.`}</p>
           <p className="font-semibold text-xl mt-4">PRIVACY & USAGE POLICIES</p>
-          <p className="py-3 text-muted-foreground">{`For privacy and acceptable usage, refer to Bun's Privacy Policy and Acceptable Use Policy, respectively.`}</p>
+          <p className="py-3 text-muted-foreground">{`For privacy and acceptable usage, refer to our Privacy Policy and Acceptable Use Policy, respectively.`}</p>
           <p className="font-semibold text-xl mt-4">COPYRIGHT</p>
           <p className="py-3 text-muted-foreground">{`US copyright laws apply, and violations will be dealt with accordingly. Repeated infringement may lead to legal action.`}</p>
           <p className="font-semibold text-xl mt-4">CHANGES TO TERMS</p>
-          <p className="py-3 text-muted-foreground">{`Bun may update these terms without notice. Clients are responsible for staying informed.`}</p>
+          <p className="py-3 text-muted-foreground">{`We may update these terms without notice. Clients are responsible for staying informed.`}</p>
           <p className="font-semibold text-xl mt-4">INTELLECTUAL PROPERTY</p>
           <p className="py-3 text-muted-foreground">{`Unauthorized commercial use is prohibited.`}</p>
           <p className="font-semibold text-xl mt-4">CONTACT INFORMATION</p>
           <p className="py-3 text-muted-foreground">
-            <strong>Bun</strong>
+            <strong>Bun Ma</strong>
             <br />
             Mail-in payments and server equipment
             <br />

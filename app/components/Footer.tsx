@@ -17,7 +17,7 @@ export function Footer() {
     },
     {
       title: "Company",
-      links: [{ label: "About us", url: "/" }],
+      links: [{ label: "About us", url: "/about-us" }],
     },
     {
       title: "Resources",

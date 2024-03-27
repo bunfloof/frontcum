@@ -38,7 +38,6 @@ type HostingCompany = {
   "Server Splitter and Game Changer": string;
   "Subdomain Creator": string;
   "BIPOC owned": string;
-  Affiliation: string;
   "Price per GB in USD": string;
 };
 
@@ -48,7 +47,6 @@ const hostingCompanies: { [key: string]: HostingCompany } = {
     "Server Splitter and Game Changer": "Yes",
     "Subdomain Creator": "Yes",
     "BIPOC owned": "Yes",
-    Affiliation: "Democrat",
     "Price per GB in USD": "$2.00",
   },
   "Lunes Hosting": {
@@ -56,7 +54,6 @@ const hostingCompanies: { [key: string]: HostingCompany } = {
     "Server Splitter and Game Changer": "No",
     "Subdomain Creator": "No",
     "BIPOC owned": "No",
-    Affiliation: "Republican",
     "Price per GB in USD": "$1.00",
   },
   MewGem: {
@@ -64,7 +61,6 @@ const hostingCompanies: { [key: string]: HostingCompany } = {
     "Server Splitter and Game Changer": "No",
     "Subdomain Creator": "No",
     "BIPOC owned": "No",
-    Affiliation: "Republican",
     "Price per GB in USD": "$1.00",
   },
 };
@@ -74,7 +70,6 @@ const features: (keyof HostingCompany)[] = [
   "Server Splitter and Game Changer",
   "Subdomain Creator",
   "BIPOC owned",
-  "Affiliation",
   "Price per GB in USD",
 ];
 
@@ -154,10 +149,10 @@ export default function Minecraft() {
       id: "dfw1gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "1 GB",
       price: "$2",
-      vCore: "16",
+      vCore: "10",
       storage: "20/Unlimited GB",
       backupSlot: "1",
       containerSplit: "1",
@@ -168,10 +163,10 @@ export default function Minecraft() {
       id: "dfw2gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "2 GB",
       price: "$4",
-      vCore: "16",
+      vCore: "10",
       storage: "40/Unlimited GB",
       backupSlot: "1",
       containerSplit: "1",
@@ -182,10 +177,10 @@ export default function Minecraft() {
       id: "dfw3gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "3 GB",
       price: "$6",
-      vCore: "16",
+      vCore: "10",
       storage: "60/Unlimited GB",
       backupSlot: "1",
       containerSplit: "2",
@@ -196,10 +191,10 @@ export default function Minecraft() {
       id: "dfw4gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "4 GB",
       price: "$8",
-      vCore: "16",
+      vCore: "10",
       storage: "80/Unlimited GB",
       backupSlot: "2",
       containerSplit: "2",
@@ -210,10 +205,10 @@ export default function Minecraft() {
       id: "dfw5gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "5 GB",
       price: "$10",
-      vCore: "16",
+      vCore: "10",
       storage: "100/Unlimited GB",
       backupSlot: "2",
       containerSplit: "3",
@@ -224,10 +219,10 @@ export default function Minecraft() {
       id: "dfw6gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "6 GB",
       price: "$12",
-      vCore: "16",
+      vCore: "10",
       storage: "120/Unlimited GB",
       backupSlot: "3",
       containerSplit: "3",
@@ -238,10 +233,10 @@ export default function Minecraft() {
       id: "dfw8gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "8 GB",
       price: "$16",
-      vCore: "16",
+      vCore: "10",
       storage: "160/Unlimited GB",
       backupSlot: "4",
       containerSplit: "4",
@@ -252,10 +247,10 @@ export default function Minecraft() {
       id: "dfw10gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "10 GB",
       price: "$20",
-      vCore: "16",
+      vCore: "10",
       storage: "200/Unlimited GB",
       backupSlot: "5",
       containerSplit: "5",
@@ -266,10 +261,10 @@ export default function Minecraft() {
       id: "dfw16gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "16 GB",
       price: "$32",
-      vCore: "16",
+      vCore: "10",
       storage: "320/Unlimited GB",
       backupSlot: "8",
       containerSplit: "8",
@@ -280,10 +275,10 @@ export default function Minecraft() {
       id: "dfw20gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "20 GB",
       price: "$40",
-      vCore: "16",
+      vCore: "10",
       storage: "400/Unlimited GB",
       backupSlot: "10",
       containerSplit: "10",
@@ -294,10 +289,10 @@ export default function Minecraft() {
       id: "dfw24gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "24 GB",
       price: "$48",
-      vCore: "16",
+      vCore: "10",
       storage: "480/Unlimited GB",
       backupSlot: "12",
       containerSplit: "12",
@@ -308,15 +303,519 @@ export default function Minecraft() {
       id: "dfw32gb",
       locationtag: "dfw",
       location: "Dallas, Texas",
-      CPUName: "13900KS",
+      CPUName: "14900K",
       ram: "32 GB",
       price: "$64",
-      vCore: "16",
+      vCore: "10",
       storage: "640/Unlimited GB",
       backupSlot: "16",
       containerSplit: "16",
       link: "https://example.com",
       whmcspid: "27",
+    },
+    {
+      id: "chi1gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "1 GB",
+      price: "$2",
+      vCore: "10",
+      storage: "20/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "70",
+    },
+    {
+      id: "chi2gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "2 GB",
+      price: "$4",
+      vCore: "10",
+      storage: "40/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "71",
+    },
+    {
+      id: "chi3gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "3 GB",
+      price: "$6",
+      vCore: "10",
+      storage: "60/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "72",
+    },
+    {
+      id: "chi4gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "4 GB",
+      price: "$8",
+      vCore: "10",
+      storage: "80/Unlimited GB",
+      backupSlot: "2",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "73",
+    },
+    {
+      id: "chi5gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "5 GB",
+      price: "$10",
+      vCore: "10",
+      storage: "100/Unlimited GB",
+      backupSlot: "2",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "74",
+    },
+    {
+      id: "chi6gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "6 GB",
+      price: "$12",
+      vCore: "10",
+      storage: "120/Unlimited GB",
+      backupSlot: "3",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "75",
+    },
+    {
+      id: "chi8gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "8 GB",
+      price: "$16",
+      vCore: "10",
+      storage: "160/Unlimited GB",
+      backupSlot: "4",
+      containerSplit: "4",
+      link: "https://example.com",
+      whmcspid: "77",
+    },
+    {
+      id: "chi10gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "10 GB",
+      price: "$20",
+      vCore: "10",
+      storage: "200/Unlimited GB",
+      backupSlot: "5",
+      containerSplit: "5",
+      link: "https://example.com",
+      whmcspid: "78",
+    },
+    {
+      id: "chi16gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "16 GB",
+      price: "$32",
+      vCore: "10",
+      storage: "320/Unlimited GB",
+      backupSlot: "8",
+      containerSplit: "8",
+      link: "https://example.com",
+      whmcspid: "79",
+    },
+    {
+      id: "chi20gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "20 GB",
+      price: "$40",
+      vCore: "10",
+      storage: "400/Unlimited GB",
+      backupSlot: "10",
+      containerSplit: "10",
+      link: "https://example.com",
+      whmcspid: "80",
+    },
+    {
+      id: "chi24gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "24 GB",
+      price: "$48",
+      vCore: "10",
+      storage: "480/Unlimited GB",
+      backupSlot: "12",
+      containerSplit: "12",
+      link: "https://example.com",
+      whmcspid: "81",
+    },
+    {
+      id: "chi32gb",
+      locationtag: "chi",
+      location: "Chicago, Illinois",
+      CPUName: "14900K",
+      ram: "32 GB",
+      price: "$64",
+      vCore: "10",
+      storage: "640/Unlimited GB",
+      backupSlot: "16",
+      containerSplit: "16",
+      link: "https://example.com",
+      whmcspid: "82",
+    },
+    {
+      id: "eseg1gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "1 GB",
+      price: "$2",
+      vCore: "10",
+      storage: "20/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "83",
+    },
+    {
+      id: "eseg2gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "2 GB",
+      price: "$4",
+      vCore: "10",
+      storage: "40/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "84",
+    },
+    {
+      id: "eseg3gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "3 GB",
+      price: "$6",
+      vCore: "10",
+      storage: "60/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "85",
+    },
+    {
+      id: "eseg4gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "4 GB",
+      price: "$8",
+      vCore: "10",
+      storage: "80/Unlimited GB",
+      backupSlot: "2",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "86",
+    },
+    {
+      id: "eseg5gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "5 GB",
+      price: "$10",
+      vCore: "10",
+      storage: "100/Unlimited GB",
+      backupSlot: "2",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "87",
+    },
+    {
+      id: "eseg6gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "6 GB",
+      price: "$12",
+      vCore: "10",
+      storage: "120/Unlimited GB",
+      backupSlot: "3",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "88",
+    },
+    {
+      id: "eseg8gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "8 GB",
+      price: "$16",
+      vCore: "10",
+      storage: "160/Unlimited GB",
+      backupSlot: "4",
+      containerSplit: "4",
+      link: "https://example.com",
+      whmcspid: "90",
+    },
+    {
+      id: "eseg10gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "10 GB",
+      price: "$20",
+      vCore: "10",
+      storage: "200/Unlimited GB",
+      backupSlot: "5",
+      containerSplit: "5",
+      link: "https://example.com",
+      whmcspid: "91",
+    },
+    {
+      id: "eseg16gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "16 GB",
+      price: "$32",
+      vCore: "10",
+      storage: "320/Unlimited GB",
+      backupSlot: "8",
+      containerSplit: "8",
+      link: "https://example.com",
+      whmcspid: "92",
+    },
+    {
+      id: "eseg20gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "20 GB",
+      price: "$40",
+      vCore: "10",
+      storage: "400/Unlimited GB",
+      backupSlot: "10",
+      containerSplit: "10",
+      link: "https://example.com",
+      whmcspid: "93",
+    },
+    {
+      id: "eseg24gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "24 GB",
+      price: "$48",
+      vCore: "10",
+      storage: "480/Unlimited GB",
+      backupSlot: "12",
+      containerSplit: "12",
+      link: "https://example.com",
+      whmcspid: "94",
+    },
+    {
+      id: "eseg32gb",
+      locationtag: "eseg",
+      location: "El Segundo, California",
+      CPUName: "14900K",
+      ram: "32 GB",
+      price: "$64",
+      vCore: "10",
+      storage: "640/Unlimited GB",
+      backupSlot: "16",
+      containerSplit: "16",
+      link: "https://example.com",
+      whmcspid: "95",
+    },
+    {
+      id: "ny1gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "1 GB",
+      price: "$2",
+      vCore: "10",
+      storage: "20/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "96",
+    },
+    {
+      id: "ny2gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "2 GB",
+      price: "$4",
+      vCore: "10",
+      storage: "40/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "97",
+    },
+    {
+      id: "ny3gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "3 GB",
+      price: "$6",
+      vCore: "10",
+      storage: "60/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "98",
+    },
+    {
+      id: "ny4gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "4 GB",
+      price: "$8",
+      vCore: "10",
+      storage: "80/Unlimited GB",
+      backupSlot: "2",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "99",
+    },
+    {
+      id: "ny5gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "5 GB",
+      price: "$10",
+      vCore: "10",
+      storage: "100/Unlimited GB",
+      backupSlot: "2",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "100",
+    },
+    {
+      id: "ny6gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "6 GB",
+      price: "$12",
+      vCore: "10",
+      storage: "120/Unlimited GB",
+      backupSlot: "3",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "101",
+    },
+    {
+      id: "ny8gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "8 GB",
+      price: "$16",
+      vCore: "10",
+      storage: "160/Unlimited GB",
+      backupSlot: "4",
+      containerSplit: "4",
+      link: "https://example.com",
+      whmcspid: "103",
+    },
+    {
+      id: "ny10gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "10 GB",
+      price: "$20",
+      vCore: "10",
+      storage: "200/Unlimited GB",
+      backupSlot: "5",
+      containerSplit: "5",
+      link: "https://example.com",
+      whmcspid: "10",
+    },
+    {
+      id: "ny16gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "16 GB",
+      price: "$32",
+      vCore: "10",
+      storage: "320/Unlimited GB",
+      backupSlot: "8",
+      containerSplit: "8",
+      link: "https://example.com",
+      whmcspid: "105",
+    },
+    {
+      id: "ny20gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "20 GB",
+      price: "$40",
+      vCore: "10",
+      storage: "400/Unlimited GB",
+      backupSlot: "10",
+      containerSplit: "10",
+      link: "https://example.com",
+      whmcspid: "106",
+    },
+    {
+      id: "ny24gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "24 GB",
+      price: "$48",
+      vCore: "10",
+      storage: "480/Unlimited GB",
+      backupSlot: "12",
+      containerSplit: "12",
+      link: "https://example.com",
+      whmcspid: "107",
+    },
+    {
+      id: "ny32gb",
+      locationtag: "ny",
+      location: "New York, New York",
+      CPUName: "14900K",
+      ram: "32 GB",
+      price: "$64",
+      vCore: "10",
+      storage: "640/Unlimited GB",
+      backupSlot: "16",
+      containerSplit: "16",
+      link: "https://example.com",
+      whmcspid: "108",
     },
     {
       id: "ams1gb",
@@ -641,6 +1140,174 @@ export default function Minecraft() {
       link: "https://example.com",
       whmcspid: "56",
     },
+    {
+      id: "hel1gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "1 GB",
+      price: "$2",
+      vCore: "10",
+      storage: "20/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "57",
+    },
+    {
+      id: "hel2gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "2 GB",
+      price: "$4",
+      vCore: "10",
+      storage: "40/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "1",
+      link: "https://example.com",
+      whmcspid: "58",
+    },
+    {
+      id: "hel3gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "3 GB",
+      price: "$6",
+      vCore: "10",
+      storage: "60/Unlimited GB",
+      backupSlot: "1",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "59",
+    },
+    {
+      id: "hel4gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "4 GB",
+      price: "$8",
+      vCore: "10",
+      storage: "80/Unlimited GB",
+      backupSlot: "2",
+      containerSplit: "2",
+      link: "https://example.com",
+      whmcspid: "60",
+    },
+    {
+      id: "hel5gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "5 GB",
+      price: "$10",
+      vCore: "10",
+      storage: "100/Unlimited GB",
+      backupSlot: "2",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "61",
+    },
+    {
+      id: "hel6gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "6 GB",
+      price: "$12",
+      vCore: "10",
+      storage: "120/Unlimited GB",
+      backupSlot: "3",
+      containerSplit: "3",
+      link: "https://example.com",
+      whmcspid: "62",
+    },
+    {
+      id: "hel8gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "8 GB",
+      price: "$16",
+      vCore: "10",
+      storage: "160/Unlimited GB",
+      backupSlot: "4",
+      containerSplit: "4",
+      link: "https://example.com",
+      whmcspid: "64",
+    },
+    {
+      id: "hel10gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "10 GB",
+      price: "$20",
+      vCore: "10",
+      storage: "200/Unlimited GB",
+      backupSlot: "5",
+      containerSplit: "5",
+      link: "https://example.com",
+      whmcspid: "65",
+    },
+    {
+      id: "hel16gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "16 GB",
+      price: "$32",
+      vCore: "10",
+      storage: "320/Unlimited GB",
+      backupSlot: "8",
+      containerSplit: "8",
+      link: "https://example.com",
+      whmcspid: "66",
+    },
+    {
+      id: "hel20gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "20 GB",
+      price: "$40",
+      vCore: "10",
+      storage: "400/Unlimited GB",
+      backupSlot: "10",
+      containerSplit: "10",
+      link: "https://example.com",
+      whmcspid: "69",
+    },
+    {
+      id: "hel24gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "24 GB",
+      price: "$48",
+      vCore: "10",
+      storage: "480/Unlimited GB",
+      backupSlot: "12",
+      containerSplit: "12",
+      link: "https://example.com",
+      whmcspid: "67",
+    },
+    {
+      id: "hel32gb",
+      locationtag: "hel",
+      location: "Helsinki, Finland",
+      CPUName: "14900K",
+      ram: "32 GB",
+      price: "$64",
+      vCore: "10",
+      storage: "640/Unlimited GB",
+      backupSlot: "16",
+      containerSplit: "16",
+      link: "https://example.com",
+      whmcspid: "68",
+    },
   ];
 
   type Addon = {
@@ -653,7 +1320,7 @@ export default function Minecraft() {
   const addons: Addon[] = [
     {
       name: "Dedicated IP Address",
-      price: "$4",
+      price: "$3",
       description:
         "A reserved IP address with the default port (25565 or 19132).",
       urlparams: "&configoption[1]=1",
@@ -665,20 +1332,20 @@ export default function Minecraft() {
         'Use the promo code "WEB" at checkout when you order website hosting to receive free webhosting for the duration of your game server service.',
       urlparams: "&addons[1]=1",
     },
-    {
-      name: "The Shockbyte Treatment 💀",
-      price: "$15",
-      description:
-        "Installing and configuring plugins and modpacks is included in support already. (This isn't actually a real addon)",
-      urlparams: "&addons[2]=1",
-    },
-    {
-      name: "The Premium Treatment 💀",
-      price: "$50",
-      description:
-        "Another server management addon but it's premium and more greedy. (This isn't actually a real addon)",
-      urlparams: "&addons[2]=1",
-    },
+    // {
+    //   name: "The Shockbyte Treatment 💀",
+    //   price: "$15",
+    //   description:
+    //     "Installing and configuring plugins and modpacks is included in support already. (This isn't actually a real addon)",
+    //   urlparams: "&addons[2]=1",
+    // },
+    // {
+    //   name: "The Premium Treatment 💀",
+    //   price: "$50",
+    //   description:
+    //     "(This isn't actually a real addon. If you need help with anything like setting up a server, it's FREE.)",
+    //   urlparams: "&addons[2]=1",
+    // },
     // More addons...
   ];
 
@@ -729,20 +1396,55 @@ export default function Minecraft() {
 
   const locations: LocationType[] = [
     {
-      codename: "dfw1",
-      name: "Dallas, Texas",
+      codename: "eseg1",
+      name: "El Segundo, California",
       flag: "/images/usflag.svg",
-      wsUrl:
-        "wss://speedtest.dal.hivelocity.net.prod.hosts.ooklaserver.net:8080/ws?",
+      wsUrl: process.env.NEXT_PUBLIC_EL_SEGUNDO_WSS_URI,
       outOfStock: false,
       content: "Premium ($2/GB)",
-      CPUcontent: "Intel Core i9-13900KS",
+      CPUcontent: "Intel Core i9-14900K",
+    },
+    {
+      codename: "dfw2",
+      name: "Dallas, Texas",
+      flag: "/images/usflag.svg",
+      wsUrl: process.env.NEXT_PUBLIC_DALLAS_WSS_URI,
+      outOfStock: false,
+      content: "Premium ($2/GB)",
+      CPUcontent: "Intel Core i9-14900K",
+    },
+    {
+      codename: "ny1",
+      name: "New York, New York",
+      flag: "/images/usflag.svg",
+      wsUrl: process.env.NEXT_PUBLIC_NEW_YORK_WSS_URI,
+      outOfStock: false,
+      content: "Premium ($2/GB)",
+      CPUcontent: "Intel Core i9-14900K",
+    },
+    {
+      codename: "chi1",
+      name: "Chicago, Illinois",
+      flag: "/images/usflag.svg",
+      wsUrl: process.env.NEXT_PUBLIC_CHICAGO_WSS_URI,
+      outOfStock: true,
+      content: "Premium ($2/GB)",
+      CPUcontent: "Intel Core i9-14900K",
+    },
+    {
+      codename: "hel1",
+      name: "Helsinki, Finland",
+      flag: "/images/fiflag.svg",
+      wsUrl: process.env.NEXT_PUBLIC_HELSINKI_WSS_URI,
+      outOfStock: false,
+      content: "Premium ($2/GB)",
+      CPUcontent: "Intel Core i9-14900K",
     },
     {
       codename: "ams1",
       name: "Amsterdam, Netherlands",
       flag: "/images/nlflag.svg",
-      wsUrl: "wss://speedtesta.kpn.com:8080/ws?",
+      wsUrl: process.env.NEXT_PUBLIC_AMSTERDAM_WSS_URI,
       outOfStock: true,
       content: "Premium ($2/GB)",
       CPUcontent: "AMD Ryzen 9 7950X3D",
@@ -751,10 +1453,19 @@ export default function Minecraft() {
       codename: "fra1",
       name: "Frankfurt, Germany",
       flag: "/images/deflag.svg",
-      wsUrl: "wss://speedtest-fra.melbicom.net:8080/ws?",
-      outOfStock: false,
+      wsUrl: process.env.NEXT_PUBLIC_FRANKFURT_WSS_URI,
+      outOfStock: true,
       content: "Budget ($1/GB)",
       CPUcontent: "AMD Ryzen 9 7900X",
+    },
+    {
+      codename: "sjc1",
+      name: "San Jose, California",
+      flag: "/images/usflag.svg",
+      wsUrl: process.env.NEXT_PUBLIC_SAN_JOSE_WSS_URI,
+      outOfStock: true,
+      content: "FREE",
+      CPUcontent: "Intel Core i9-10900K",
     },
     // ... other locations
   ];
@@ -887,11 +1598,14 @@ export default function Minecraft() {
                   a staff.
                   <Popover.Portal>
                     <Popover.Content
-                      className="bg-zinc-900 data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[300px] rounded-md bg-white p-5 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] data-[state=open]:transition-all"
+                      className="bg-zinc-900 bg-opacity-80 backdrop-blur data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[300px] rounded-md bg-white p-5 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] data-[state=open]:transition-all"
                       sideOffset={5}
                     >
                       <div className="flex flex-col gap-[7px]">
                         <div className="flex flex-col gap-[10px]">
+                          <div className="text-sm font-medium">
+                            ⓘ Note: These are unofficial support platforms.
+                          </div>
                           <div className="text-sm font-medium">
                             Message Bun on Telegram
                           </div>
@@ -945,7 +1659,7 @@ export default function Minecraft() {
                         </div>
                       </div>
 
-                      <Popover.Arrow className="fill-white/10" />
+                      <Popover.Arrow className="fill-zinc-900 bg-opacity-80 backdrop-blur" />
                     </Popover.Content>
                   </Popover.Portal>
                 </Popover.Root>
@@ -956,8 +1670,7 @@ export default function Minecraft() {
             <div className="bg-zinc-900/30 border rounded-md p-6">
               <Table>
                 <TableCaption>
-                  Lunes Host and Mewgem are my friends who gave me permission to
-                  compare them, don't bully them.
+                  Permission to use Lunes host and Mewgem.
                 </TableCaption>
                 <TableHeader>
                   <TableRow>
@@ -1005,8 +1718,7 @@ export default function Minecraft() {
                           ) : (
                             <span
                               className={
-                                (feature === "Affiliation" &&
-                                  company[feature] === "Democrat") ||
+                                company[feature] === "Democrat" ||
                                 (feature === "Price per GB in USD" &&
                                   company[feature] === "$1.00")
                                   ? "text-teal-500"
@@ -1047,7 +1759,8 @@ export default function Minecraft() {
                     } ${location.outOfStock ? "opacity-40" : ""}`}
                     onClick={() => {
                       setSelectedLocation(location);
-                      selectedLocation?.name != location.name && setSelectedPlan(null);
+                      selectedLocation?.name != location.name &&
+                        setSelectedPlan(null);
                     }}
                   >
                     <div className="absolute top-0 right-5 -translate-y-1/2">
@@ -1057,6 +1770,9 @@ export default function Minecraft() {
                           "border border-teal-700 bg-teal-900 text-teal-300"
                         } ${
                           location.content?.toLowerCase().includes("budget") &&
+                          "border border-gray-500 bg-gray-700 text-gray-200"
+                        } ${
+                          location.content?.toLowerCase().includes("free") &&
                           "border border-gray-500 bg-gray-700 text-gray-200"
                         } gap-1 text-xs font-medium break-words py-1 px-2 rounded mr-1`}
                       >
@@ -1068,6 +1784,9 @@ export default function Minecraft() {
                           "border border-teal-700 bg-teal-900 text-teal-300"
                         } ${
                           location.content?.toLowerCase().includes("budget") &&
+                          "border border-gray-500 bg-gray-700 text-gray-200"
+                        } ${
+                          location.content?.toLowerCase().includes("free") &&
                           "border border-gray-500 bg-gray-700 text-gray-200"
                         } gap-1 text-xs font-medium break-words py-1 px-2 rounded`}
                       >
@@ -1163,7 +1882,7 @@ export default function Minecraft() {
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "13.93%", top: "30.1%" }}
+                  style={{ left: "13.93%", top: "28%" }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
@@ -1192,12 +1911,104 @@ export default function Minecraft() {
                   </Tooltip.Root>
                 </div>
               </Tooltip.Provider>
-
+              {/* Marker for New York */}
+              <Tooltip.Provider>
+                <div className="absolute" style={{ left: "21.1%", top: "24%" }}>
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation?.name === "New York, New York"
+                            ? "selectedMarker"
+                            : "marker"
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        New York
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+              {/* Marker for Chicago */}
+              <Tooltip.Provider>
+                <div className="absolute" style={{ left: "17.9%", top: "23%" }}>
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation?.name === "Chicago, Illinois"
+                            ? "selectedMarker"
+                            : "marker"
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        Chicago
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+              {/* Marker for El Segundo */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "6.9%", top: "28.6%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation?.name === "El Segundo, California"
+                            ? "selectedMarker"
+                            : "marker"
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        El Segundo
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
               {/* Marker for Amsterdam */}
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "47.32%", top: "16.3%" }}
+                  style={{ left: "46.32%", top: "14.77%" }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
@@ -1261,6 +2072,72 @@ export default function Minecraft() {
                 </div>
               </Tooltip.Provider>
 
+              {/* Marker for Frankfurt */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "51.42%", top: "8.3%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation?.name === "Helsinki, Finland"
+                            ? "selectedMarker"
+                            : "marker"
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        Helsinki
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: "6.32%", top: "24.3%" }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation?.name === "San Jose, California"
+                            ? "selectedMarker"
+                            : "marker"
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        San Jose
+                        <Tooltip.Arrow
+                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
               <style jsx>{`
                 .selectedMarker {
                   position: relative;

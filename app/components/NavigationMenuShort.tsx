@@ -120,6 +120,22 @@ export function NavigationMenuShort() {
               </Link>
             </div>
             <div className="px-1 py-1 ">
+              <Link href="/about-us">
+                <button className="hover:bg-teal-100/10 transition-colors group flex w-full items-center rounded-md px-2 py-2 text-sm">
+                  <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    height="1em"
+                    width="1em"
+                    className="mr-2 h-5 w-5 scale-75"
+                  >
+                    <path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0 0 114.6 0 256s114.6 256 256 256zm-40-176h24v-64h-24c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-80c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-144c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
+                  </svg>
+                  About Us
+                </button>
+              </Link>
+            </div>
+            <div className="px-1 py-1 ">
               <Link href="https://foxomy.com/billing/login">
                 <button className="hover:bg-teal-100/10 transition-colors group flex w-full items-center rounded-md px-2 py-2 text-sm">
                   Billing Login
@@ -135,9 +151,9 @@ export function NavigationMenuShort() {
                   Pterodactyl panel2.fox Login
                 </button>
               </Link>
-              <Link href="https://panel.furweb.com">
+              <Link href="https://panel.foxomy.com">
                 <button className="hover:bg-teal-100/10 transition-colors group flex w-full items-center rounded-md px-2 py-2 text-sm">
-                  Pterodactyl panel.fur Login
+                  Pterodactyl panel.fox Login
                 </button>
               </Link>
             </div>

@@ -18,9 +18,9 @@ export default function sla() {
           </p>
           <div className="text-muted-foreground">
             <ul className="list-inside list-decimal pl-5">
-              <li>{`the Providing Party: "Bun";`}</li>
+              <li>{`the Providing Party: "Foxomy";`}</li>
               <li>
-                {`the Consumer: the customer of "Bun" who agrees to these terms;`}
+                {`the Consumer: the customer of "Foxomy" who agrees to these terms;`}
               </li>
             </ul>
           </div>
@@ -28,7 +28,7 @@ export default function sla() {
             RESPONSIBILITIES OF THE AGREEMENT
           </p>
           <p className="py-3 text-muted-foreground">
-            Bun, the provider, agrees to respect its responsibilities and
+            Foxomy, the provider, agrees to respect its responsibilities and
             fulfill its duties on demand and request.
           </p>
           <p className="py-3 text-muted-foreground">
@@ -41,12 +41,12 @@ export default function sla() {
             DEFINITIONS OF THE AGREEMENT
           </p>
           <div className="py-3 text-muted-foreground">
-            <p>“Service(s)”: Any commercial offering to the Consumer by Bun;</p>
+            <p>“Service(s)”: Any commercial offering to the Consumer by Foxomy;</p>
             <p>“Uptime”: The state where a service is operational;</p>
             <p>“Downtime”: The state where a service is un-operational;</p>
             <p>
               “Credit, Balance”: Virtual, non-cash valued currency credit on the
-              Bun billing area, exchangeable for services;
+              Foxomy billing area, exchangeable for services;
             </p>
             <p>“Natural disaster”: A term for unforeseeable and inevitable events;</p>
             <p>“Maintenance”: The state where a service is in maintenance;</p>
@@ -72,7 +72,7 @@ export default function sla() {
           </div>
           <p className="py-3 text-muted-foreground">
             If the Universal Service Guarantee falls below the promised
-            percentage, Bun will offer compensation of Credit, limited to 50% of
+            percentage, we will offer compensation of Credit, limited to 50% of
             the service’s monthly charge per downtime, upon request.
           </p>
         </div>
