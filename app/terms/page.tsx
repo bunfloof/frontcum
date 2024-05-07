@@ -56,8 +56,7 @@ export default function terms() {
             <p>To agree to this contract, the client must:</p>
             <ul className="list-inside list-decimal pl-5">
               <li>
-                Identify as Black, Indigenous, Latino, Hispanic, Asian, Pacific
-                Islander, or a Person of Color.
+                Identify as either a Human Being, Therian, or an Extraterrestrial Species.
               </li>
               <li>Be older than 13 years old.*</li>
               <li>Be able to form or sign contracts.</li>
