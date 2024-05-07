@@ -110,8 +110,12 @@ export function WorldMapSection() {
     setPingingServers((prev) => ({ ...prev, [server.name]: true }));
     const pings: number[] = [];
     for (let i = 0; i < 3; ++i) {
-      const ping = await getPing(server.ws);
-      pings.push(ping);
+      if(server.ws) {
+        const ping = await getPing(server.ws);
+        pings.push(ping);
+      } else {
+        pings.push(0)
+      }
     }
     setPingingServers((prev) => ({ ...prev, [server.name]: false }));
     return calculateMedian(pings);
