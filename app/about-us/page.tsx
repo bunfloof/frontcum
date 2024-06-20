@@ -142,11 +142,11 @@ export default function Introduction() {
             >
               <h2 className="text-2xl font-bold">About Us</h2>
               <p className="mt-2">
-                Foxomy is an established provider that provides hosting services
-                for Minecraft, game, websites, web applications, and bare metal
-                to a diverse range of clients. We are a small but mighty team of
-                passionate individuals dedicated to providing the best hosting
-                experience possible.
+                Foxomy haftungsbeschränkt is an established provider that
+                provides hosting services for Minecraft, game, websites, web
+                applications, and bare metal to a diverse range of clients. We
+                are a small but mighty team of passionate individuals dedicated
+                to providing the best hosting experience possible.
               </p>
               <div className="flex flex-row items-center mb-2"></div>
               We're not just some pop-up "

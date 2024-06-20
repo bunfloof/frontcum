@@ -41,7 +41,7 @@ export function Footer() {
 
   return (
     <>
-      <div className="items-center text-violet-100 py-1 bg-card mt-10 py-6 relative overflow-hidden">
+      <div className="items-center text-violet-100 py-1 bg-card py-6 relative overflow-hidden">
         <div>
           <span
             className="left-0 opacity-[0.20] absolute right-0 top-0 h-[1px]"

@@ -130,7 +130,7 @@ body::before {
   left: 0; /* Full viewport coverage */
   z-index: -1; /* Place it behind the content */
 
-  background: linear-gradient(to bottom, #111, #000 600px, #000);
+  background: linear-gradient(to bottom, theme('colors.bluey.800'), theme('colors.bluey.800') 600px, theme('colors.bluey.900'));
 }
 ::-moz-selection {
   background: #00c4aa;

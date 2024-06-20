@@ -7,7 +7,7 @@ export function FeaturesSection() {
       <div
         className="border-t text-gray-200 py-12 bg-black border-zinc-800 border-solid"
         style={{
-          backgroundImage: "linear-gradient(rgb(17, 17, 17), rgb(0, 0, 0))",
+          backgroundImage: "linear-gradient(#030F16, #010609)",
         }}
       >
         <div className="container">
