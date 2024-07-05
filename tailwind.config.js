@@ -143,8 +143,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         scaleIn: "scaleIn 200ms ease",
         scaleOut: "scaleOut 200ms ease",
-        fadeIn: "fadeIn 200ms ease",
-        fadeOut: "fadeOut 200ms ease",
+        fadeIn: "fadeIn 500ms ease",
+        fadeOut: "fadeOut 500ms ease",
         enterFromLeft: "enterFromLeft 250ms ease",
         enterFromRight: "enterFromRight 250ms ease",
         exitToLeft: "exitToLeft 250ms ease",
@@ -156,6 +156,16 @@ module.exports = {
         slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideRightAndFade:
           "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      transitionProperty: {
+        'colors': 'background-color, border-color, color, fill, stroke',
+        'transform': 'transform',
+      },
+      transitionDuration: {
+        '200': '200ms',
+      },
+      transitionTimingFunction: {
+        'ease-in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
     },
   },

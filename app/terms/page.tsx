@@ -33,78 +33,199 @@ export default function terms() {
     <>
       <div className="container">
         <div className="justify-between">
-          <div className="mt-20 font-semibold text-3xl sm:text-5xl">Terms</div>
+          <div className="pt-32 font-semibold text-3xl sm:text-5xl">Terms</div>
           <p className="py-5 text-md sm:text-lg text-muted-foreground">
-            Amended on August 20, 2023
+            Amended on July 4, 2024
           </p>
         </div>
-        <div className="justify-between mt-20">
-          <p className="font-semibold text-xl">CONTRACT AGREEMENT</p>
+        <div className="justify-between mt-20 mb-20">
+          {/* Introduction */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">Definitions</h1>
           <p className="py-3 text-muted-foreground">
-            {`This document sets forth the contract and relationship between the entity operating under "Bun," "Furry Host," and "Foxomy" (collectively referred to as the "Provider," "Company") and the client ("Client"). It replaces any previous agreements and is governed by the laws in California and the United States.`}
+            {`The ensuing declares the constitution of contract, hereby agreement and relationship between the Company Foxomy of Vietnam registered with the company number: 0311850985, Trading as “Foxomy” which hereafter shall be referenced by the following: “Provider”, “Company”, and its first person pronouns, and the Client which conversely is referred to with second and third person pronouns.`}
           </p>
-          <p className="font-semibold text-xl mt-4">DEFINITIONS & HEADINGS</p>
-          <p className="py-3 text-muted-foreground">{`Definitions found within commercial agreements, Privacy Policy, Terms of Service, and Service Level Agreement apply equally here. Headings in this document, marked in all capital letters, are for reference only and do not legally affect the contract.`}</p>
-          <p className="font-semibold text-xl mt-4">LAW & JURISDICTION</p>
-          <p className="py-3 text-muted-foreground">{`This agreement is subject to the laws of the United Kingdom, as well as regional, state, and local laws where the service is located. In legal disputes, hearings will be held within the state of California.`}</p>
-          <p className="font-semibold text-xl mt-4">ACCEPTANCE OF TERMS</p>
-          <p className="py-3 text-muted-foreground">{`By using any service or visiting any website operated by us, the client agrees to these terms. Acceptance may also be indicated by a checkbox during account signup. Breach of contract may result in penalties, including legal action.`}</p>
-          <p className="font-semibold text-xl mt-4">
-            ELIGIBILITY TO ENTER INTO CONTRACT
-          </p>
+
+          {/* Prerequisites */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Prerequisites
+          </h1>
+          <p className="py-3 text-muted-foreground">{`May any definition within the commercial agreements, the Privacy Policy, Terms of Service and Service Level Agreement be of equal enforcement in each agreement, inserted and enforced with negligible capitalization and quotation marks.`}</p>
+          <p className="py-3 text-muted-foreground">{`Headings in this agreement; labeled by completely capitalized lettering; shall not be of legal enforcement nor any effect to the contract.`}</p>
+
+          {/* Governing Factor */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Governing Factor
+          </h1>
+          <p className="py-3 text-muted-foreground">{`The governing factor of the ensuing and aforeconstituted agreement is Vietnam, in addition to, depending on the service’s location, the governing regional, state and local laws whereby the service is located. Additionally is the company a business and or commercial “Doing Business As” or Trading name for Foxomy.`}</p>
+
+          {/* Agreement to the terms */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Agreement to the terms
+          </h1>
+          <p className="py-3 text-muted-foreground">{`The client agrees to the contract by using any service and or visiting any website under the operation of Foxomy, in addition the said client may in fact agree to the terms via checkbox on account signup, and therefore is bound to the contract. Violation of the terms shall result in punishment determined by the provider, if said provider believes the Breach of Contract is violatory enough they may seek legal action.`}</p>
+
+          {/* Signature & Formation Eligibility */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Signature & Formation Eligibility
+          </h1>
           <div className="py-3 text-muted-foreground">
-            <p>To agree to this contract, the client must:</p>
-            <ul className="list-inside list-decimal pl-5">
-              <li>
-                Identify as Black, Indigenous, Latino, Hispanic, Asian, Pacific
-                Islander, or a Person of Color.
-              </li>
-              <li>Be older than 13 years old.*</li>
-              <li>Be able to form or sign contracts.</li>
-              <li>Not use an alternate account to avoid restrictions.</li>
+            <p className="py-1">
+              One, to be eligible of formation and agreeing to the contract must
+              not be inherent to any of the following restrictions:
+            </p>
+            <ul className="list-inside list-disc pl-5">
+              <li>Be younger than 13 years of age;</li>
+              <li>Be unable able to form or sign contracts.</li>
+              <li>Be an alternate account to avoid restrictions.</li>
             </ul>
-            <p className="pl-5 italic">
-              *Clients aged 13-17 may enter into a contract with a legal
-              guardian’s permission.
+            <p className="italic">
+              * An exception to Signature & Formation Eligibility b) is in where
+              the client or the entity agreeing to the contract is between 13 to
+              17 years of age, therefore making them unable to form contracts
+              but said client does not have any other deficiencies in contract
+              formation other than his age. In said event is the client
+              represented by their legal guardian and requires their permission
+              to form the contract.
             </p>
           </div>
-          <p className="font-semibold text-xl mt-4">RELATIONSHIP TERMS</p>
-          <p className="py-3 text-muted-foreground">{`A relationship governed by this contract exists when the client purchases a recurring or one-time service. Bun may accept or reject the client's attempts to acquire a service without reason. Cancellation of services does not terminate the account or this contract.`}</p>
-          <p className="font-semibold text-xl mt-4">LIABILITIES</p>
-          <p className="py-3 text-muted-foreground">{`The client is responsible for their actions, including legal matters. In the event of data loss or breach, the client shall hold the company harmless, and the company's liability will be determined by relevant authorities.`}</p>
-          <p className="font-semibold text-xl mt-4">TERMINATION</p>
-          <p className="py-3 text-muted-foreground">{`Either party may terminate the service and this contract at their discretion.`}</p>
-          <p className="font-semibold text-xl mt-4">PAYMENT & REFUNDS</p>
-          <p className="py-3 text-muted-foreground">{`We accepts payments via PayPal, debit, credit cards (through Stripe), and mail (through USPS).`}</p>
-          <p className="py-3 text-muted-foreground">{`Prices and tax inclusion are subject to change without notice. Refunds are available for certain services within specific terms, as detailed in the Service Level Agreement.`}</p>
-          <p className="py-3 text-muted-foreground">{`Chargebacks are discouraged and may result in termination of the relationship. Exceptions and refund eligibility for add-on purchases are also defined.`}</p>
-          <p className="font-semibold text-xl mt-4">FAILURE OF PAYMENT</p>
-          <p className="py-3 text-muted-foreground">{`Services may be terminated if an invoice is overdue for more than 3 days. Fees may apply for content retrieval after suspension.`}</p>
-          <p className="font-semibold text-xl mt-4">PRIVACY & USAGE POLICIES</p>
-          <p className="py-3 text-muted-foreground">{`For privacy and acceptable usage, refer to our Privacy Policy and Acceptable Use Policy, respectively.`}</p>
-          <p className="font-semibold text-xl mt-4">COPYRIGHT</p>
-          <p className="py-3 text-muted-foreground">{`US copyright laws apply, and violations will be dealt with accordingly. Repeated infringement may lead to legal action.`}</p>
-          <p className="font-semibold text-xl mt-4">CHANGES TO TERMS</p>
-          <p className="py-3 text-muted-foreground">{`We may update these terms without notice. Clients are responsible for staying informed.`}</p>
-          <p className="font-semibold text-xl mt-4">INTELLECTUAL PROPERTY</p>
-          <p className="py-3 text-muted-foreground">{`Unauthorized commercial use is prohibited.`}</p>
-          <p className="font-semibold text-xl mt-4">CONTACT INFORMATION</p>
-          <p className="py-3 text-muted-foreground">
-            <strong>Bun Ma</strong>
-            <br />
-            Mail-in payments and server equipment
-            <br />
+
+          {/* Definition of the Relationship */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Definition of the Relationship
+          </h1>
+          <p className="py-1 text-muted-foreground">
+            {`A relationship is the term, governed by this contract in which the client has purchased a recurring or one-time, therefore permanent, service for. If the client decides to continue the recurring service shall the relationship not be restarted but extended and therefore shall not require a recreation of contract.`}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {data?.addresses &&
-              Object.values(data.addresses).map(
-                (address: AddressDetail, idx: number) => (
-                  <div
-                    key={idx}
-                    className=" border-gray-300 text-muted-foreground"
-                  >
-                    <strong>{address.title}</strong>
-                    <br />
+          <p className="py-1 text-muted-foreground">
+            {`A relationship formation, commercial inquiry or attempt to acquire a service by the client may be rejected by the provider, negliant to any circumstances and unrequiring reasoning.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`On cancellation of services shall the relationship be deemed as halted and will not insist any termination of account or this contract.`}
+          </p>
+
+          {/* Subsection: Liabilities */}
+          <h3 className="font-semibold text-lg mt-4 uppercase">Liabilities</h3>
+          <p className="py-1 text-muted-foreground">
+            {`The Client agrees to operate, use and act under their own liability and responsibility in any case, regarding legalities or not.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`In the event of data loss shall the client indemnify and keep of harm the company and its directors.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`On occurrence of a data breach the company will withhold liability depending on the situation and decision of authorities.`}
+          </p>
+
+          {/* Subsection: Termination */}
+          <h3 className="font-semibold text-lg mt-4 uppercase">Termination</h3>
+          <p className="py-3 text-muted-foreground">{`By any and all means does each party reserve their right in regard, issue and to act upon termination of service and this contract.`}</p>
+
+          {/* Commerce */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">Commerce</h1>
+          {/* Subsection: Payment */}
+          <h3 className="font-semibold text-lg mt-4 uppercase">Payment</h3>
+          <p className="py-1 text-muted-foreground">
+            Foxomy only accepts payments through:
+          </p>
+          <ul className="list-inside list-disc pl-5 py-1 text-muted-foreground">
+            <li>PayPal</li>
+            <li>Debit & Credit cards, using Stripe as a payment gateway</li>
+            <li>Direct bank transfers</li>
+            <li>Cash, delivered by mail</li>
+          </ul>
+          <p className="py-1 text-muted-foreground">
+            {`Prices listed on the provider’s websites and advertisements may
+              change at any time, by any amount without prior notice.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`All prices are as offered, with the applicable tax included negliant of the client’s location.`}
+          </p>
+
+          {/* Subsection: Refunds */}
+          <h3 className="font-semibold text-lg mt-4 uppercase">Refunds</h3>
+          <p className="py-1 text-muted-foreground">
+            {` A refund of the services; “Minecraft” which the provider offers is applicable in cases where 30 days or less have passed since the purchase.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`Refunds applicable to any service depending on the guarantees defined by Service Level Agreement, said applicable refund is found as defined there. The Service Level Agreement therefore voids the prior two paragraphs of the Commerce (2) section.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`The use of chargebacks, disputes is heavily discouraged and by the following term will be considered a violation of the terms.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`In the event of a chargeback shall the provider terminate the relationship under caution and in regard towards the lack of communication for proper refund by the client. The outcome of the dispute has no effect or change on the relationship, it shall be terminated before then. Furthermore is the outcome of the dispute is negligible towards the relationship.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`The company perceives itself liable if the dispute is made under the accurate claim of billing errors or service related issues, and therefore if the provider pleads, under the provider’s Service Level Agreement, and said liable in turn has inherent the negligibility of termination.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`Additional or add-on purchases, which are extensions of prior or simultaneously purchased services can and will only be refunded in where the service itself has refund eligibility.`}
+          </p>
+
+          {/* Subsection: Failure of Payment */}
+          <h3 className="font-semibold text-lg mt-4 uppercase">
+            Failure of Payment
+          </h3>
+          <p className="py-1 text-muted-foreground">
+            {`In the event where an invoice has been overdue for over 3 days the service(s) will be terminated. Within those 3 days the service was suspended, meaning it was inaccessible to the client but a simple completion of payment could get it reinstated.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`A client indebted to the provider with no sight or promise of repayment grants the provider the right to send contract, service and account information of the relationship in which the debt was entitled to a debt collection agency of their choice.`}
+          </p>
+          {/* Privacy Disclaimer */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">Commerce</h1>
+          <p className="py-1 text-muted-foreground">
+            {`In regards to privacy and or data protection shall the client look to the provider’s Privacy Policy, which inherits definition from all adjacent documents which are the Service Level Agreement, Terms of Service and Acceptable Use Policy.`}
+          </p>
+
+          {/* Prohibited Usage of Service */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Prohibited Usage of Service
+          </h1>
+          <p className="py-1 text-muted-foreground">
+            {`Foxomy services and products are subject to an Acceptable Use Policy.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`For information on any fraudulent or prohibited usage of service please refer to the Acceptable Use Policy, found at https://foxomy.com/aup.`}
+          </p>
+
+          {/* Copyright */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">Copyright</h1>
+          <p className="py-1 text-muted-foreground">
+            {`The copyright law of the United States is and of effect within all services the provider offers in addition to the copyright law of the service’s location.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`Violation of any of the aforementioned copyright laws will be dealt with in the form of content removal requests, suspension and or termination of service and or account.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`Repeated or vigilant plagiarization or infringement of intellectual property may result in legal proceedings by any party. If said party is of participation in the current contract shall it apply to the relationship definitions and governing factors as aforedefined. Conversely if said prosecuting party is not of the contract shall the client vow by the liabilities of the relationship to take said liability unless the provider pleads.`}
+          </p>
+          {/* Alterations to the Terms */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Alterations to the Terms
+          </h1>
+          <p className="py-1 text-muted-foreground">
+            {`Changes to be or have been made to any document amended by Foxomy including the current shall not require any notification to the other parties, it is under their duty to make sure their acknowledgement of any terms is correct at all times.`}
+          </p>
+          {/* Intellectual Property of the Provider */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Intellectual Property of the Provider
+          </h1>
+          <p className="py-1 text-muted-foreground">
+            {`The Foxomy Logo and name are protected under unregistered trademark rights or general unregistered intellectual property. You may not use neither the name nor logo for commercial purposes merely related to the ones of Foxomy operations.`}
+          </p>
+          <p className="py-1 text-muted-foreground">
+            {`The domains of the provider are, order is of no effect; Foxomy.com, Any additional domains redirected to any asset of the provider is not of its ownership and therefore does not inherit any of its liability nor the reputation of the domain’s name.`}
+          </p>
+          {/* Imprint */}
+          <h1 className="font-semibold text-2xl mt-4 uppercase">Imprint</h1>
+          {data?.addresses &&
+            Object.values(data.addresses).map(
+              (address: AddressDetail, idx: number) => (
+                <div key={idx} className="text-muted-foreground">
+                  <h3 className="font-semibold text-lg mt-4 uppercase">
+                    {address.title}
+                  </h3>
+                  <p className="py-1 text-muted-foreground">
                     {address.name}
                     <br />
                     {address.address.map((line: string, lineIdx: number) => (
@@ -113,43 +234,21 @@ export default function terms() {
                         <br />
                       </span>
                     ))}
-                  </div>
-                )
-              )}
-          </div>
-
-          <p className="py-3 text-muted-foreground italic">
-            <strong>Visitor Policy:</strong>
+                  </p>
+                </div>
+              )
+            )}
+          <p className="py-1 text-muted-foreground">
+            {data?.protectedInfo.dpo.title}: {data?.protectedInfo.dpo.name}
             <br />
-            Our premises are protected by security and surveillance. Personal
-            visits are strictly prohibited and access will be denied. In rare
-            occasions, visitors may be approved through a rigorous process of
-            evaluation and coordination. Please do not attempt to visit the
-            premises without prior approval. For all inquiries and
-            correspondence, we request you to use mail or the email addresses
-            provided below.
+            {data?.protectedInfo.inquries.title}:{" "}
+            {data?.protectedInfo.inquries.name}
+            <br />
+            Website: {data?.protectedInfo.website}
           </p>
-          <p className="text-muted-foreground">
-            <strong>Email Contacts:</strong>
-            <br />
-            General Inquiries: support+bun5@domain-of-this-website
+          <p className="py-1 text-muted-foreground">
+            {`This document may be updated at any time with or without notice to ensure the provider has the ability to keep these terms accurate and up-to-date. This is defined under the section “Alterations to the terms” and should this notice contradict the statement found under the section "Alterations to the terms" then this statement is to be ignored.`}
           </p>
-
-          <p className="text-muted-foreground py-6">
-            <strong>{data?.protectedInfo.companyDetails.title}</strong>
-            <br />
-            {data?.protectedInfo.companyDetails.entityInfo}
-            <br />
-            {data?.protectedInfo.companyDetails.entityType}
-          </p>
-          <p className="text-muted-foreground italic">
-            <strong>{data?.protectedInfo.usagePolicy.title}</strong>
-            <br />
-            {data?.protectedInfo.usagePolicy.description}
-          </p>
-
-          <p className="font-semibold text-xl mt-4">NOTE</p>
-          <p className="py-3 text-muted-foreground">{`This document may be updated at any time to ensure accuracy, as defined under the section "Changes to Terms."`}</p>
         </div>
       </div>
     </>

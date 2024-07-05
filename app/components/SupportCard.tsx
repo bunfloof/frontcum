@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { DiscordJoinDialog } from "./DiscordJoinDialog";
 export function SupportCard() {
   const [copyButtonText, setCopyButtonText] = useState<string>("Copy username");
   const username = "furcon";
@@ -98,14 +99,11 @@ export function SupportCard() {
                               Join the community Discord server to chat with the
                               community and get help from other members.
                             </div>
-
-                            <Button
-                              variant="secondary"
-                              className="p-1"
-                              onClick={handleJoinDiscordServer}
-                            >
-                              Join Discord server
-                            </Button>
+                            <DiscordJoinDialog discordLink="https://discord.gg/uQkn7vVqj6">
+                              <Button variant="secondary" className="p-1">
+                                Join Discord server
+                              </Button>
+                            </DiscordJoinDialog>
                           </div>
                         </div>
 

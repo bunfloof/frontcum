@@ -18,7 +18,29 @@ import WebSection from "./components/OtherSection";
 import MissionSection from "./components/FasterSection";
 import DDoSSection from "./components/DDoSSection";
 import ProofSection from "./components/ProofSection";
+import { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: "Foxomy",
+  description:
+    "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
+  openGraph: {
+    siteName: "Foxomy",
+    title:
+      "Minecraft Hosting + Game Servers + Web Hosting",
+    description:
+      "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
+    images: ["https://foxomy.com/images/webthumbnail.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Minecraft Hosting + Game Servers + Web Hosting",
+    description:
+      "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
+    images: ["https://foxomy.com/images/webthumbnail.jpg"],
+  },
+}
 function SectionWithGrid({ children }: { children: React.ReactNode }) {
   const gridBackgroundStyle = {
     position: "absolute" as const,

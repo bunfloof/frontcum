@@ -12,6 +12,7 @@ import { Checkbox } from "@radix-ui/themes";
 import { Badge } from "@radix-ui/themes";
 import * as Popover from "@radix-ui/react-popover";
 import { Separator } from "@/components/ui/separator";
+import { DiscordJoinDialog } from "../components/DiscordJoinDialog";
 
 import {
   Table,
@@ -39,6 +40,10 @@ type HostingCompany = {
   "Subdomain Creator": string;
   "BIPOC owned": string;
   "Price per GB in USD": string;
+};
+
+type PingResultsType = {
+  [key: string]: number;
 };
 
 const hostingCompanies: { [key: string]: HostingCompany } = {
@@ -92,9 +97,11 @@ export default function Minecraft() {
     useState<LocationType | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
-  const [pingResults, setPingResults] = useState<PingResultType>({});
+  const [pingResults, setPingResults] = useState<PingResultsType>({});
+  const [pingHistories, setPingHistories] = useState<{
+    [key: string]: number[];
+  }>({});
 
-  /* Pop over */
   const [copyButtonText, setCopyButtonText] = useState<string>("Copy username");
   const discordUsername = "furcon";
   const telegramURL = "https://t.me/bun2003";
@@ -1656,10 +1663,6 @@ export default function Minecraft() {
     CPUcontent?: string;
   };
 
-  type PingResultType = {
-    [key: string]: number;
-  };
-
   const locations: LocationType[] = [
     {
       codename: "eseg-premium",
@@ -1701,7 +1704,7 @@ export default function Minecraft() {
       codename: "fra-premium",
       name: "Frankfurt, Germany",
       flag: "/images/deflag.svg",
-      wsUrl: process.env.NEXT_PUBLIC_HELSINKI_WSS_URI,
+      wsUrl: process.env.NEXT_PUBLIC_FRANKFURT_WSS_URI,
       outOfStock: false,
       content: "Premium ($2/GB)",
       CPUcontent: "Intel Core i9-14900KS",
@@ -1803,37 +1806,73 @@ export default function Minecraft() {
     setSelectedCard(card);
   };
 
-  const getPing = async (wsUrl: string): Promise<number> => {
+  const setupWebSocket = (wsUrl: string, codename: string) => {
     const ws = new WebSocket(wsUrl);
-    return new Promise<number>((resolve) => {
-      ws.onopen = () => {
-        const start = Date.now();
+
+    ws.onopen = () => {
+      const sendPing = () => {
+        const start = performance.now();
         ws.send("p");
-        ws.onmessage = () => {
-          const duration = Date.now() - start;
-          resolve(duration);
-          ws.close();
+
+        const handleMessage = () => {
+          const duration = performance.now() - start;
+          const ping = duration;
+          setPingHistories((prev) => {
+            const updatedHistory = {
+              ...prev,
+              [codename]: [...(prev[codename] || []), ping].slice(-10),
+            };
+            const iqmPing = calculateIQM(updatedHistory[codename]);
+            setPingResults((prevResults) => ({
+              ...prevResults,
+              [codename]: iqmPing,
+            }));
+            return updatedHistory;
+          });
         };
+
+        ws.onmessage = handleMessage;
       };
-      ws.onerror = () => {
-        resolve(Infinity); // If there's an error, return Infinity to represent an unreachable server.
+
+      const pingInterval = setInterval(sendPing, 1000);
+      const reconnectInterval = setInterval(() => {
+        ws.close();
+        clearInterval(pingInterval);
+        setupWebSocket(wsUrl, codename);
+      }, 60000); // Reconnect every 1 minute
+
+      ws.onclose = () => {
+        clearInterval(pingInterval);
+        clearInterval(reconnectInterval);
       };
-    });
+    };
+
+    ws.onerror = () => {
+      console.error(`WebSocket error for ${codename}`);
+    };
+  };
+
+  const calculateIQM = (values: number[]): number => {
+    const sorted = [...values].sort((a, b) => a - b);
+    const quartile = Math.floor(sorted.length / 4);
+    const middleValues = sorted.slice(quartile, sorted.length - quartile);
+    const sum = middleValues.reduce((acc, val) => acc + val, 0);
+    return sum / middleValues.length;
   };
 
   useEffect(() => {
-    locations.forEach(async (location) => {
+    locations.forEach((location) => {
       if (location.wsUrl) {
-        const pings = [];
-        for (let i = 0; i < 3; i++) {
-          pings.push(await getPing(location.wsUrl));
-        }
-
-        const avgPing = pings.reduce((a, b) => a + b) / pings.length;
-        setPingResults((prev) => ({ ...prev, [location.codename]: avgPing }));
+        setupWebSocket(location.wsUrl, location.codename);
       }
     });
   }, []);
+
+  const formatPing = (ping: number): string => {
+    const pingStr = ping.toString();
+    const decimalIndex = pingStr.indexOf(".");
+    return decimalIndex === -1 ? pingStr : pingStr.slice(0, decimalIndex + 3); // Truncate to two decimal places without rounding
+  };
 
   return (
     <>
@@ -1923,13 +1962,11 @@ export default function Minecraft() {
                             community and get help from other members.
                           </div>
 
-                          <Button
-                            variant="secondary"
-                            className="p-1"
-                            onClick={handleJoinDiscordServer}
-                          >
-                            Join Discord server
-                          </Button>
+                          <DiscordJoinDialog discordLink="https://discord.gg/uQkn7vVqj6">
+                            <Button variant="secondary" className="p-1">
+                              Join Discord server
+                            </Button>
+                          </DiscordJoinDialog>
                         </div>
                       </div>
 
@@ -2116,9 +2153,9 @@ export default function Minecraft() {
                         </CardHeader>
                         <CardContent>
                           <p className="text-sm font-medium text-teal-500">
-                            {pingResults[location.codename]
-                              ? `${pingResults[location.codename].toFixed(
-                                  2
+                            {pingResults[location.codename] !== undefined
+                              ? `${formatPing(
+                                  pingResults[location.codename]
                                 )} ms`
                               : "Pinging..."}
                           </p>

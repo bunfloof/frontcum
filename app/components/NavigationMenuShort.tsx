@@ -119,7 +119,7 @@ export function NavigationMenuShort() {
                 </button>
               </Link>
             </div>
-            <div className="px-1 py-1 ">
+            {/* <div className="px-1 py-1 ">
               <Link href="/about-us">
                 <button className="hover:bg-teal-100/10 transition-colors group flex w-full items-center rounded-md px-2 py-2 text-sm">
                   <svg
@@ -134,7 +134,7 @@ export function NavigationMenuShort() {
                   About Us
                 </button>
               </Link>
-            </div>
+            </div> */}
             <div className="px-1 py-1 ">
               <Link href="https://foxomy.com/billing/login">
                 <button className="hover:bg-teal-100/10 transition-colors group flex w-full items-center rounded-md px-2 py-2 text-sm">

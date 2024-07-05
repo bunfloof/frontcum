@@ -11,27 +11,13 @@ import ProgressBar from "./ProgressBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Foxomy",
+  title: {
+    default: "Foxomy",
+    template: "%s | Foxomy",
+  },
   description:
     "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
   viewport: "width=device-width, initial-scale=1",
-  openGraph: {
-    siteName: "Foxomy",
-    title:
-      "Minecraft Hosting + Game Servers + Web Hosting + Bare Metal + Colocation - DDoS Protection",
-    description:
-      "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
-    images: ["https://foxomy.com/images/12-transferforfree.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "Minecraft Hosting + Game Servers + Web Hosting + Bare Metal + Colocation - DDoS Protection",
-    description:
-      "Get hosting services with 24x7x365 power and uptime guarantees, top-of-the-line equipment, and round-the-clock customer support.",
-
-    images: ["https://foxomy.com/images/12-transferforfree.jpg"],
-  },
 };
 
 export default function RootLayout({
@@ -41,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} flex flex-col min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ProgressBar
             height="2px"
@@ -49,7 +35,7 @@ export default function RootLayout({
             options={{ showSpinner: false }}
           />
           <NavigationMenuHandler />
-          {children}
+          <main className="flex flex-grow flex-col">{children}</main>
         </ThemeProvider>
         <Footer />
       </body>
