@@ -60,6 +60,7 @@ export default function MinecraftServerStatus() {
   const playerChartInstance = useRef<Chart | null>(null);
   const [livePlayerUpdate, setLivePlayerUpdate] = useState(true);
   const [currentPlayers, setCurrentPlayers] = useState<Player[]>([]);
+  const latestRequestRef = useRef<number>(0);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -200,8 +201,11 @@ export default function MinecraftServerStatus() {
       setFeedbackType("error");
       return;
     }
+
     setHasSubmitted(true);
     setLoading(true);
+
+    const currentRequest = ++latestRequestRef.current;
 
     try {
       const [address, port] = value.split(":");
@@ -298,23 +302,29 @@ export default function MinecraftServerStatus() {
         processedData.isp = ipInfoData.asn?.name || "Unknown";
       }
 
-      setServerInfo(processedData);
-      setFeedbackMessage(`Successfully fetched server info for ${value}`);
-      setFeedbackType("success");
+      if (currentRequest === latestRequestRef.current) {
+        setServerInfo(processedData);
+        setFeedbackMessage(`Successfully fetched server info for ${value}`);
+        setFeedbackType("success");
 
-      const newUrl = `${window.location.pathname}?address=${encodeURIComponent(
-        value
-      )}`;
-      window.history.pushState({ path: newUrl }, "", newUrl);
+        const newUrl = `${
+          window.location.pathname
+        }?address=${encodeURIComponent(value)}`;
+        window.history.pushState({ path: newUrl }, "", newUrl);
+      }
     } catch (error) {
-      console.error(`Error fetching server information:`, error);
-      setServerInfo(null);
-      setFeedbackMessage(
-        error instanceof Error ? error.message : "Failed to fetch server data"
-      );
-      setFeedbackType("error");
+      if (currentRequest === latestRequestRef.current) {
+        console.error(`Error fetching server information:`, error);
+        setServerInfo(null);
+        setFeedbackMessage(
+          error instanceof Error ? error.message : "Failed to fetch server data"
+        );
+        setFeedbackType("error");
+      }
     } finally {
-      setLoading(false);
+      if (currentRequest === latestRequestRef.current) { // only set loading to false if latest req
+        setLoading(false);
+      }
     }
   };
 
