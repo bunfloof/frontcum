@@ -896,10 +896,10 @@ export default function Dedicated() {
       <div className="flex justify-center mt-20">
         <div className="container mx-auto my-auto mt-15">
           <p className="font-semibold text-3xl sm:text-5xl text-center">
-            AS200360
+            AS
           </p>
           <p className="py-5 text-2xl text-center text-muted-foreground">
-            BunArcticFloof
+            DFW Datacenter
           </p>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
