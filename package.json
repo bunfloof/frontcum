@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8901",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -47,6 +47,7 @@
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-photoswipe-gallery": "^3.0.2",
     "react-slick": "^0.29.0",
     "react-youtube": "^10.1.0",
     "slick-carousel": "^1.8.1",

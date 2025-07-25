@@ -1,13 +1,13 @@
-"use client";
-import * as Tooltip from "@radix-ui/react-tooltip";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { Tabs } from "@radix-ui/react-tabs";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import SupportCard from "../components/SupportCard";
-import Link from "next/link";
+'use client'
+import * as Tooltip from '@radix-ui/react-tooltip'
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
+import { Tabs } from '@radix-ui/react-tabs'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Slider from 'react-slick'
+import SupportCard from '../components/SupportCard'
+import Link from 'next/link'
 
 import {
   Table,
@@ -17,7 +17,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table'
 
 import {
   Card,
@@ -25,10 +25,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from '@/components/ui/card'
 
-import { useRef, useState } from "react";
-import { StringToBoolean } from "class-variance-authority/types";
+import { useRef, useState } from 'react'
+import { StringToBoolean } from 'class-variance-authority/types'
 
 const MarkerSVG = (
   <svg fill="none" viewBox="0 0 15 15" height="2em" width="2em">
@@ -37,144 +37,144 @@ const MarkerSVG = (
       d="M9.875 7.5a2.375 2.375 0 11-4.75 0 2.375 2.375 0 014.75 0z"
     />
   </svg>
-);
+)
 
 export default function Minecraft() {
-  const [location, setLocation] = useState<string | null>(null);
-  const [planSize, setPlanSize] = useState<string | null>(null);
-  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
-  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
-  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+  const [location, setLocation] = useState<string | null>(null)
+  const [planSize, setPlanSize] = useState<string | null>(null)
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
+  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null)
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([])
 
   type Plan = {
-    id: string;
-    locationtag: string;
-    location: string;
-    ram: string;
-    addondomains: string;
-    subdomains: string;
-    price: string;
-    storage: string;
-    link: string;
-    whmcspid: string;
-  };
+    id: string
+    locationtag: string
+    location: string
+    ram: string
+    addondomains: string
+    subdomains: string
+    price: string
+    storage: string
+    link: string
+    whmcspid: string
+  }
 
   const plans: Plan[] = [
     {
-      id: "jax10web",
-      locationtag: "jax",
-      location: "Jacksonville, Florida",
-      ram: "1 GB",
-      addondomains: "1",
-      subdomains: "3",
-      price: "$2",
-      storage: "10 GB",
-      link: "https://example.com",
-      whmcspid: "36",
+      id: 'jax10web',
+      locationtag: 'jax',
+      location: 'Jacksonville, Florida',
+      ram: '1 GB',
+      addondomains: '1',
+      subdomains: '3',
+      price: '$2',
+      storage: '10 GB',
+      link: 'https://example.com',
+      whmcspid: '36',
     },
     {
-      id: "jax20web",
-      locationtag: "jax",
-      location: "Jacksonville, Florida",
-      ram: "2 GB",
-      addondomains: "2",
-      subdomains: "Unlimited",
-      price: "$4",
-      storage: "20 GB",
-      link: "https://example.com",
-      whmcspid: "37",
+      id: 'jax20web',
+      locationtag: 'jax',
+      location: 'Jacksonville, Florida',
+      ram: '2 GB',
+      addondomains: '2',
+      subdomains: 'Unlimited',
+      price: '$4',
+      storage: '20 GB',
+      link: 'https://example.com',
+      whmcspid: '37',
     },
     {
-      id: "jax30web",
-      locationtag: "jax",
-      location: "Jacksonville, Florida",
-      ram: "3 GB",
-      addondomains: "3",
-      subdomains: "Unlimited",
-      price: "$6",
-      storage: "30 GB",
-      link: "https://example.com",
-      whmcspid: "38",
+      id: 'jax30web',
+      locationtag: 'jax',
+      location: 'Jacksonville, Florida',
+      ram: '3 GB',
+      addondomains: '3',
+      subdomains: 'Unlimited',
+      price: '$6',
+      storage: '30 GB',
+      link: 'https://example.com',
+      whmcspid: '38',
     },
     {
-      id: "jax40web",
-      locationtag: "jax",
-      location: "Jacksonville, Florida",
-      ram: "3 GB",
-      addondomains: "4",
-      subdomains: "Unlimited",
-      price: "$8",
-      storage: "40 GB",
-      link: "https://example.com",
-      whmcspid: "39",
+      id: 'jax40web',
+      locationtag: 'jax',
+      location: 'Jacksonville, Florida',
+      ram: '3 GB',
+      addondomains: '4',
+      subdomains: 'Unlimited',
+      price: '$8',
+      storage: '40 GB',
+      link: 'https://example.com',
+      whmcspid: '39',
     },
     {
-      id: "jaxunlweb",
-      locationtag: "jax",
-      location: "Jacksonville, Florida",
-      ram: "3 GB",
-      addondomains: "Unlimited",
-      subdomains: "Unlimited",
-      price: "$10",
-      storage: "Unmetered",
-      link: "https://example.com",
-      whmcspid: "40",
+      id: 'jaxunlweb',
+      locationtag: 'jax',
+      location: 'Jacksonville, Florida',
+      ram: '3 GB',
+      addondomains: 'Unlimited',
+      subdomains: 'Unlimited',
+      price: '$10',
+      storage: 'Unmetered',
+      link: 'https://example.com',
+      whmcspid: '40',
     },
-  ];
+  ]
 
   type Addon = {
-    name: string;
-    price: string;
-    description: string;
-    urlparams: string;
-  };
+    name: string
+    price: string
+    description: string
+    urlparams: string
+  }
 
   const toggleAddon = (addonName: string) => {
     setSelectedAddons((prevSelected) =>
       prevSelected.includes(addonName)
         ? prevSelected.filter((a) => a !== addonName)
         : [...prevSelected, addonName]
-    );
-  };
+    )
+  }
 
   const getTotalPrice = () => {
-    let total = 0;
+    let total = 0
 
     if (selectedPlan && selectedPlan.price) {
-      total = parseFloat(selectedPlan.price.replace("$", ""));
+      total = parseFloat(selectedPlan.price.replace('$', ''))
     }
 
-    return `$${total.toFixed(2)}`;
-  };
+    return `$${total.toFixed(2)}`
+  }
 
   /* Location Selector */
   type LocationType = {
-    codename: string;
-    name: string;
-    flag: string;
-  };
+    codename: string
+    name: string
+    flag: string
+  }
 
   const locations: LocationType[] = [
     {
-      codename: "jax1",
-      name: "Jacksonville, Florida",
-      flag: "/images/usflag.svg",
+      codename: 'jax1',
+      name: 'Jacksonville, Florida',
+      flag: '/images/usflag.svg',
     },
     // Add more locations as needed
-  ];
+  ]
 
-  const WHMCSLink = `https://foxomy.com/billing/cart.php?a=add&pid=${selectedPlan?.whmcspid}`;
+  const WHMCSLink = `https://foxomy.com/billing/cart.php?a=add&pid=${selectedPlan?.whmcspid}`
 
   const handleOpenWHMCSLink = () => {
-    window.open(WHMCSLink, "_self");
-  };
+    window.open(WHMCSLink, '_self')
+  }
 
   /* End Location Selector */
 
   /* Start carousel */
 
-  const [activeTab, setActiveTab] = useState(0);
-  const sliderRef = useRef<typeof Slider | null>(null);
+  const [activeTab, setActiveTab] = useState(0)
+  const sliderRef = useRef<typeof Slider | null>(null)
 
   const settings = {
     dots: false,
@@ -183,45 +183,45 @@ export default function Minecraft() {
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: (current: number) => setActiveTab(current),
-  };
+  }
   const images = [
-    "/images/cpanel1.png",
-    "/images/cpanel2.png",
-    "/images/cpanel3.png",
-    "/images/jetbackup.png",
-    "/images/nodeapp.png",
-    "/images/pythonapp.png",
-    "/images/softaculous.png",
-  ];
+    '/images/cpanel1.png',
+    '/images/cpanel2.png',
+    '/images/cpanel3.png',
+    '/images/jetbackup.png',
+    '/images/nodeapp.png',
+    '/images/pythonapp.png',
+    '/images/softaculous.png',
+  ]
 
   const handleTabClick = (index: number) => {
-    setActiveTab(index);
+    setActiveTab(index)
     if (sliderRef.current) {
-      sliderRef.current.slickGoTo(index);
+      sliderRef.current.slickGoTo(index)
     }
-  };
+  }
 
   /* End Carousel */
 
   /* Start Networks */
 
-  type CardType = "AS11721";
+  type CardType = 'AS11721'
 
-  const [selectedCard, setSelectedCard] = useState("AS11721");
+  const [selectedCard, setSelectedCard] = useState('AS11721')
 
   const handleCardClick = (card: CardType) => {
-    setSelectedCard(card);
-  };
+    setSelectedCard(card)
+  }
 
   return (
     <>
       <div
         style={{
           backgroundImage:
-            "linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/whalecum.jpg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "top center",
+            'linear-gradient(to top, hsl(var(--background)), rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(/images/whalecum.jpg)',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'top center',
         }}
         className="pt-10"
       >
@@ -255,8 +255,8 @@ export default function Minecraft() {
                     key={index}
                     className={`hover:bg-muted/50 transition-colors cursor-pointer ${
                       selectedLocation === location.name
-                        ? " bg-teal-100/10 border-teal-500"
-                        : ""
+                        ? ' bg-teal-100/10 border-teal-500'
+                        : ''
                     }`}
                     onClick={() => setSelectedLocation(location.name)}
                   >
@@ -293,15 +293,15 @@ export default function Minecraft() {
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "17.93%", top: "30.1%" }}
+                  style={{ left: '17.93%', top: '30.1%' }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation === "Jacksonville, Florida"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation === 'Jacksonville, Florida'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -315,7 +315,7 @@ export default function Minecraft() {
                       >
                         Jacksonville
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -336,7 +336,7 @@ export default function Minecraft() {
                 }
 
                 .selectedMarker::before {
-                  content: "";
+                  content: '';
                   position: absolute;
                   left: 50%;
                   top: 50%;
@@ -365,7 +365,7 @@ export default function Minecraft() {
                 }
 
                 .marker::before {
-                  content: "";
+                  content: '';
                   position: absolute;
                   left: 50%;
                   top: 50%;
@@ -411,8 +411,8 @@ export default function Minecraft() {
                         key={index}
                         className={`relative hover:bg-muted/50 transition-colors cursor-pointer ${
                           selectedPlan?.id === plan.id
-                            ? "bg-teal-100/10 border-teal-500 transition-colors"
-                            : ""
+                            ? 'bg-teal-100/10 border-teal-500 transition-colors'
+                            : ''
                         }`}
                         onClick={() => setSelectedPlan(plan)}
                       >
@@ -423,9 +423,9 @@ export default function Minecraft() {
                           <CardTitle>
                             <span className="text-lg font-bold">
                               {plan.storage}
-                            </span>{" "}
+                            </span>{' '}
                             <span className="text-sm text-muted-foreground">
-                              {plan.storage === "Unmetered" ? "" : "of"} storage
+                              {plan.storage === 'Unmetered' ? '' : 'of'} storage
                             </span>
                           </CardTitle>
                         </CardHeader>
@@ -433,20 +433,20 @@ export default function Minecraft() {
                           <div className="pb-2">
                             <span className="text-md pb-1 font-medium">
                               {plan.price}
-                            </span>{" "}
+                            </span>{' '}
                             <span className="text-sm font-medium text-muted-foreground">
                               per month
                             </span>
                           </div>
                           <p className="text-sm font-medium text-muted-foreground">
-                            {plan.storage}{" "}
-                            {plan.storage === "Unmetered" ? "" : "of"} storage
+                            {plan.storage}{' '}
+                            {plan.storage === 'Unmetered' ? '' : 'of'} storage
                             <br />
                             {plan.addondomains} Addon domain
-                            {Number(plan.addondomains) > 1 ? "s" : ""}
+                            {Number(plan.addondomains) > 1 ? 's' : ''}
                             <br />
                             {plan.subdomains} Subdomain
-                            {Number(plan.subdomains) > 1 ? "s" : ""}
+                            {Number(plan.subdomains) > 1 ? 's' : ''}
                           </p>
                         </CardContent>
                       </Card>
@@ -546,5 +546,5 @@ export default function Minecraft() {
         </div>
       </div>
     </>
-  );
+  )
 }

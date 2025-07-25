@@ -1,10 +1,10 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import * as React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
 import {
   NavigationMenu,
@@ -14,13 +14,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from '@/components/ui/navigation-menu'
 
 const gameServers: {
-  title: string;
-  href: string;
-  description?: string;
-  gameIcon?: string;
+  title: string
+  href: string
+  description?: string
+  gameIcon?: string
 }[] = [
   // {
   //   title: "7 Days to Die",
@@ -67,9 +67,9 @@ const gameServers: {
   //   href: "/game",
   // },
   {
-    title: "Minecraft",
-    href: "/game",
-    gameIcon: "/gameIcons/minecraftgrassblock.png",
+    title: 'Minecraft',
+    href: '/game',
+    gameIcon: '/gameIcons/minecraftgrassblock.png',
   },
   // {
   //   title: "Mordhau",
@@ -127,97 +127,109 @@ const gameServers: {
   //   title: "Valheim",
   //   href: "/game",
   // },
-];
+]
 
 const cloudHosting: {
-  title: string;
-  href: string;
-  description?: string;
-  gameIcon?: string;
+  title: string
+  href: string
+  description?: string
+  gameIcon?: string
 }[] = [
   {
-    title: "Discord Bot Hosting (NodeJS/Python)",
-    href: "/coming-soon",
+    title: 'Discord Bot Hosting (NodeJS/Python)',
+    href: '/coming-soon',
   },
   {
-    title: "Dedicated Servers",
-    href: "/coming-soon",
+    title: 'Dedicated Servers',
+    href: '/coming-soon',
   },
   {
-    title: "Web Hosting (cPanel)",
-    href: "/coming-soon",
-  },
-];
-
-const Resources: {
-  title: string;
-  href: string;
-  description?: string;
-  gameIcon?: string;
-}[] = [
-  {
-    title: "Minecraft Server Status",
-    href: "/minecraftserverstatus",
-    gameIcon: "/resourceIcons/minecraftsignal.png",
-  },
-  {
-    title: "IP Location Lookup",
-    href: "/ipgeolocationlookup",
-    gameIcon: "/resourceIcons/pin1.svg",
+    title: 'Web Hosting (cPanel)',
+    href: '/coming-soon',
   },
 ]
-const LoginDropdown: {
-  title: string;
-  href: string;
-  description?: string;
-  gameIcon?: string;
+
+const Resources: {
+  title: string
+  href: string
+  description?: string
+  gameIcon?: string
 }[] = [
   {
-    title: "Billing (WHMCS1)",
-    href: "https://foxomy.com/billing/login",
+    title: 'Minecraft Server Status',
+    href: '/minecraftserverstatus',
+    gameIcon: '/resourceIcons/minecraftsignal.png',
   },
   {
-    title: "cPanel (us1.rap)",
-    href: "https://cpanel.furweb.com:2083/",
+    title: 'IP Location Lookup',
+    href: '/ipgeolocationlookup',
+    gameIcon: '/resourceIcons/pin1.svg',
+  },
+]
+
+const Services: {
+  title: string
+  href: string
+  description?: string
+  gameIcon?: string
+}[] = [
+  {
+    title: 'Ceph Storage',
+    href: '/ceph-storage'
+  }
+]
+const LoginDropdown: {
+  title: string
+  href: string
+  description?: string
+  gameIcon?: string
+}[] = [
+  {
+    title: 'Billing (WHMCS1)',
+    href: 'https://foxomy.com/billing/login',
   },
   {
-    title: "Pterodactyl 2 (panel2.fox)",
-    href: "https://panel2.foxomy.com",
+    title: 'cPanel (us1.rap)',
+    href: 'https://cpanel.furweb.com:2083/',
   },
   {
-    title: "Pterodactyl 1 (panel.fox)",
-    href: "https://panel.foxomy.com",
+    title: 'Pterodactyl 2 (panel2.fox)',
+    href: 'https://panel2.foxomy.com',
   },
-];
+  {
+    title: 'Pterodactyl 1 (panel.fox)',
+    href: 'https://panel.foxomy.com',
+  },
+]
 
 export function NavigationMenuWide() {
-  const [activeItem, setActiveItem] = React.useState("");
-  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [activeItem, setActiveItem] = React.useState('')
+  const [isScrolled, setIsScrolled] = React.useState(false)
   React.useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 0;
+      const show = window.scrollY > 0
       if (show) {
-        setIsScrolled(true);
+        setIsScrolled(true)
       } else {
-        setIsScrolled(false);
+        setIsScrolled(false)
       }
-    };
+    }
 
-    document.addEventListener("scroll", handleScroll);
+    document.addEventListener('scroll', handleScroll)
     return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   const closeSubMenu = () => {
-    setActiveItem("");
-  };
+    setActiveItem('')
+  }
 
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false)
 
   return (
     <nav
       className={`fixed top-0 w-full h-16 z-50 border-b border-transparent transition-colors duration-300 ease-in-out ${
-        isScrolled ? "border-zinc-50/5" : ""
+        isScrolled ? 'border-zinc-50/5' : ''
       } flex items-center justify-center px-8 py-4 backdrop-blur bg-zinc/50`}
     >
       <div className="w-full flex flex-row justify-between items-center py-4 px-10 mx-auto container">
@@ -234,7 +246,7 @@ export function NavigationMenuWide() {
                 height="36"
                 version="1.1"
                 viewBox="0 0 210 210"
-                fill={isHovered ? "rgb(161,161,170)" : "currentColor"}
+                fill={isHovered ? 'rgb(161,161,170)' : 'currentColor'}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="m81.854 171.68c-51.546-5.4939-72.446-73.163-31.859-103.15l1.6113-1.1906 0.31351-2.5135c1.4879-11.929 5.947-23.354 11.09-28.414l1.3153-1.2941 0.83087 0.89721c2.8391 3.0658 6.5906 10.398 8.6031 16.815l0.51136 1.6305 1.3304 0.16768c0.7317 0.09223 2.4388 0.44186 3.7935 0.77696l2.4632 0.60927 0.67698-1.3491c3.0642-6.1066 12.093-13.24 14.71-11.623 0.96747 6.0124-2.6133 17.888-0.37131 20.341 1.0166 1.1123 1.9681 2.7392 3.8998 6.6682 4.4114 8.9724 8.6785 12.293 17.624 13.713 4.3124 0.68462 6.5724 2.6542 5.4226 4.7256-2.9401 5.2962-9.8157 8.0924-20.562 8.3624-53.108 1.3345 11.19 61.284 11.19 61.284s-81.77-48.37-20.662-51.242c11.238-4e-3 21.159 3.3794 29.052 9.9088 14.869 12.301 34.29 11.245 43.66-2.3744 3.554-5.1655 4.7844-14.74 2.473-19.243-1.059-2.0633 2.4886 1.4859 4.9734 4.9755 18.977 26.651 6.2407 64.105-24.176 71.099-2.6741 0.61486-62.609 0.98774-67.912 0.42251zm8.4734-91.446c-2.3916-4.4637-7.8859-5.8288-11.705-2.9081-1.5465 1.1828-1.5396 1.4037 0.04063 1.2942 2.186-0.15144 6.5814 0.47678 8.8507 1.265 2.6394 0.91676 3.1515 0.98028 2.8132 0.34891z" />
@@ -337,6 +349,25 @@ export function NavigationMenuWide() {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+                {/* <NavigationMenuItem className="relative">
+                  <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                  <NavigationMenuContent className="absolute">
+                    <ul className="grid w-[500px] p-4 md:w-[500px] lg:w-[500px] ">
+                      {Services.map((Services) => (
+                        <ListItem
+                          value={Services.title}
+                          onClick={closeSubMenu}
+                          key={Services.title}
+                          gameIcon={Services.gameIcon}
+                          href={Services.href}
+                          title={Services.title}
+                        >
+                          {Services?.description}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem> */}
                 {/* <NavigationMenuItem>
                   <Link href="/about-us" legacyBehavior passHref>
                     <NavigationMenuLink
@@ -397,17 +428,17 @@ export function NavigationMenuWide() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
 const ListItem = React.forwardRef<
   HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<"a"> & {
-    href: string;
-    title: string;
-    gameIcon?: string;
-    value: string;
-    onClick: () => void;
+  React.ComponentPropsWithoutRef<'a'> & {
+    href: string
+    title: string
+    gameIcon?: string
+    value: string
+    onClick: () => void
   }
 >(
   (
@@ -420,7 +451,7 @@ const ListItem = React.forwardRef<
           <a
             ref={ref}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
               className
             )}
             onClick={onClick}
@@ -429,7 +460,7 @@ const ListItem = React.forwardRef<
           >
             <div className="flex items-center text-sm font-medium leading-none">
               <img
-                src={gameIcon || "/gameIcons/placeholder.png"}
+                src={gameIcon || '/gameIcons/placeholder.png'}
                 alt={title}
                 className="mr-2 h-5 w-auto"
               />
@@ -441,7 +472,7 @@ const ListItem = React.forwardRef<
           </a>
         </Link>
       </li>
-    );
+    )
   }
-);
-ListItem.displayName = "ListItem";
+)
+ListItem.displayName = 'ListItem'

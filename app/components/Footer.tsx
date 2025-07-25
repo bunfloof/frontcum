@@ -1,51 +1,51 @@
-"use client";
-import Link from "next/link";
+'use client'
+import Link from 'next/link'
 export function Footer() {
   const linkClassName =
-    "inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 transition-colors";
+    'inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 transition-colors'
 
   const sections = [
     {
-      title: "Services",
+      title: 'Services',
       links: [
-        { label: "Game Hosting", url: "/game" },
-        { label: "Minecraft Hosting", url: "/game" },
-        { label: "Web Hosting", url: "/web" },
-        { label: "Dedicated Servers", url: "/dedicated" },
-        { label: "Colocation", url: "/colocation" },
+        { label: 'Game Hosting', url: '/game' },
+        { label: 'Minecraft Hosting', url: '/game' },
+        { label: 'Web Hosting', url: '/web' },
+        { label: 'Dedicated Servers', url: '/dedicated' },
+        { label: 'Colocation', url: '/colocation' },
       ],
     },
     {
-      title: "Company",
-      links: [{ label: "About us", url: "/about-us" }],
+      title: 'Company',
+      links: [{ label: 'About us', url: '/about-us' }],
     },
     {
-      title: "Resources",
+      title: 'Resources',
       links: [
         {
-          label: "Open Ticket",
-          url: "https://foxomy.com/billing/submitticket.php",
+          label: 'Open Ticket',
+          url: 'https://foxomy.com/billing/submitticket.php',
         },
         {
-          label: "Minecraft Server Status",
-          url: "/minecraftserverstatus",
+          label: 'Minecraft Server Status',
+          url: '/minecraftserverstatus',
         },
         {
-          label: "IP Location Lookup",
-          url: "/ipgeolocationlookup",
+          label: 'IP Location Lookup',
+          url: '/ipgeolocationlookup',
         },
       ],
     },
     {
-      title: "Legal",
+      title: 'Legal',
       links: [
-        { label: "Acceptable Usage Policy", url: "/aup" },
-        { label: "Privacy", url: "/privacy" },
-        { label: "Service License Agreement", url: "/sla" },
-        { label: "Terms of Service", url: "/terms" },
+        { label: 'Acceptable Usage Policy', url: '/aup' },
+        { label: 'Privacy', url: '/privacy' },
+        { label: 'Service License Agreement', url: '/sla' },
+        { label: 'Terms of Service', url: '/terms' },
       ],
     },
-  ];
+  ]
 
   return (
     <>
@@ -56,13 +56,13 @@ export function Footer() {
               className="left-0 opacity-[0.20] absolute right-0 top-0 h-[1px]"
               style={{
                 backgroundImage:
-                  "linear-gradient(27deg, rgba(87,230,170), rgba(94,171,194) 51%, rgba(26,163,255,1) 100%)",
+                  'linear-gradient(27deg, rgba(87,230,170), rgba(94,171,194) 51%, rgba(26,163,255,1) 100%)',
               }}
             />
           </div>
         </div>
         <div className="bg-card">
-          {" "}
+          {' '}
           <footer className="w-full container px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
               <div className="col-span-full hidden lg:col-span-1 lg:block">
@@ -74,7 +74,7 @@ export function Footer() {
                   Foxomy
                 </Link>
                 <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                  © 2023
+                  © 2025
                 </p>
               </div>
               {sections.map((section) => (
@@ -104,7 +104,7 @@ export function Footer() {
                       Foxomy
                     </Link>
                     <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                      © 2023.
+                      © 2025.
                     </p>
                   </div>
                   {/* Social Brands */}
@@ -117,7 +117,7 @@ export function Footer() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

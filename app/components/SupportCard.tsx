@@ -13,8 +13,8 @@ import {
 import { DiscordJoinDialog } from "./DiscordJoinDialog";
 export function SupportCard() {
   const [copyButtonText, setCopyButtonText] = useState<string>("Copy username");
-  const username = "furcon";
-  const telegramURL = "https://t.me/bun2003";
+  const username = "reverse.engineer";
+  const telegramURL = "https://t.me/chainvisions";
   const discordServerURL = "https://discord.gg/uQkn7vVqj6";
   const WHMCSURL =
     "https://foxomy.com/billing/submitticket.php?step=2&deptid=2";
@@ -75,10 +75,10 @@ export function SupportCard() {
                         <div className="flex flex-col gap-[7px]">
                           <div className="flex flex-col gap-[10px]">
                             <div className="text-sm font-medium">
-                              Message Bun on Discord
+                              Message Crab on Discord
                             </div>
                             <div className="text-sm text-muted-foreground">
-                              Send Bun a friend request on Discord and message
+                              Send Crab a friend request on Discord and message
                               them directly.
                             </div>
                             <div className="text-sm text-muted-foreground">

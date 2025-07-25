@@ -1,33 +1,33 @@
-"use client";
-import { useState, useEffect } from "react";
+'use client'
+import { useState, useEffect } from 'react'
 
 export default function terms() {
   interface AddressDetail {
-    title: string;
-    name: string;
-    address: string[];
+    title: string
+    name: string
+    address: string[]
   }
 
   interface Addresses {
-    california: AddressDetail;
-    vietnam: AddressDetail;
+    california: AddressDetail
+    vietnam: AddressDetail
   }
 
   const [data, setData] = useState<{
-    addresses: Addresses;
-    protectedInfo: any;
-  } | null>(null);
+    addresses: Addresses
+    protectedInfo: any
+  } | null>(null)
 
   /* Just a handshake to prevent scrapers from scraping URLs */
   useEffect(() => {
     fetch(
-      "https://foxomy.com/publicapi/bun/address/diachi.php?key=fYqc1LvT66bkiN548VZl71gRB6kjdDpvQdz75R4PqLILvWGmYzYvNMsCL4mNEsex9wgUzJbRlC9QK66Czh5HmrveT6JG5US11rj8n4goQKIelA7wlt2512F8s8He0lKyr9Gn6prpCkkJKwkNiF6Z1LxRr6uvm5krVavR31yBaAOqByr1K1XTCr15CCtV0R2Nj9QYctzO"
+      'https://foxomy.com/publicapi/bun/address/diachi.php?key=fYqc1LvT66bkiN548VZl71gRB6kjdDpvQdz75R4PqLILvWGmYzYvNMsCL4mNEsex9wgUzJbRlC9QK66Czh5HmrveT6JG5US11rj8n4goQKIelA7wlt2512F8s8He0lKyr9Gn6prpCkkJKwkNiF6Z1LxRr6uvm5krVavR31yBaAOqByr1K1XTCr15CCtV0R2Nj9QYctzO'
     )
       .then((response) => response.json())
       .then((fetchedData) => {
-        setData(fetchedData);
-      });
-  }, []);
+        setData(fetchedData)
+      })
+  }, [])
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function terms() {
         <div className="justify-between">
           <div className="pt-32 font-semibold text-3xl sm:text-5xl">Terms</div>
           <p className="py-5 text-md sm:text-lg text-muted-foreground">
-            Amended on July 4, 2024
+            Amended on January 19, 2025
           </p>
         </div>
         <div className="justify-between mt-20 mb-20">
@@ -44,7 +44,23 @@ export default function terms() {
           <p className="py-3 text-muted-foreground">
             {`The ensuing declares the constitution of contract, hereby agreement and relationship between the Company Foxomy of Vietnam registered with the company number: 0311850985, Trading as “Foxomy” which hereafter shall be referenced by the following: “Provider”, “Company”, and its first person pronouns, and the Client which conversely is referred to with second and third person pronouns.`}
           </p>
-
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            Notice of Service Restrictions
+          </h1>
+          <p className="py-3 text-muted-foreground">
+            <span className="text-red-600 font-extrabold
+">
+              We will not work with anyone who is MAGA or voted for Trump.
+            </span>{' '}
+            We reserve the right to refuse service, reject relationship
+            formation, or terminate any existing relationship with any client
+            who identifies as a supporter of the “Make America Great Again”
+            (MAGA) movement or has voted for Donald Trump in any past or future
+            U.S. presidential election. This restriction is a fundamental
+            human right. For full details, including the Provider’s discretion in
+            enforcement, please refer to the “Signature & Formation Eligibility”
+            section of this agreement.
+          </p>
           {/* Prerequisites */}
           <h1 className="font-semibold text-2xl mt-4 uppercase">
             Prerequisites
@@ -77,6 +93,17 @@ export default function terms() {
               <li>Be younger than 13 years of age;</li>
               <li>Be unable able to form or sign contracts.</li>
               <li>Be an alternate account to avoid restrictions.</li>
+              <li>
+                Identify as a supporter of the “Make America Great Again” (MAGA)
+                movement or have voted for Donald Trump in any past or future
+                U.S. presidential election.
+              </li>
+              <li>
+                Identify as a supporter of the State of Israel, including but
+                not limited to individuals, entities, or organizations that
+                actively endorse, fund, or promote the policies, actions, or
+                existence of the State of Israel as a political entity.
+              </li>
             </ul>
             <p className="italic">
               * An exception to Signature & Formation Eligibility b) is in where
@@ -166,7 +193,7 @@ export default function terms() {
             Failure of Payment
           </h3>
           <p className="py-1 text-muted-foreground">
-            {`In the event where an invoice has been overdue for over 3 days the service(s) will be terminated. Within those 3 days the service was suspended, meaning it was inaccessible to the client but a simple completion of payment could get it reinstated.`}
+            {`In the event where an invoice has been overdue for over 6 months the service(s) will be terminated. Within those 6 months the service was suspended, meaning it was inaccessible to the client but a simple completion of payment could get it reinstated.`}
           </p>
           <p className="py-1 text-muted-foreground">
             {`A client indebted to the provider with no sight or promise of repayment grants the provider the right to send contract, service and account information of the relationship in which the debt was entitled to a debt collection agency of their choice.`}
@@ -241,7 +268,7 @@ export default function terms() {
           <p className="py-1 text-muted-foreground">
             {data?.protectedInfo.dpo.title}: {data?.protectedInfo.dpo.name}
             <br />
-            {data?.protectedInfo.inquries.title}:{" "}
+            {data?.protectedInfo.inquries.title}:{' '}
             {data?.protectedInfo.inquries.name}
             <br />
             Website: {data?.protectedInfo.website}
@@ -252,5 +279,5 @@ export default function terms() {
         </div>
       </div>
     </>
-  );
+  )
 }

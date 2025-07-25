@@ -1,18 +1,18 @@
-"use client";
-import * as Tooltip from "@radix-ui/react-tooltip";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { Tabs } from "@radix-ui/react-tabs";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import SupportCard from "../components/SupportCard";
-import Link from "next/link";
-import { Checkbox } from "@radix-ui/themes";
-import { Badge } from "@radix-ui/themes";
-import * as Popover from "@radix-ui/react-popover";
-import { Separator } from "@/components/ui/separator";
-import { DiscordJoinDialog } from "../components/DiscordJoinDialog";
+'use client'
+import * as Tooltip from '@radix-ui/react-tooltip'
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
+import { Tabs } from '@radix-ui/react-tabs'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Slider from 'react-slick'
+import SupportCard from '../components/SupportCard'
+import Link from 'next/link'
+import { Checkbox } from '@radix-ui/themes'
+import { Badge } from '@radix-ui/themes'
+import * as Popover from '@radix-ui/react-popover'
+import { Separator } from '@/components/ui/separator'
+import { DiscordJoinDialog } from '../components/DiscordJoinDialog'
 
 import {
   Table,
@@ -22,7 +22,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table'
 
 import {
   Card,
@@ -30,53 +30,53 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from '@/components/ui/card'
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react'
 
 type HostingCompany = {
-  "Plugin and Modpack Installer": string;
-  "Server Splitter and Game Changer": string;
-  "Subdomain Creator": string;
-  "BIPOC owned": string;
-  "Price per GB in USD": string;
-};
+  'Plugin and Modpack Installer': string
+  'Server Splitter and Game Changer': string
+  'Subdomain Creator': string
+  'BIPOC owned': string
+  'Price per GB in USD': string
+}
 
 type PingResultsType = {
-  [key: string]: number;
-};
+  [key: string]: number
+}
 
 const hostingCompanies: { [key: string]: HostingCompany } = {
-  "This host": {
-    "Plugin and Modpack Installer": "Yes",
-    "Server Splitter and Game Changer": "Yes",
-    "Subdomain Creator": "Yes",
-    "BIPOC owned": "Yes",
-    "Price per GB in USD": "$2.00",
+  'This host': {
+    'Plugin and Modpack Installer': 'Yes',
+    'Server Splitter and Game Changer': 'Yes',
+    'Subdomain Creator': 'Yes',
+    'BIPOC owned': 'Yes',
+    'Price per GB in USD': '$2.00',
   },
-  "Lunes Hosting": {
-    "Plugin and Modpack Installer": "No",
-    "Server Splitter and Game Changer": "No",
-    "Subdomain Creator": "No",
-    "BIPOC owned": "No",
-    "Price per GB in USD": "$1.00",
+  'Lunes Hosting': {
+    'Plugin and Modpack Installer': 'No',
+    'Server Splitter and Game Changer': 'No',
+    'Subdomain Creator': 'No',
+    'BIPOC owned': 'No',
+    'Price per GB in USD': '$1.00',
   },
   MewGem: {
-    "Plugin and Modpack Installer": "No",
-    "Server Splitter and Game Changer": "No",
-    "Subdomain Creator": "No",
-    "BIPOC owned": "No",
-    "Price per GB in USD": "$1.00",
+    'Plugin and Modpack Installer': 'No',
+    'Server Splitter and Game Changer': 'No',
+    'Subdomain Creator': 'No',
+    'BIPOC owned': 'No',
+    'Price per GB in USD': '$1.00',
   },
-};
+}
 
 const features: (keyof HostingCompany)[] = [
-  "Plugin and Modpack Installer",
-  "Server Splitter and Game Changer",
-  "Subdomain Creator",
-  "BIPOC owned",
-  "Price per GB in USD",
-];
+  'Plugin and Modpack Installer',
+  'Server Splitter and Game Changer',
+  'Subdomain Creator',
+  'BIPOC owned',
+  'Price per GB in USD',
+]
 
 const MarkerSVG = (
   <svg fill="none" viewBox="0 0 15 15" height="2em" width="2em">
@@ -85,1525 +85,1884 @@ const MarkerSVG = (
       d="M9.875 7.5a2.375 2.375 0 11-4.75 0 2.375 2.375 0 014.75 0z"
     />
   </svg>
-);
+)
 
 export default function Minecraft() {
-  const [location, setLocation] = useState<string | null>(null);
-  const [planSize, setPlanSize] = useState<string | null>(null);
+  const [location, setLocation] = useState<string | null>(null)
+  const [planSize, setPlanSize] = useState<string | null>(null)
   const [selectedLocation, setSelectedLocation] = useState<LocationType | null>(
     null
-  );
+  )
   const [selectedLocationCode, setSelectedLocationCode] =
-    useState<LocationType | null>(null);
-  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
-  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
-  const [pingResults, setPingResults] = useState<PingResultsType>({});
+    useState<LocationType | null>(null)
+  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null)
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([])
+  const [pingResults, setPingResults] = useState<PingResultsType>({})
   const [pingHistories, setPingHistories] = useState<{
-    [key: string]: number[];
-  }>({});
+    [key: string]: number[]
+  }>({})
 
-  const [copyButtonText, setCopyButtonText] = useState<string>("Copy username");
-  const discordUsername = "furcon";
-  const telegramURL = "https://t.me/bun2003";
-  const discordServerURL = "https://discord.gg/uQkn7vVqj6";
+  const [copyButtonText, setCopyButtonText] = useState<string>('Copy username')
+  const discordUsername = 'reverse.engineer'
+  const telegramURL = 'https://t.me/chainvisions'
+  const discordServerURL = 'https://discord.gg/uQkn7vVqj6'
 
-  const WHMCSURL =
-    "https://foxomy.com/billing/submitticket.php?step=2&deptid=2";
+  const WHMCSURL = 'https://foxomy.com/billing/submitticket.php?step=2&deptid=2'
 
   const handleJoinDiscordServer = () => {
-    window.open(discordServerURL, "_blank", "noopener,noreferrer");
-  };
+    window.open(discordServerURL, '_blank', 'noopener,noreferrer')
+  }
   const handleTelegramLink = () => {
-    window.open(telegramURL, "_blank", "noopener,noreferrer");
-  };
+    window.open(telegramURL, '_blank', 'noopener,noreferrer')
+  }
   const handleWHMCSLink = () => {
-    window.open(WHMCSURL, "_blank", "noopener,noreferrer");
-  };
+    window.open(WHMCSURL, '_blank', 'noopener,noreferrer')
+  }
   const handleCopyUsername = async () => {
     try {
-      await navigator.clipboard.writeText(discordUsername);
-      setCopyButtonText("Username copied");
+      await navigator.clipboard.writeText(discordUsername)
+      setCopyButtonText('Username copied')
     } catch (err) {
-      console.error("Failed to copy text: ", err);
+      console.error('Failed to copy text: ', err)
     }
-  };
+  }
 
   useEffect(() => {
-    if (copyButtonText === "Username copied") {
+    if (copyButtonText === 'Username copied') {
       const timer = setTimeout(() => {
-        setCopyButtonText("Copy username");
-      }, 1500); // revert back to original text after 1.5 seconds
+        setCopyButtonText('Copy username')
+      }, 1500) // revert back to original text after 1.5 seconds
 
-      return () => clearTimeout(timer);
+      return () => clearTimeout(timer)
     }
-  }, [copyButtonText]);
+  }, [copyButtonText])
 
   type Plan = {
-    id: string;
-    locationtag: string;
-    location: string;
-    locationcode: string;
-    ram: string;
-    price: string;
-    vCore: string;
-    CPUName: string;
-    storage: string;
-    backupSlot: string;
-    containerSplit: string;
-    link: string;
-    whmcspid: string;
-  };
+    id: string
+    locationtag: string
+    location: string
+    locationcode: string
+    ram: string
+    price: string
+    vCore: string
+    CPUName: string
+    storage: string
+    backupSlot: string
+    containerSplit: string
+    link: string
+    whmcspid: string
+  }
 
   const plans: Plan[] = [
     {
-      id: "dfw1gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "1 GB",
-      price: "$2",
-      vCore: "10",
-      storage: "20/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "2",
+      id: 'dfw1gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '1 GB',
+      price: '$2',
+      vCore: '10',
+      storage: '20/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '2',
     },
     {
-      id: "dfw2gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "2 GB",
-      price: "$4",
-      vCore: "10",
-      storage: "40/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "3",
+      id: 'dfw2gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '2 GB',
+      price: '$4',
+      vCore: '10',
+      storage: '40/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '3',
     },
     {
-      id: "dfw3gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "3 GB",
-      price: "$6",
-      vCore: "10",
-      storage: "60/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "4",
+      id: 'dfw3gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '3 GB',
+      price: '$6',
+      vCore: '10',
+      storage: '60/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '4',
     },
     {
-      id: "dfw4gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "4 GB",
-      price: "$8",
-      vCore: "10",
-      storage: "80/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "5",
+      id: 'dfw4gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '4 GB',
+      price: '$8',
+      vCore: '10',
+      storage: '80/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '5',
     },
     {
-      id: "dfw5gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "5 GB",
-      price: "$10",
-      vCore: "10",
-      storage: "100/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "6",
+      id: 'dfw5gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '5 GB',
+      price: '$10',
+      vCore: '10',
+      storage: '100/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '6',
     },
     {
-      id: "dfw6gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "6 GB",
-      price: "$12",
-      vCore: "10",
-      storage: "120/Unlimited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "7",
+      id: 'dfw6gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '6 GB',
+      price: '$12',
+      vCore: '10',
+      storage: '120/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '7',
     },
     {
-      id: "dfw8gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "8 GB",
-      price: "$16",
-      vCore: "10",
-      storage: "160/Unlimited GB",
-      backupSlot: "4",
-      containerSplit: "4",
-      link: "https://example.com",
-      whmcspid: "9",
+      id: 'dfw8gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '8 GB',
+      price: '$16',
+      vCore: '10',
+      storage: '160/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '9',
     },
     {
-      id: "dfw10gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "10 GB",
-      price: "$20",
-      vCore: "10",
-      storage: "200/Unlimited GB",
-      backupSlot: "5",
-      containerSplit: "5",
-      link: "https://example.com",
-      whmcspid: "10",
+      id: 'dfw10gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '200/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '10',
     },
     {
-      id: "dfw16gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "16 GB",
-      price: "$32",
-      vCore: "10",
-      storage: "320/Unlimited GB",
-      backupSlot: "8",
-      containerSplit: "8",
-      link: "https://example.com",
-      whmcspid: "11",
+      id: 'dfw16gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '16 GB',
+      price: '$32',
+      vCore: '10',
+      storage: '320/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '11',
     },
     {
-      id: "dfw20gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "20 GB",
-      price: "$40",
-      vCore: "10",
-      storage: "400/Unlimited GB",
-      backupSlot: "10",
-      containerSplit: "10",
-      link: "https://example.com",
-      whmcspid: "12",
+      id: 'dfw20gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '20 GB',
+      price: '$40',
+      vCore: '10',
+      storage: '400/Unlimited GB',
+      backupSlot: '10',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '12',
     },
     {
-      id: "dfw24gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "24 GB",
-      price: "$48",
-      vCore: "10",
-      storage: "480/Unlimited GB",
-      backupSlot: "12",
-      containerSplit: "12",
-      link: "https://example.com",
-      whmcspid: "26",
+      id: 'dfw24gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '24 GB',
+      price: '$48',
+      vCore: '10',
+      storage: '480/Unlimited GB',
+      backupSlot: '12',
+      containerSplit: '12',
+      link: 'https://example.com',
+      whmcspid: '26',
     },
     {
-      id: "dfw32gb",
-      locationtag: "dfw",
-      location: "Dallas, Texas",
-      locationcode: "dfw-premium",
-      CPUName: "14900K",
-      ram: "32 GB",
-      price: "$64",
-      vCore: "10",
-      storage: "640/Unlimited GB",
-      backupSlot: "16",
-      containerSplit: "16",
-      link: "https://example.com",
-      whmcspid: "27",
+      id: 'dfw32gb',
+      locationtag: 'dfw',
+      location: 'Dallas, Texas',
+      locationcode: 'dfw-premium',
+      CPUName: '14900K',
+      ram: '32 GB',
+      price: '$64',
+      vCore: '10',
+      storage: '640/Unlimited GB',
+      backupSlot: '16',
+      containerSplit: '16',
+      link: 'https://example.com',
+      whmcspid: '27',
     },
     {
-      id: "chi1gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "1 GB",
-      price: "$2",
-      vCore: "10",
-      storage: "20/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "70",
+      id: 'chi1gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '1 GB',
+      price: '$2',
+      vCore: '10',
+      storage: '20/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '70',
     },
     {
-      id: "chi2gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "2 GB",
-      price: "$4",
-      vCore: "10",
-      storage: "40/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "71",
+      id: 'chi2gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '2 GB',
+      price: '$4',
+      vCore: '10',
+      storage: '40/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '71',
     },
     {
-      id: "chi3gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "3 GB",
-      price: "$6",
-      vCore: "10",
-      storage: "60/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "72",
+      id: 'chi3gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '3 GB',
+      price: '$6',
+      vCore: '10',
+      storage: '60/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '72',
     },
     {
-      id: "chi4gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "4 GB",
-      price: "$8",
-      vCore: "10",
-      storage: "80/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "73",
+      id: 'chi4gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '4 GB',
+      price: '$8',
+      vCore: '10',
+      storage: '80/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '73',
     },
     {
-      id: "chi5gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "5 GB",
-      price: "$10",
-      vCore: "10",
-      storage: "100/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "74",
+      id: 'chi5gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '5 GB',
+      price: '$10',
+      vCore: '10',
+      storage: '100/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '74',
     },
     {
-      id: "chi6gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "6 GB",
-      price: "$12",
-      vCore: "10",
-      storage: "120/Unlimited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "75",
+      id: 'chi6gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '6 GB',
+      price: '$12',
+      vCore: '10',
+      storage: '120/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '75',
     },
     {
-      id: "chi8gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "8 GB",
-      price: "$16",
-      vCore: "10",
-      storage: "160/Unlimited GB",
-      backupSlot: "4",
-      containerSplit: "4",
-      link: "https://example.com",
-      whmcspid: "77",
+      id: 'chi8gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '8 GB',
+      price: '$16',
+      vCore: '10',
+      storage: '160/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '77',
     },
     {
-      id: "chi10gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "10 GB",
-      price: "$20",
-      vCore: "10",
-      storage: "200/Unlimited GB",
-      backupSlot: "5",
-      containerSplit: "5",
-      link: "https://example.com",
-      whmcspid: "78",
+      id: 'chi10gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '200/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '78',
     },
     {
-      id: "chi16gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "16 GB",
-      price: "$32",
-      vCore: "10",
-      storage: "320/Unlimited GB",
-      backupSlot: "8",
-      containerSplit: "8",
-      link: "https://example.com",
-      whmcspid: "79",
+      id: 'chi16gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '16 GB',
+      price: '$32',
+      vCore: '10',
+      storage: '320/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '79',
     },
     {
-      id: "chi20gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "20 GB",
-      price: "$40",
-      vCore: "10",
-      storage: "400/Unlimited GB",
-      backupSlot: "10",
-      containerSplit: "10",
-      link: "https://example.com",
-      whmcspid: "80",
+      id: 'chi20gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '20 GB',
+      price: '$40',
+      vCore: '10',
+      storage: '400/Unlimited GB',
+      backupSlot: '10',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '80',
     },
     {
-      id: "chi24gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "24 GB",
-      price: "$48",
-      vCore: "10",
-      storage: "480/Unlimited GB",
-      backupSlot: "12",
-      containerSplit: "12",
-      link: "https://example.com",
-      whmcspid: "81",
+      id: 'chi24gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '24 GB',
+      price: '$48',
+      vCore: '10',
+      storage: '480/Unlimited GB',
+      backupSlot: '12',
+      containerSplit: '12',
+      link: 'https://example.com',
+      whmcspid: '81',
     },
     {
-      id: "chi32gb",
-      locationtag: "chi",
-      location: "Chicago, Illinois",
-      locationcode: "chi-premium",
-      CPUName: "14900K",
-      ram: "32 GB",
-      price: "$64",
-      vCore: "10",
-      storage: "640/Unlimited GB",
-      backupSlot: "16",
-      containerSplit: "16",
-      link: "https://example.com",
-      whmcspid: "82",
+      id: 'chi32gb',
+      locationtag: 'chi',
+      location: 'Chicago, Illinois',
+      locationcode: 'chi-premium',
+      CPUName: '14900K',
+      ram: '32 GB',
+      price: '$64',
+      vCore: '10',
+      storage: '640/Unlimited GB',
+      backupSlot: '16',
+      containerSplit: '16',
+      link: 'https://example.com',
+      whmcspid: '82',
     },
     {
-      id: "eseg1gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "1 GB",
-      price: "$2",
-      vCore: "10",
-      storage: "20/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "83",
+      id: 'eseg1gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '1 GB',
+      price: '$2',
+      vCore: '10',
+      storage: '20/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '83',
     },
     {
-      id: "eseg2gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "2 GB",
-      price: "$4",
-      vCore: "10",
-      storage: "40/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "84",
+      id: 'eseg2gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '2 GB',
+      price: '$4',
+      vCore: '10',
+      storage: '40/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '84',
     },
     {
-      id: "eseg3gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "3 GB",
-      price: "$6",
-      vCore: "10",
-      storage: "60/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "85",
+      id: 'eseg3gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '3 GB',
+      price: '$6',
+      vCore: '10',
+      storage: '60/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '85',
     },
     {
-      id: "eseg4gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "4 GB",
-      price: "$8",
-      vCore: "10",
-      storage: "80/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "86",
+      id: 'eseg4gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '4 GB',
+      price: '$8',
+      vCore: '10',
+      storage: '80/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '86',
     },
     {
-      id: "eseg5gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "5 GB",
-      price: "$10",
-      vCore: "10",
-      storage: "100/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "87",
+      id: 'eseg5gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '5 GB',
+      price: '$10',
+      vCore: '10',
+      storage: '100/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '87',
     },
     {
-      id: "eseg6gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "6 GB",
-      price: "$12",
-      vCore: "10",
-      storage: "120/Unlimited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "88",
+      id: 'eseg6gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '6 GB',
+      price: '$12',
+      vCore: '10',
+      storage: '120/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '88',
     },
     {
-      id: "eseg8gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "8 GB",
-      price: "$16",
-      vCore: "10",
-      storage: "160/Unlimited GB",
-      backupSlot: "4",
-      containerSplit: "4",
-      link: "https://example.com",
-      whmcspid: "90",
+      id: 'eseg8gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '8 GB',
+      price: '$16',
+      vCore: '10',
+      storage: '160/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '90',
     },
     {
-      id: "eseg10gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "10 GB",
-      price: "$20",
-      vCore: "10",
-      storage: "200/Unlimited GB",
-      backupSlot: "5",
-      containerSplit: "5",
-      link: "https://example.com",
-      whmcspid: "91",
+      id: 'eseg10gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '200/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '91',
     },
     {
-      id: "eseg16gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "16 GB",
-      price: "$32",
-      vCore: "10",
-      storage: "320/Unlimited GB",
-      backupSlot: "8",
-      containerSplit: "8",
-      link: "https://example.com",
-      whmcspid: "92",
+      id: 'eseg16gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '16 GB',
+      price: '$32',
+      vCore: '10',
+      storage: '320/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '92',
     },
     {
-      id: "eseg20gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "20 GB",
-      price: "$40",
-      vCore: "10",
-      storage: "400/Unlimited GB",
-      backupSlot: "10",
-      containerSplit: "10",
-      link: "https://example.com",
-      whmcspid: "93",
+      id: 'eseg20gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '20 GB',
+      price: '$40',
+      vCore: '10',
+      storage: '400/Unlimited GB',
+      backupSlot: '10',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '93',
     },
     {
-      id: "eseg24gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "24 GB",
-      price: "$48",
-      vCore: "10",
-      storage: "480/Unlimited GB",
-      backupSlot: "12",
-      containerSplit: "12",
-      link: "https://example.com",
-      whmcspid: "94",
+      id: 'eseg24gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '24 GB',
+      price: '$48',
+      vCore: '10',
+      storage: '480/Unlimited GB',
+      backupSlot: '12',
+      containerSplit: '12',
+      link: 'https://example.com',
+      whmcspid: '94',
     },
     {
-      id: "eseg32gb",
-      locationtag: "eseg",
-      location: "El Segundo, California",
-      locationcode: "eseg-premium",
-      CPUName: "14900K",
-      ram: "32 GB",
-      price: "$64",
-      vCore: "10",
-      storage: "640/Unlimited GB",
-      backupSlot: "16",
-      containerSplit: "16",
-      link: "https://example.com",
-      whmcspid: "95",
+      id: 'eseg32gb',
+      locationtag: 'eseg',
+      location: 'El Segundo, California',
+      locationcode: 'eseg-premium',
+      CPUName: '14900K',
+      ram: '32 GB',
+      price: '$64',
+      vCore: '10',
+      storage: '640/Unlimited GB',
+      backupSlot: '16',
+      containerSplit: '16',
+      link: 'https://example.com',
+      whmcspid: '95',
     },
     {
-      id: "ny1gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "1 GB",
-      price: "$2",
-      vCore: "10",
-      storage: "20/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "96",
+      id: 'ny1gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '1 GB',
+      price: '$2',
+      vCore: '10',
+      storage: '20/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '96',
     },
     {
-      id: "ny2gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "2 GB",
-      price: "$4",
-      vCore: "10",
-      storage: "40/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "97",
+      id: 'ny2gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '2 GB',
+      price: '$4',
+      vCore: '10',
+      storage: '40/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '97',
     },
     {
-      id: "ny3gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "3 GB",
-      price: "$6",
-      vCore: "10",
-      storage: "60/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "98",
+      id: 'ny3gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '3 GB',
+      price: '$6',
+      vCore: '10',
+      storage: '60/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '98',
     },
     {
-      id: "ny4gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "4 GB",
-      price: "$8",
-      vCore: "10",
-      storage: "80/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "99",
+      id: 'ny4gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '4 GB',
+      price: '$8',
+      vCore: '10',
+      storage: '80/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '99',
     },
     {
-      id: "ny5gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "5 GB",
-      price: "$10",
-      vCore: "10",
-      storage: "100/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "100",
+      id: 'ny5gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '5 GB',
+      price: '$10',
+      vCore: '10',
+      storage: '100/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '100',
     },
     {
-      id: "ny6gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "6 GB",
-      price: "$12",
-      vCore: "10",
-      storage: "120/Unlimited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "101",
+      id: 'ny6gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '6 GB',
+      price: '$12',
+      vCore: '10',
+      storage: '120/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '101',
     },
     {
-      id: "ny8gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "8 GB",
-      price: "$16",
-      vCore: "10",
-      storage: "160/Unlimited GB",
-      backupSlot: "4",
-      containerSplit: "4",
-      link: "https://example.com",
-      whmcspid: "103",
+      id: 'ny8gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '8 GB',
+      price: '$16',
+      vCore: '10',
+      storage: '160/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '103',
     },
     {
-      id: "ny10gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "10 GB",
-      price: "$20",
-      vCore: "10",
-      storage: "200/Unlimited GB",
-      backupSlot: "5",
-      containerSplit: "5",
-      link: "https://example.com",
-      whmcspid: "10",
+      id: 'ny10gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '200/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '10',
     },
     {
-      id: "ny16gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "16 GB",
-      price: "$32",
-      vCore: "10",
-      storage: "320/Unlimited GB",
-      backupSlot: "8",
-      containerSplit: "8",
-      link: "https://example.com",
-      whmcspid: "105",
+      id: 'ny16gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '16 GB',
+      price: '$32',
+      vCore: '10',
+      storage: '320/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '105',
     },
     {
-      id: "ny20gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "20 GB",
-      price: "$40",
-      vCore: "10",
-      storage: "400/Unlimited GB",
-      backupSlot: "10",
-      containerSplit: "10",
-      link: "https://example.com",
-      whmcspid: "106",
+      id: 'ny20gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '20 GB',
+      price: '$40',
+      vCore: '10',
+      storage: '400/Unlimited GB',
+      backupSlot: '10',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '106',
     },
     {
-      id: "ny24gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "24 GB",
-      price: "$48",
-      vCore: "10",
-      storage: "480/Unlimited GB",
-      backupSlot: "12",
-      containerSplit: "12",
-      link: "https://example.com",
-      whmcspid: "107",
+      id: 'ny24gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '24 GB',
+      price: '$48',
+      vCore: '10',
+      storage: '480/Unlimited GB',
+      backupSlot: '12',
+      containerSplit: '12',
+      link: 'https://example.com',
+      whmcspid: '107',
     },
     {
-      id: "ny32gb",
-      locationtag: "ny",
-      location: "New York, New York",
-      locationcode: "ny-premium",
-      CPUName: "14900K",
-      ram: "32 GB",
-      price: "$64",
-      vCore: "10",
-      storage: "640/Unlimited GB",
-      backupSlot: "16",
-      containerSplit: "16",
-      link: "https://example.com",
-      whmcspid: "108",
+      id: 'ny32gb',
+      locationtag: 'ny',
+      location: 'New York, New York',
+      locationcode: 'ny-premium',
+      CPUName: '14900K',
+      ram: '32 GB',
+      price: '$64',
+      vCore: '10',
+      storage: '640/Unlimited GB',
+      backupSlot: '16',
+      containerSplit: '16',
+      link: 'https://example.com',
+      whmcspid: '108',
     },
     {
-      id: "ams1gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "1 GB",
-      price: "$2",
-      vCore: "1",
-      storage: "18 GB/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "25",
+      id: 'jc1gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '1 GB',
+      price: '$1',
+      vCore: '10',
+      storage: '20/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '131',
     },
     {
-      id: "ams2gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "2 GB",
-      price: "$4",
-      vCore: "2",
-      storage: "36 GB/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "28",
+      id: 'jc2gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '2 GB',
+      price: '$2',
+      vCore: '10',
+      storage: '40/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '132',
     },
     {
-      id: "ams3gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "3 GB",
-      price: "$6",
-      vCore: "3",
-      storage: "54 GB/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "29",
+      id: 'jc3gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '3 GB',
+      price: '$3',
+      vCore: '10',
+      storage: '60/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '133',
     },
     {
-      id: "ams4gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "4 GB",
-      price: "$8",
-      vCore: "4",
-      storage: "72 GB/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "30",
+      id: 'jc4gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '4 GB',
+      price: '$4',
+      vCore: '10',
+      storage: '80/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '134',
     },
     {
-      id: "ams5gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "5 GB",
-      price: "$10",
-      vCore: "5",
-      storage: "90 GB/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "31",
+      id: 'jc5gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '5 GB',
+      price: '$5',
+      vCore: '10',
+      storage: '100/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '135',
     },
     {
-      id: "ams6gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "6 GB",
-      price: "$12",
-      vCore: "6",
-      storage: "108 GB/Unlimited GB",
-      backupSlot: "3",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "32",
+      id: 'jc6gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '6 GB',
+      price: '$6',
+      vCore: '10',
+      storage: '120/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '136',
     },
     {
-      id: "ams8gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "8 GB",
-      price: "$16",
-      vCore: "8",
-      storage: "144 GB/Unlimited GB",
-      backupSlot: "4",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "33",
+      id: 'jc8gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '8 GB',
+      price: '$8',
+      vCore: '10',
+      storage: '160/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '137',
     },
     {
-      id: "ams10gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "10 GB",
-      price: "$20",
-      vCore: "8",
-      storage: "170 GB/Unlimited GB",
-      backupSlot: "5",
-      containerSplit: "5",
-      link: "https://example.com",
-      whmcspid: "34",
+      id: 'jc10gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '200/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '138',
     },
     {
-      id: "ams16gb",
-      locationtag: "ams",
-      location: "Amsterdam, Netherlands",
-      locationcode: "ams-premium",
-      CPUName: "7950X3D",
-      ram: "16 GB",
-      price: "$32",
-      vCore: "8",
-      storage: "288 GB/Unlimited GB",
-      backupSlot: "8",
-      containerSplit: "8",
-      link: "https://example.com",
-      whmcspid: "35",
+      id: 'jc16gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '16 GB',
+      price: '$16',
+      vCore: '10',
+      storage: '320/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '139',
     },
     {
-      id: "fra1gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "1 GB",
-      price: "$1",
-      vCore: "1",
-      storage: "10 GB/Limited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "43",
+      id: 'jc20gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '20 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '400/Unlimited GB',
+      backupSlot: '10',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '140',
     },
     {
-      id: "fra2gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "2 GB",
-      price: "$2",
-      vCore: "2",
-      storage: "20 GB/Limited GB",
-      backupSlot: "2",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "44",
+      id: 'jc24gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '24 GB',
+      price: '$24',
+      vCore: '10',
+      storage: '480/Unlimited GB',
+      backupSlot: '12',
+      containerSplit: '12',
+      link: 'https://example.com',
+      whmcspid: '141',
     },
     {
-      id: "fra3gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "3 GB",
-      price: "$3",
-      vCore: "3",
-      storage: "30 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "45",
+      id: 'jc32gb',
+      locationtag: 'jc',
+      location: 'Jersey City, New Jersey',
+      locationcode: 'jc-budget',
+      CPUName: '9950X',
+      ram: '32 GB',
+      price: '$32',
+      vCore: '10',
+      storage: '640/Unlimited GB',
+      backupSlot: '16',
+      containerSplit: '16',
+      link: 'https://example.com',
+      whmcspid: '142',
     },
     {
-      id: "fra4gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "4 GB",
-      price: "$4",
-      vCore: "4",
-      storage: "40 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "46",
+      id: 'ams1gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '1 GB',
+      price: '$2',
+      vCore: '1',
+      storage: '18 GB/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '25',
     },
     {
-      id: "fra5gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "5 GB",
-      price: "$5",
-      vCore: "4",
-      storage: "50 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "47",
+      id: 'ams2gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '2 GB',
+      price: '$4',
+      vCore: '2',
+      storage: '36 GB/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '28',
     },
     {
-      id: "fra6gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "6 GB",
-      price: "$6",
-      vCore: "4",
-      storage: "60 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "48",
+      id: 'ams3gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '3 GB',
+      price: '$6',
+      vCore: '3',
+      storage: '54 GB/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '29',
+    },
+    {
+      id: 'ams4gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '4 GB',
+      price: '$8',
+      vCore: '4',
+      storage: '72 GB/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '30',
+    },
+    {
+      id: 'ams5gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '5 GB',
+      price: '$10',
+      vCore: '5',
+      storage: '90 GB/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '31',
+    },
+    {
+      id: 'ams6gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '6 GB',
+      price: '$12',
+      vCore: '6',
+      storage: '108 GB/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '32',
+    },
+    {
+      id: 'ams8gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '8 GB',
+      price: '$16',
+      vCore: '8',
+      storage: '144 GB/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '33',
+    },
+    {
+      id: 'ams10gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '8',
+      storage: '170 GB/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '34',
+    },
+    {
+      id: 'ams16gb',
+      locationtag: 'ams',
+      location: 'Amsterdam, Netherlands',
+      locationcode: 'ams-premium',
+      CPUName: '7950X3D',
+      ram: '16 GB',
+      price: '$32',
+      vCore: '8',
+      storage: '288 GB/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '35',
+    },
+    {
+      id: 'fra1gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '1 GB',
+      price: '$1',
+      vCore: '1',
+      storage: '10 GB/Limited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '43',
+    },
+    {
+      id: 'fra2gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '2 GB',
+      price: '$2',
+      vCore: '2',
+      storage: '20 GB/Limited GB',
+      backupSlot: '2',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '44',
+    },
+    {
+      id: 'fra3gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '3 GB',
+      price: '$3',
+      vCore: '3',
+      storage: '30 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '45',
+    },
+    {
+      id: 'fra4gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '4 GB',
+      price: '$4',
+      vCore: '4',
+      storage: '40 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '46',
+    },
+    {
+      id: 'fra5gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '5 GB',
+      price: '$5',
+      vCore: '4',
+      storage: '50 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '47',
+    },
+    {
+      id: 'fra6gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '6 GB',
+      price: '$6',
+      vCore: '4',
+      storage: '60 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '48',
     },
 
     {
-      id: "fra7gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "7 GB",
-      price: "$7",
-      vCore: "4",
-      storage: "70 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "49",
+      id: 'fra7gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '7 GB',
+      price: '$7',
+      vCore: '4',
+      storage: '70 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '49',
     },
     {
-      id: "fra8gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "8 GB",
-      price: "$8",
-      vCore: "4",
-      storage: "80 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "4",
-      link: "https://example.com",
-      whmcspid: "50",
+      id: 'fra8gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '8 GB',
+      price: '$8',
+      vCore: '4',
+      storage: '80 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '50',
     },
     {
-      id: "fra9gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "9 GB",
-      price: "$9",
-      vCore: "4",
-      storage: "90 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "4",
-      link: "https://example.com",
-      whmcspid: "51",
+      id: 'fra9gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '9 GB',
+      price: '$9',
+      vCore: '4',
+      storage: '90 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '51',
     },
     {
-      id: "fra10gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "10 GB",
-      price: "$10",
-      vCore: "4",
-      storage: "100 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "5",
-      link: "https://example.com",
-      whmcspid: "52",
+      id: 'fra10gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '10 GB',
+      price: '$10',
+      vCore: '4',
+      storage: '100 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '52',
     },
     {
-      id: "fra12gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "12 GB",
-      price: "$12",
-      vCore: "4",
-      storage: "120 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "6",
-      link: "https://example.com",
-      whmcspid: "53",
+      id: 'fra12gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '12 GB',
+      price: '$12',
+      vCore: '4',
+      storage: '120 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '6',
+      link: 'https://example.com',
+      whmcspid: '53',
     },
     {
-      id: "fra14gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "14 GB",
-      price: "$14",
-      vCore: "4",
-      storage: "140 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "7",
-      link: "https://example.com",
-      whmcspid: "54",
+      id: 'fra14gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '14 GB',
+      price: '$14',
+      vCore: '4',
+      storage: '140 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '7',
+      link: 'https://example.com',
+      whmcspid: '54',
     },
     {
-      id: "fra16gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "16 GB",
-      price: "$16",
-      vCore: "4",
-      storage: "160 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "8",
-      link: "https://example.com",
-      whmcspid: "55",
+      id: 'fra16gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '16 GB',
+      price: '$16',
+      vCore: '4',
+      storage: '160 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '55',
     },
     {
-      id: "fra20gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-budget",
-      CPUName: "7900X",
-      ram: "20 GB",
-      price: "$20",
-      vCore: "4",
-      storage: "200 GB/Limited GB",
-      backupSlot: "3",
-      containerSplit: "10",
-      link: "https://example.com",
-      whmcspid: "56",
+      id: 'fra20gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-budget',
+      CPUName: '7900X',
+      ram: '20 GB',
+      price: '$20',
+      vCore: '4',
+      storage: '200 GB/Limited GB',
+      backupSlot: '3',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '56',
     },
     {
-      id: "hel1gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "1 GB",
-      price: "$2",
-      vCore: "10",
-      storage: "20/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "57",
+      id: 'hel1gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '1 GB',
+      price: '$2',
+      vCore: '10',
+      storage: '20/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '57',
     },
     {
-      id: "hel2gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "2 GB",
-      price: "$4",
-      vCore: "10",
-      storage: "40/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "58",
+      id: 'hel2gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '2 GB',
+      price: '$4',
+      vCore: '10',
+      storage: '40/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '58',
     },
     {
-      id: "hel3gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "3 GB",
-      price: "$6",
-      vCore: "10",
-      storage: "60/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "59",
+      id: 'hel3gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '3 GB',
+      price: '$6',
+      vCore: '10',
+      storage: '60/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '59',
     },
     {
-      id: "hel4gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "4 GB",
-      price: "$8",
-      vCore: "10",
-      storage: "80/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "60",
+      id: 'hel4gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '4 GB',
+      price: '$8',
+      vCore: '10',
+      storage: '80/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '60',
     },
     {
-      id: "hel5gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "5 GB",
-      price: "$10",
-      vCore: "10",
-      storage: "100/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "61",
+      id: 'hel5gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '5 GB',
+      price: '$10',
+      vCore: '10',
+      storage: '100/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '61',
     },
     {
-      id: "hel6gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "6 GB",
-      price: "$12",
-      vCore: "10",
-      storage: "120/Unlimited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "62",
+      id: 'hel6gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '6 GB',
+      price: '$12',
+      vCore: '10',
+      storage: '120/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '62',
     },
     {
-      id: "hel8gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "8 GB",
-      price: "$16",
-      vCore: "10",
-      storage: "160/Unlimited GB",
-      backupSlot: "4",
-      containerSplit: "4",
-      link: "https://example.com",
-      whmcspid: "64",
+      id: 'hel8gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '8 GB',
+      price: '$16',
+      vCore: '10',
+      storage: '160/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '64',
     },
     {
-      id: "hel10gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "10 GB",
-      price: "$20",
-      vCore: "10",
-      storage: "200/Unlimited GB",
-      backupSlot: "5",
-      containerSplit: "5",
-      link: "https://example.com",
-      whmcspid: "65",
+      id: 'hel10gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '200/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '65',
     },
     {
-      id: "hel16gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "16 GB",
-      price: "$32",
-      vCore: "10",
-      storage: "320/Unlimited GB",
-      backupSlot: "8",
-      containerSplit: "8",
-      link: "https://example.com",
-      whmcspid: "66",
+      id: 'hel16gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '16 GB',
+      price: '$32',
+      vCore: '10',
+      storage: '320/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '66',
     },
     {
-      id: "hel20gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "20 GB",
-      price: "$40",
-      vCore: "10",
-      storage: "400/Unlimited GB",
-      backupSlot: "10",
-      containerSplit: "10",
-      link: "https://example.com",
-      whmcspid: "69",
+      id: 'hel20gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '20 GB',
+      price: '$40',
+      vCore: '10',
+      storage: '400/Unlimited GB',
+      backupSlot: '10',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '69',
     },
     {
-      id: "hel24gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "24 GB",
-      price: "$48",
-      vCore: "10",
-      storage: "480/Unlimited GB",
-      backupSlot: "12",
-      containerSplit: "12",
-      link: "https://example.com",
-      whmcspid: "67",
+      id: 'hel24gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '24 GB',
+      price: '$48',
+      vCore: '10',
+      storage: '480/Unlimited GB',
+      backupSlot: '12',
+      containerSplit: '12',
+      link: 'https://example.com',
+      whmcspid: '67',
     },
     {
-      id: "hel32gb",
-      locationtag: "hel",
-      location: "Helsinki, Finland",
-      locationcode: "hel-premium",
-      CPUName: "14900K",
-      ram: "32 GB",
-      price: "$64",
-      vCore: "10",
-      storage: "640/Unlimited GB",
-      backupSlot: "16",
-      containerSplit: "16",
-      link: "https://example.com",
-      whmcspid: "68",
+      id: 'hel32gb',
+      locationtag: 'hel',
+      location: 'Helsinki, Finland',
+      locationcode: 'hel-premium',
+      CPUName: '14900K',
+      ram: '32 GB',
+      price: '$64',
+      vCore: '10',
+      storage: '640/Unlimited GB',
+      backupSlot: '16',
+      containerSplit: '16',
+      link: 'https://example.com',
+      whmcspid: '68',
     },
     {
-      id: "fra1gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "1 GB",
-      price: "$2",
-      vCore: "10",
-      storage: "20/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "111",
+      id: 'fra1gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '1 GB',
+      price: '$2',
+      vCore: '10',
+      storage: '20/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '111',
     },
     {
-      id: "fra2gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "2 GB",
-      price: "$4",
-      vCore: "10",
-      storage: "40/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "1",
-      link: "https://example.com",
-      whmcspid: "112",
+      id: 'fra2gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '2 GB',
+      price: '$4',
+      vCore: '10',
+      storage: '40/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '112',
     },
     {
-      id: "fra3gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "3 GB",
-      price: "$6",
-      vCore: "10",
-      storage: "60/Unlimited GB",
-      backupSlot: "1",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "113",
+      id: 'fra3gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '3 GB',
+      price: '$6',
+      vCore: '10',
+      storage: '60/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '113',
     },
     {
-      id: "fra4gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "4 GB",
-      price: "$8",
-      vCore: "10",
-      storage: "80/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "2",
-      link: "https://example.com",
-      whmcspid: "114",
+      id: 'fra4gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '4 GB',
+      price: '$8',
+      vCore: '10',
+      storage: '80/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '114',
     },
     {
-      id: "fra5gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "5 GB",
-      price: "$10",
-      vCore: "10",
-      storage: "100/Unlimited GB",
-      backupSlot: "2",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "115",
+      id: 'fra5gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '5 GB',
+      price: '$10',
+      vCore: '10',
+      storage: '100/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '115',
     },
     {
-      id: "fra6gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "6 GB",
-      price: "$12",
-      vCore: "10",
-      storage: "120/Unlimited GB",
-      backupSlot: "3",
-      containerSplit: "3",
-      link: "https://example.com",
-      whmcspid: "116",
+      id: 'fra6gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '6 GB',
+      price: '$12',
+      vCore: '10',
+      storage: '120/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '116',
     },
     {
-      id: "fra8gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "8 GB",
-      price: "$16",
-      vCore: "10",
-      storage: "160/Unlimited GB",
-      backupSlot: "4",
-      containerSplit: "4",
-      link: "https://example.com",
-      whmcspid: "118",
+      id: 'fra8gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '8 GB',
+      price: '$16',
+      vCore: '10',
+      storage: '160/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '118',
     },
     {
-      id: "fra10gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "10 GB",
-      price: "$20",
-      vCore: "10",
-      storage: "200/Unlimited GB",
-      backupSlot: "5",
-      containerSplit: "5",
-      link: "https://example.com",
-      whmcspid: "119",
+      id: 'fra10gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '200/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '119',
     },
     {
-      id: "fra16gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "16 GB",
-      price: "$32",
-      vCore: "10",
-      storage: "320/Unlimited GB",
-      backupSlot: "8",
-      containerSplit: "8",
-      link: "https://example.com",
-      whmcspid: "110",
+      id: 'fra16gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '16 GB',
+      price: '$32',
+      vCore: '10',
+      storage: '320/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '110',
     },
     {
-      id: "fra20gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "20 GB",
-      price: "$40",
-      vCore: "10",
-      storage: "400/Unlimited GB",
-      backupSlot: "10",
-      containerSplit: "10",
-      link: "https://example.com",
-      whmcspid: "121",
+      id: 'fra20gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '20 GB',
+      price: '$40',
+      vCore: '10',
+      storage: '400/Unlimited GB',
+      backupSlot: '10',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '121',
     },
     {
-      id: "fra24gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "24 GB",
-      price: "$48",
-      vCore: "10",
-      storage: "480/Unlimited GB",
-      backupSlot: "12",
-      containerSplit: "12",
-      link: "https://example.com",
-      whmcspid: "122",
+      id: 'fra24gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '24 GB',
+      price: '$48',
+      vCore: '10',
+      storage: '480/Unlimited GB',
+      backupSlot: '12',
+      containerSplit: '12',
+      link: 'https://example.com',
+      whmcspid: '122',
     },
     {
-      id: "fra32gb",
-      locationtag: "fra",
-      location: "Frankfurt, Germany",
-      locationcode: "fra-premium",
-      CPUName: "14900KS",
-      ram: "32 GB",
-      price: "$64",
-      vCore: "10",
-      storage: "640/Unlimited GB",
-      backupSlot: "16",
-      containerSplit: "16",
-      link: "https://example.com",
-      whmcspid: "123",
+      id: 'fra32gb',
+      locationtag: 'fra',
+      location: 'Frankfurt, Germany',
+      locationcode: 'fra-premium',
+      CPUName: '14900KS',
+      ram: '32 GB',
+      price: '$64',
+      vCore: '10',
+      storage: '640/Unlimited GB',
+      backupSlot: '16',
+      containerSplit: '16',
+      link: 'https://example.com',
+      whmcspid: '123',
     },
-  ];
+    {
+      id: 'hcm1gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '1 GB',
+      price: '$2',
+      vCore: '10',
+      storage: '20/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '111',
+    },
+    {
+      id: 'hcm2gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '2 GB',
+      price: '$4',
+      vCore: '10',
+      storage: '40/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '1',
+      link: 'https://example.com',
+      whmcspid: '112',
+    },
+    {
+      id: 'hcm3gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '3 GB',
+      price: '$6',
+      vCore: '10',
+      storage: '60/Unlimited GB',
+      backupSlot: '1',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '113',
+    },
+    {
+      id: 'hcm4gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '4 GB',
+      price: '$8',
+      vCore: '10',
+      storage: '80/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '2',
+      link: 'https://example.com',
+      whmcspid: '114',
+    },
+    {
+      id: 'hcm5gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '5 GB',
+      price: '$10',
+      vCore: '10',
+      storage: '100/Unlimited GB',
+      backupSlot: '2',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '115',
+    },
+    {
+      id: 'hcm6gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '6 GB',
+      price: '$12',
+      vCore: '10',
+      storage: '120/Unlimited GB',
+      backupSlot: '3',
+      containerSplit: '3',
+      link: 'https://example.com',
+      whmcspid: '116',
+    },
+    {
+      id: 'hcm8gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '8 GB',
+      price: '$16',
+      vCore: '10',
+      storage: '160/Unlimited GB',
+      backupSlot: '4',
+      containerSplit: '4',
+      link: 'https://example.com',
+      whmcspid: '118',
+    },
+    {
+      id: 'hcm10gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '10 GB',
+      price: '$20',
+      vCore: '10',
+      storage: '200/Unlimited GB',
+      backupSlot: '5',
+      containerSplit: '5',
+      link: 'https://example.com',
+      whmcspid: '119',
+    },
+    {
+      id: 'hcm16gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '16 GB',
+      price: '$32',
+      vCore: '10',
+      storage: '320/Unlimited GB',
+      backupSlot: '8',
+      containerSplit: '8',
+      link: 'https://example.com',
+      whmcspid: '110',
+    },
+    {
+      id: 'hcm20gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '20 GB',
+      price: '$40',
+      vCore: '10',
+      storage: '400/Unlimited GB',
+      backupSlot: '10',
+      containerSplit: '10',
+      link: 'https://example.com',
+      whmcspid: '121',
+    },
+    {
+      id: 'hcm24gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '24 GB',
+      price: '$48',
+      vCore: '10',
+      storage: '480/Unlimited GB',
+      backupSlot: '12',
+      containerSplit: '12',
+      link: 'https://example.com',
+      whmcspid: '122',
+    },
+    {
+      id: 'hcm32gb',
+      locationtag: 'hcm',
+      location: 'Ho Chi Minh, Vietnam',
+      locationcode: 'hcm-premium',
+      CPUName: '14900KS',
+      ram: '32 GB',
+      price: '$64',
+      vCore: '10',
+      storage: '640/Unlimited GB',
+      backupSlot: '16',
+      containerSplit: '16',
+      link: 'https://example.com',
+      whmcspid: '123',
+    },
+  ]
 
   type Addon = {
-    name: string;
-    price: string;
-    description: string;
-    urlparams: string;
-  };
+    name: string
+    price: string
+    description: string
+    urlparams: string
+  }
 
   const addons: Addon[] = [
     {
-      name: "Dedicated IP Address",
-      price: "$3",
+      name: 'Dedicated IP Address',
+      price: '$3',
       description:
-        "A reserved IP address with the default port (25565 or 19132). Note: If out of stock, you will not be charged for this addon.",
-      urlparams: "&configoption[1]=1",
+        'A reserved IP address with the default port (25565 or 19132). Note: If out of stock, you will not be charged for this addon.',
+      urlparams: '&configoption[1]=1',
     },
     {
-      name: "Website Hosting",
-      price: "FREE",
+      name: 'Website Hosting',
+      price: 'FREE',
       description:
         'Use the promo code "WEB" at checkout when you order website hosting to receive free webhosting for the duration of your game server service.',
-      urlparams: "&addons[1]=1",
+      urlparams: '&addons[1]=1',
     },
     // {
     //   name: "The Shockbyte Treatment 💀",
@@ -1620,156 +1979,174 @@ export default function Minecraft() {
     //   urlparams: "&addons[2]=1",
     // },
     // More addons...
-  ];
+  ]
 
   const toggleAddon = (addonName: string) => {
     setSelectedAddons((prevSelected) =>
       prevSelected.includes(addonName)
         ? prevSelected.filter((a) => a !== addonName)
         : [...prevSelected, addonName]
-    );
-  };
+    )
+  }
 
   const getTotalPrice = () => {
-    let total = 0;
+    let total = 0
 
     if (selectedPlan && selectedPlan.price) {
-      total = parseFloat(selectedPlan.price.replace("$", ""));
+      total = parseFloat(selectedPlan.price.replace('$', ''))
     }
 
     selectedAddons.forEach((addonName) => {
-      const addon = addons.find((a) => a.name === addonName);
+      const addon = addons.find((a) => a.name === addonName)
       if (
         addon &&
-        addon.price !== "FREE" &&
-        addon.name !== "The Shockbyte Treatment 💀" &&
-        addon.name !== "The Premium Treatment 💀"
+        addon.price !== 'FREE' &&
+        addon.name !== 'The Shockbyte Treatment 💀' &&
+        addon.name !== 'The Premium Treatment 💀'
       ) {
-        total += parseFloat(addon.price.replace("$", ""));
+        total += parseFloat(addon.price.replace('$', ''))
       }
-    });
+    })
 
-    return `$${total.toFixed(2)}`;
-  };
+    return `$${total.toFixed(2)}`
+  }
 
   /* Location Selector */
   type LocationType = {
-    codename: string;
-    name: string;
-    flag: string;
-    wsUrl?: string;
-    outOfStock: boolean;
-    content?: string;
-    CPUcontent?: string;
-  };
+    codename: string
+    name: string
+    flag: string
+    wsUrl?: string
+    outOfStock: boolean
+    content?: string
+    CPUcontent?: string
+  }
 
   const locations: LocationType[] = [
     {
-      codename: "eseg-premium",
-      name: "El Segundo, California",
-      flag: "/images/usflag.svg",
+      codename: 'eseg-premium',
+      name: 'El Segundo, California',
+      flag: '/images/usflag.svg',
       wsUrl: process.env.NEXT_PUBLIC_EL_SEGUNDO_WSS_URI,
       outOfStock: false,
-      content: "Premium ($2/GB)",
-      CPUcontent: "Intel Core i9-14900KS",
+      content: 'Premium ($2/GB)',
+      CPUcontent: 'Intel Core i9-14900KS',
     },
     {
-      codename: "dfw-premium",
-      name: "Dallas, Texas",
-      flag: "/images/usflag.svg",
+      codename: 'dfw-premium',
+      name: 'Dallas, Texas',
+      flag: '/images/usflag.svg',
       wsUrl: process.env.NEXT_PUBLIC_DALLAS_WSS_URI,
       outOfStock: false,
-      content: "Premium ($2/GB)",
-      CPUcontent: "Intel Core i9-14900KS",
+      content: 'Premium ($2/GB)',
+      CPUcontent: 'Intel Core i9-14900KS',
     },
     {
-      codename: "ny-premium",
-      name: "New York, New York",
-      flag: "/images/usflag.svg",
+      codename: 'ny-premium',
+      name: 'New York, New York',
+      flag: '/images/usflag.svg',
       wsUrl: process.env.NEXT_PUBLIC_NEW_YORK_WSS_URI,
       outOfStock: false,
-      content: "Premium ($2/GB)",
-      CPUcontent: "Intel Core i9-14900KS",
+      content: 'Premium ($2/GB)',
+      CPUcontent: 'Intel Core i9-14900KS',
     },
     {
-      codename: "chi-premium",
-      name: "Chicago, Illinois",
-      flag: "/images/usflag.svg",
+      codename: 'jc-budget',
+      name: 'Jersey City, New Jersey',
+      flag: '/images/usflag.svg',
+      wsUrl: process.env.NEXT_PUBLIC_JERSEY_CITY_WSS_URI,
+      outOfStock: false,
+      content: 'Budget ($1/GB)',
+      CPUcontent: 'AMD Ryzen 9 9950X',
+    },
+    {
+      codename: 'chi-premium',
+      name: 'Chicago, Illinois',
+      flag: '/images/usflag.svg',
       wsUrl: process.env.NEXT_PUBLIC_CHICAGO_WSS_URI,
       outOfStock: false,
-      content: "Premium ($2/GB)",
-      CPUcontent: "Intel Core i9-14900K",
+      content: 'Premium ($2/GB)',
+      CPUcontent: 'Intel Core i9-14900K',
     },
     {
-      codename: "fra-premium",
-      name: "Frankfurt, Germany",
-      flag: "/images/deflag.svg",
+      codename: 'fra-premium',
+      name: 'Frankfurt, Germany',
+      flag: '/images/deflag.svg',
       wsUrl: process.env.NEXT_PUBLIC_FRANKFURT_WSS_URI,
       outOfStock: false,
-      content: "Premium ($2/GB)",
-      CPUcontent: "Intel Core i9-14900KS",
+      content: 'Premium ($2/GB)',
+      CPUcontent: 'Intel Core i9-14900KS',
     },
     {
-      codename: "hel-premium",
-      name: "Helsinki, Finland",
-      flag: "/images/fiflag.svg",
+      codename: 'hel-premium',
+      name: 'Helsinki, Finland',
+      flag: '/images/fiflag.svg',
       wsUrl: process.env.NEXT_PUBLIC_HELSINKI_WSS_URI,
-      outOfStock: true,
-      content: "Premium ($2/GB)",
-      CPUcontent: "Intel Core i9-14900K",
+      outOfStock: false,
+      content: 'Premium ($2/GB)',
+      CPUcontent: 'Intel Core i9-14900K',
     },
     {
-      codename: "ams-premium",
-      name: "Amsterdam, Netherlands",
-      flag: "/images/nlflag.svg",
+      codename: 'ams-premium',
+      name: 'Amsterdam, Netherlands',
+      flag: '/images/nlflag.svg',
       wsUrl: process.env.NEXT_PUBLIC_AMSTERDAM_WSS_URI,
       outOfStock: true,
-      content: "Premium ($2/GB)",
-      CPUcontent: "AMD Ryzen 9 7950X3D",
+      content: 'Premium ($2/GB)',
+      CPUcontent: 'AMD Ryzen 9 7950X3D',
     },
     {
-      codename: "fra-budget",
-      name: "Frankfurt, Germany",
-      flag: "/images/deflag.svg",
+      codename: 'fra-budget',
+      name: 'Frankfurt, Germany',
+      flag: '/images/deflag.svg',
       wsUrl: process.env.NEXT_PUBLIC_FRANKFURT_WSS_URI,
       outOfStock: true,
-      content: "Budget ($1/GB)",
-      CPUcontent: "AMD Ryzen 9 7900X",
+      content: 'Budget ($1/GB)',
+      CPUcontent: 'AMD Ryzen 9 7900X',
     },
+    // {
+    //   codename: "sjc-free",
+    //   name: "San Jose, California",
+    //   flag: "/images/usflag.svg",
+    //   wsUrl: process.env.NEXT_PUBLIC_SAN_JOSE_WSS_URI,
+    //   outOfStock: true,
+    //   content: "FREE",
+    //   CPUcontent: "Intel Core i9-10900K",
+    // },
     {
-      codename: "sjc-free",
-      name: "San Jose, California",
-      flag: "/images/usflag.svg",
-      wsUrl: process.env.NEXT_PUBLIC_SAN_JOSE_WSS_URI,
+      codename: 'hcm-premium',
+      name: 'Ho Chi Minh, Vietnam',
+      flag: '/images/vnflag.svg',
+      wsUrl: process.env.NEXT_PUBLIC_HO_CHI_MINH_WSS_URI,
       outOfStock: true,
-      content: "FREE",
-      CPUcontent: "Intel Core i9-10900K",
+      content: 'Premium ($2/GB)',
+      CPUcontent: 'Intel Core i9-14900KS',
     },
-  ];
+  ]
 
   const getConcatenatedParams = () => {
     return selectedAddons
       .map((addonName) => {
-        const addon = addons.find((a) => a.name === addonName);
-        return addon?.urlparams;
+        const addon = addons.find((a) => a.name === addonName)
+        return addon?.urlparams
       })
-      .join("");
-  };
+      .join('')
+  }
 
   const WHMCSLink = `https://foxomy.com/billing/cart.php?a=add&pid=${
     selectedPlan?.whmcspid
-  }${getConcatenatedParams()}`;
+  }${getConcatenatedParams()}`
 
   const handleOpenWHMCSLink = () => {
-    window.open(WHMCSLink, "_self");
-  };
+    window.open(WHMCSLink, '_self')
+  }
 
   /* End Location Selector */
 
   /* Start carousel */
 
-  const [activeTab, setActiveTab] = useState(0);
-  const sliderRef = useRef<typeof Slider | null>(null);
+  const [activeTab, setActiveTab] = useState(0)
+  const sliderRef = useRef<typeof Slider | null>(null)
 
   const settings = {
     dots: false,
@@ -1778,111 +2155,111 @@ export default function Minecraft() {
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: (current: number) => setActiveTab(current),
-  };
+  }
   const images = [
-    "/images/pteroconsole.png",
-    "/images/pteroconfig.png",
-    "/images/pteroplugin.png",
-    "/images/pteromodpack.png",
-    "/images/pterosplitter.png",
-  ];
+    '/images/pteroconsole.png',
+    '/images/pteroconfig.png',
+    '/images/pteroplugin.png',
+    '/images/pteromodpack.png',
+    '/images/pterosplitter.png',
+  ]
 
   const handleTabClick = (index: number) => {
-    setActiveTab(index);
+    setActiveTab(index)
     if (sliderRef.current) {
-      sliderRef.current.slickGoTo(index);
+      sliderRef.current.slickGoTo(index)
     }
-  };
+  }
 
   /* End Carousel */
 
   /* Start Networks */
 
-  type CardType = "AS30277" | "AS399820" | "AS18779" | "AS20278";
+  type CardType = 'AS30277' | 'AS399820' | 'AS18779' | 'AS20278'
 
-  const [selectedCard, setSelectedCard] = useState("AS30277");
+  const [selectedCard, setSelectedCard] = useState('AS30277')
 
   const handleCardClick = (card: CardType) => {
-    setSelectedCard(card);
-  };
+    setSelectedCard(card)
+  }
 
   const setupWebSocket = (wsUrl: string, codename: string) => {
-    const ws = new WebSocket(wsUrl);
+    const ws = new WebSocket(wsUrl)
 
     ws.onopen = () => {
       const sendPing = () => {
-        const start = performance.now();
-        ws.send("p");
+        const start = performance.now()
+        ws.send('p')
 
         const handleMessage = () => {
-          const duration = performance.now() - start;
-          const ping = duration;
+          const duration = performance.now() - start
+          const ping = duration
           setPingHistories((prev) => {
             const updatedHistory = {
               ...prev,
               [codename]: [...(prev[codename] || []), ping].slice(-10),
-            };
-            const iqmPing = calculateIQM(updatedHistory[codename]);
+            }
+            const iqmPing = calculateIQM(updatedHistory[codename])
             setPingResults((prevResults) => ({
               ...prevResults,
               [codename]: iqmPing,
-            }));
-            return updatedHistory;
-          });
-        };
+            }))
+            return updatedHistory
+          })
+        }
 
-        ws.onmessage = handleMessage;
-      };
+        ws.onmessage = handleMessage
+      }
 
-      const pingInterval = setInterval(sendPing, 1000);
+      const pingInterval = setInterval(sendPing, 1000)
       const reconnectInterval = setInterval(() => {
-        ws.close();
-        clearInterval(pingInterval);
-        setupWebSocket(wsUrl, codename);
-      }, 60000); // Reconnect every 1 minute
+        ws.close()
+        clearInterval(pingInterval)
+        setupWebSocket(wsUrl, codename)
+      }, 60000) // Reconnect every 1 minute
 
       ws.onclose = () => {
-        clearInterval(pingInterval);
-        clearInterval(reconnectInterval);
-      };
-    };
+        clearInterval(pingInterval)
+        clearInterval(reconnectInterval)
+      }
+    }
 
     ws.onerror = () => {
-      console.error(`WebSocket error for ${codename}`);
-    };
-  };
+      console.error(`WebSocket error for ${codename}`)
+    }
+  }
 
   const calculateIQM = (values: number[]): number => {
-    const sorted = [...values].sort((a, b) => a - b);
-    const quartile = Math.floor(sorted.length / 4);
-    const middleValues = sorted.slice(quartile, sorted.length - quartile);
-    const sum = middleValues.reduce((acc, val) => acc + val, 0);
-    return sum / middleValues.length;
-  };
+    const sorted = [...values].sort((a, b) => a - b)
+    const quartile = Math.floor(sorted.length / 4)
+    const middleValues = sorted.slice(quartile, sorted.length - quartile)
+    const sum = middleValues.reduce((acc, val) => acc + val, 0)
+    return sum / middleValues.length
+  }
 
   useEffect(() => {
     locations.forEach((location) => {
       if (location.wsUrl) {
-        setupWebSocket(location.wsUrl, location.codename);
+        setupWebSocket(location.wsUrl, location.codename)
       }
-    });
-  }, []);
+    })
+  }, [])
 
   const formatPing = (ping: number): string => {
-    const pingStr = ping.toString();
-    const decimalIndex = pingStr.indexOf(".");
-    return decimalIndex === -1 ? pingStr : pingStr.slice(0, decimalIndex + 3); // Truncate to two decimal places without rounding
-  };
+    const pingStr = ping.toString()
+    const decimalIndex = pingStr.indexOf('.')
+    return decimalIndex === -1 ? pingStr : pingStr.slice(0, decimalIndex + 3) // Truncate to two decimal places without rounding
+  }
 
   return (
     <>
       <div
         style={{
           backgroundImage:
-            "linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), linear-gradient(rgba(0, 140, 115, 0.5), rgba(0, 0, 0, 0)), url(/images/minecraftborderfade.png)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
+            'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), linear-gradient(rgba(0, 140, 115, 0.5), rgba(0, 0, 0, 0)), url(/images/minecraftborderfade.png)',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
         }}
         className="pt-32"
       >
@@ -1900,14 +2277,14 @@ export default function Minecraft() {
                 Need help or have questions?
                 <br />
                 <Popover.Root>
-                  Please open an on-site{" "}
+                  Please open an on-site{' '}
                   <Button variant="secondary" onClick={handleWHMCSLink}>
                     ticket
-                  </Button>{" "}
-                  or direct{" "}
+                  </Button>{' '}
+                  or direct{' '}
                   <Popover.Trigger asChild>
                     <Button variant="secondary">message</Button>
-                  </Popover.Trigger>{" "}
+                  </Popover.Trigger>{' '}
                   a staff.
                   <Popover.Portal>
                     <Popover.Content
@@ -1920,27 +2297,27 @@ export default function Minecraft() {
                             ⓘ Note: These are unofficial support platforms.
                           </div>
                           <div className="text-sm font-medium">
-                            Message Bun on Telegram
+                            Message Crab on Telegram
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            Message Bun directly on Telegram.
+                            Message Crab directly on Telegram.
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            Username: bun2003
+                            Username: chainvisions
                           </div>
                           <Button
                             variant="secondary"
                             className="p-1"
                             onClick={handleTelegramLink}
                           >
-                            t.me/bun2003
+                            t.me/chainvisions
                           </Button>
                           <Separator />
                           <div className="text-sm font-medium">
-                            Message Bun on Discord
+                            Message Crab on Discord
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            Send Bun a friend request on Discord and message
+                            Send Crab a friend request on Discord and message
                             them directly.
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -1999,7 +2376,7 @@ export default function Minecraft() {
                       <TableCell className="font-medium">{feature}</TableCell>
                       {Object.values(hostingCompanies).map((company, index) => (
                         <TableCell key={index} className="text-center">
-                          {company[feature] === "Yes" ? (
+                          {company[feature] === 'Yes' ? (
                             <svg
                               fill="none"
                               viewBox="0 0 15 15"
@@ -2013,7 +2390,7 @@ export default function Minecraft() {
                                 d="M11.467 3.727c.289.189.37.576.181.865l-4.25 6.5a.625.625 0 01-.944.12l-2.75-2.5a.625.625 0 01.841-.925l2.208 2.007 3.849-5.886a.625.625 0 01.865-.181z"
                               />
                             </svg>
-                          ) : company[feature] === "No" ? (
+                          ) : company[feature] === 'No' ? (
                             <svg
                               fill="none"
                               viewBox="0 0 15 15"
@@ -2029,11 +2406,11 @@ export default function Minecraft() {
                           ) : (
                             <span
                               className={
-                                company[feature] === "Democrat" ||
-                                (feature === "Price per GB in USD" &&
-                                  company[feature] === "$1.00")
-                                  ? "text-teal-500"
-                                  : "text-red-500"
+                                company[feature] === 'Democrat' ||
+                                (feature === 'Price per GB in USD' &&
+                                  company[feature] === '$1.00')
+                                  ? 'text-teal-500'
+                                  : 'text-red-500'
                               }
                             >
                               {company[feature]}
@@ -2065,40 +2442,40 @@ export default function Minecraft() {
                     key={index}
                     className={`relative hover:bg-muted/50 transition-colors cursor-pointer ${
                       selectedLocation?.codename === location.codename
-                        ? " bg-teal-100/10 border-teal-500"
-                        : ""
-                    } ${location.outOfStock ? "opacity-40" : ""}`}
+                        ? ' bg-teal-100/10 border-teal-500'
+                        : ''
+                    } ${location.outOfStock ? 'opacity-40' : ''}`}
                     onClick={() => {
-                      setSelectedLocation(location);
+                      setSelectedLocation(location)
                       selectedLocation?.codename != location.codename &&
-                        setSelectedPlan(null);
+                        setSelectedPlan(null)
                     }}
                   >
                     <div className="absolute top-0 right-5 -translate-y-1/2">
                       <span
                         className={`items-center ${
-                          location.content?.toLowerCase().includes("premium") &&
-                          "border border-teal-700 bg-teal-900 text-teal-300"
+                          location.content?.toLowerCase().includes('premium') &&
+                          'border border-teal-700 bg-teal-900 text-teal-300'
                         } ${
-                          location.content?.toLowerCase().includes("budget") &&
-                          "border border-gray-500 bg-gray-700 text-gray-200"
+                          location.content?.toLowerCase().includes('budget') &&
+                          'border border-gray-500 bg-gray-700 text-gray-200'
                         } ${
-                          location.content?.toLowerCase().includes("free") &&
-                          "border border-gray-500 bg-gray-700 text-gray-200"
+                          location.content?.toLowerCase().includes('free') &&
+                          'border border-gray-500 bg-gray-700 text-gray-200'
                         } gap-1 text-xs font-medium break-words py-1 px-2 rounded mr-1`}
                       >
                         {location.CPUcontent}
                       </span>
                       <span
                         className={`items-center ${
-                          location.content?.toLowerCase().includes("premium") &&
-                          "border border-teal-700 bg-teal-900 text-teal-300"
+                          location.content?.toLowerCase().includes('premium') &&
+                          'border border-teal-700 bg-teal-900 text-teal-300'
                         } ${
-                          location.content?.toLowerCase().includes("budget") &&
-                          "border border-gray-500 bg-gray-700 text-gray-200"
+                          location.content?.toLowerCase().includes('budget') &&
+                          'border border-gray-500 bg-gray-700 text-gray-200'
                         } ${
-                          location.content?.toLowerCase().includes("free") &&
-                          "border border-gray-500 bg-gray-700 text-gray-200"
+                          location.content?.toLowerCase().includes('free') &&
+                          'border border-gray-500 bg-gray-700 text-gray-200'
                         } gap-1 text-xs font-medium break-words py-1 px-2 rounded`}
                       >
                         {location.content}
@@ -2109,8 +2486,8 @@ export default function Minecraft() {
                         <div
                           className={`p-1 border-2 rounded flex ${
                             selectedLocation?.codename === location.codename
-                              ? "bg-teal-100/10 border-teal-500"
-                              : "border-zinc-600"
+                              ? 'bg-teal-100/10 border-teal-500'
+                              : 'border-zinc-600'
                           }`}
                         >
                           {selectedLocation?.codename === location.codename ? (
@@ -2157,19 +2534,19 @@ export default function Minecraft() {
                               ? `${formatPing(
                                   pingResults[location.codename]
                                 )} ms`
-                              : "Pinging..."}
+                              : 'Pinging...'}
                           </p>
                           <p>
                             <span
                               className={`text-sm font-medium ${
                                 location.outOfStock
-                                  ? "text-red-500"
-                                  : "text-teal-500"
+                                  ? 'text-red-500'
+                                  : 'text-teal-500'
                               }`}
                             >
                               {location.outOfStock
-                                ? "Out of stock"
-                                : "In stock"}
+                                ? 'Out of stock'
+                                : 'In stock'}
                             </span>
                           </p>
                         </CardContent>
@@ -2193,15 +2570,15 @@ export default function Minecraft() {
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "13.93%", top: "28%" }}
+                  style={{ left: '13.93%', top: '28%' }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation?.name === "Dallas, Texas"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation?.name === 'Dallas, Texas'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -2215,7 +2592,7 @@ export default function Minecraft() {
                       >
                         Dallas
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -2224,14 +2601,14 @@ export default function Minecraft() {
               </Tooltip.Provider>
               {/* Marker for New York */}
               <Tooltip.Provider>
-                <div className="absolute" style={{ left: "21.1%", top: "24%" }}>
+                <div className="absolute" style={{ left: '21.1%', top: '24%' }}>
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation?.name === "New York, New York"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation?.name === 'New York, New York'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -2245,7 +2622,37 @@ export default function Minecraft() {
                       >
                         New York
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+              {/* Marker for New Jersey */}
+              <Tooltip.Provider>
+                <div className="absolute" style={{ left: '20.5%', top: '24%' }}>
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation?.name === 'Jersey City, New Jersey'
+                            ? 'selectedMarker'
+                            : 'marker'
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        New Jersey
+                        <Tooltip.Arrow
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -2254,14 +2661,14 @@ export default function Minecraft() {
               </Tooltip.Provider>
               {/* Marker for Chicago */}
               <Tooltip.Provider>
-                <div className="absolute" style={{ left: "17.9%", top: "23%" }}>
+                <div className="absolute" style={{ left: '17.9%', top: '23%' }}>
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation?.name === "Chicago, Illinois"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation?.name === 'Chicago, Illinois'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -2275,7 +2682,7 @@ export default function Minecraft() {
                       >
                         Chicago
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -2286,15 +2693,15 @@ export default function Minecraft() {
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "6.9%", top: "28.6%" }}
+                  style={{ left: '6.9%', top: '28.6%' }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation?.name === "El Segundo, California"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation?.name === 'El Segundo, California'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -2308,7 +2715,7 @@ export default function Minecraft() {
                       >
                         El Segundo
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -2319,15 +2726,15 @@ export default function Minecraft() {
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "46.32%", top: "14.77%" }}
+                  style={{ left: '46.32%', top: '14.77%' }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation?.name === "Amsterdam, Netherlands"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation?.name === 'Amsterdam, Netherlands'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -2341,7 +2748,7 @@ export default function Minecraft() {
                       >
                         Amsterdam
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -2353,15 +2760,15 @@ export default function Minecraft() {
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "48.32%", top: "16.3%" }}
+                  style={{ left: '48.32%', top: '16.3%' }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation?.name === "Frankfurt, Germany"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation?.name === 'Frankfurt, Germany'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -2375,7 +2782,7 @@ export default function Minecraft() {
                       >
                         Frankfurt
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -2387,15 +2794,15 @@ export default function Minecraft() {
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "51.42%", top: "8.3%" }}
+                  style={{ left: '51.42%', top: '8.3%' }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation?.name === "Helsinki, Finland"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation?.name === 'Helsinki, Finland'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -2409,7 +2816,7 @@ export default function Minecraft() {
                       >
                         Helsinki
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -2420,15 +2827,15 @@ export default function Minecraft() {
               <Tooltip.Provider>
                 <div
                   className="absolute"
-                  style={{ left: "6.32%", top: "24.3%" }}
+                  style={{ left: '6.32%', top: '24.3%' }}
                 >
                   <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                       <div
                         className={`transition-colors ${
-                          selectedLocation?.name === "San Jose, California"
-                            ? "selectedMarker"
-                            : "marker"
+                          selectedLocation?.name === 'San Jose, California'
+                            ? 'selectedMarker'
+                            : 'marker'
                         }`}
                       >
                         {MarkerSVG}
@@ -2442,7 +2849,41 @@ export default function Minecraft() {
                       >
                         San Jose
                         <Tooltip.Arrow
-                          style={{ fill: "var(--zinc-950)", opacity: 0.2 }}
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
+                        />
+                      </Tooltip.Content>
+                    </Tooltip.Portal>
+                  </Tooltip.Root>
+                </div>
+              </Tooltip.Provider>
+
+              {/* Marker for Ho Chi Minh */}
+              <Tooltip.Provider>
+                <div
+                  className="absolute"
+                  style={{ left: '82%', top: '46.27%' }}
+                >
+                  <Tooltip.Root delayDuration={0}>
+                    <Tooltip.Trigger asChild>
+                      <div
+                        className={`transition-colors ${
+                          selectedLocation?.name === 'Ho Chi Minh, Vietnam'
+                            ? 'selectedMarker'
+                            : 'marker'
+                        }`}
+                      >
+                        {MarkerSVG}
+                      </div>
+                    </Tooltip.Trigger>
+                    <Tooltip.Portal>
+                      <Tooltip.Content
+                        className="bg-zinc-950/30 border-zinc-800 px-[15px] py-[10px] text-[15px] leading-none rounded-[4px] shadow-[hsl(0_0%_0%_/_35%)_0px_10px_38px_-10px,_hsl(0_0%_0%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity]"
+                        // Add your tooltip classes here
+                        sideOffset={5}
+                      >
+                        Ho Chi Minh
+                        <Tooltip.Arrow
+                          style={{ fill: 'var(--zinc-950)', opacity: 0.2 }}
                         />
                       </Tooltip.Content>
                     </Tooltip.Portal>
@@ -2462,7 +2903,7 @@ export default function Minecraft() {
                 }
 
                 .selectedMarker::before {
-                  content: "";
+                  content: '';
                   position: absolute;
                   left: 50%;
                   top: 50%;
@@ -2491,7 +2932,7 @@ export default function Minecraft() {
                 }
 
                 .marker::before {
-                  content: "";
+                  content: '';
                   position: absolute;
                   left: 50%;
                   top: 50%;
@@ -2539,8 +2980,8 @@ export default function Minecraft() {
                         key={index}
                         className={`relative hover:bg-muted/50 transition-colors cursor-pointer ${
                           selectedPlan?.id === plan.id
-                            ? "bg-teal-100/10 border-teal-500 transition-colors"
-                            : ""
+                            ? 'bg-teal-100/10 border-teal-500 transition-colors'
+                            : ''
                         }`}
                         onClick={() => setSelectedPlan(plan)}
                       >
@@ -2549,8 +2990,8 @@ export default function Minecraft() {
                             <div
                               className={`p-1 border-2 rounded flex ${
                                 selectedPlan?.id === plan.id
-                                  ? "bg-teal-100/10 border-teal-500"
-                                  : "border-zinc-600"
+                                  ? 'bg-teal-100/10 border-teal-500'
+                                  : 'border-zinc-600'
                               }`}
                             >
                               {selectedPlan?.id === plan.id ? (
@@ -2588,7 +3029,7 @@ export default function Minecraft() {
                               <CardTitle>
                                 <span className="text-lg font-bold">
                                   {plan.ram}
-                                </span>{" "}
+                                </span>{' '}
                                 <span className="text-sm text-muted-foreground">
                                   of RAM
                                 </span>
@@ -2598,22 +3039,22 @@ export default function Minecraft() {
                               <div className="pb-2">
                                 <span className="text-md pb-1 font-medium">
                                   {plan.price}
-                                </span>{" "}
+                                </span>{' '}
                                 <span className="text-sm font-medium text-muted-foreground">
                                   per month
                                 </span>
                               </div>
                               <p className="text-sm font-medium text-muted-foreground">
                                 {plan.vCore} shared {plan.CPUName} vCore
-                                {Number(plan.vCore) > 1 ? "s" : ""}
+                                {Number(plan.vCore) > 1 ? 's' : ''}
                                 <br />
                                 {plan.storage} of storage
                                 <br />
                                 {plan.backupSlot} Backup slot
-                                {Number(plan.backupSlot) > 1 ? "s" : ""}
+                                {Number(plan.backupSlot) > 1 ? 's' : ''}
                                 <br />
                                 {plan.containerSplit} Container split
-                                {Number(plan.containerSplit) > 1 ? "s" : ""}
+                                {Number(plan.containerSplit) > 1 ? 's' : ''}
                               </p>
                             </CardContent>
                           </div>
@@ -2631,7 +3072,7 @@ export default function Minecraft() {
         )}
         {selectedLocation &&
           selectedPlan &&
-          selectedLocation?.name !== "San Jose, California (FREE)" && (
+          selectedLocation?.name !== 'San Jose, California (FREE)' && (
             <div className="mt-4 grid gap-4 container">
               <div className="flex flex-col justify-between">
                 <div>
@@ -2644,8 +3085,8 @@ export default function Minecraft() {
                         key={index}
                         className={`hover:bg-muted/50 transition-colors cursor-pointer ${
                           selectedAddons.includes(addon.name)
-                            ? "bg-teal-100/10 border-teal-500"
-                            : ""
+                            ? 'bg-teal-100/10 border-teal-500'
+                            : ''
                         }`}
                         onClick={() => toggleAddon(addon.name)}
                       >
@@ -2654,8 +3095,8 @@ export default function Minecraft() {
                             <div
                               className={`p-1 border-2 rounded flex ${
                                 selectedAddons.includes(addon.name)
-                                  ? "bg-teal-100/10 border-teal-500"
-                                  : "border-zinc-600"
+                                  ? 'bg-teal-100/10 border-teal-500'
+                                  : 'border-zinc-600'
                               }`}
                             >
                               {selectedAddons.includes(addon.name) ? (
@@ -2697,7 +3138,7 @@ export default function Minecraft() {
                               <div className="pb-2">
                                 <span className="text-md pb-1 font-medium">
                                   {addon.price}
-                                </span>{" "}
+                                </span>{' '}
                                 <span className="text-sm font-medium text-muted-foreground">
                                   per month
                                 </span>
@@ -2711,7 +3152,7 @@ export default function Minecraft() {
                       </Card>
                     ))}
                   </div>
-                  {selectedAddons.includes("Dedicated IP Address") && (
+                  {selectedAddons.includes('Dedicated IP Address') && (
                     <p className="text-sm text-muted-foreground mt-2">
                       Note: If dedicated IPs are out of stock, then you will not
                       be charged at checkout.
@@ -2760,19 +3201,19 @@ export default function Minecraft() {
                             {selectedAddons.map((addonName) => {
                               const addon = addons.find(
                                 (a) => a.name === addonName
-                              );
+                              )
                               return addon ? (
                                 <div className="flex justify-between">
                                   <div className="text-md font-bold mb-1">
                                     {addon.name}
                                   </div>
                                   <div className="text-sm">
-                                    {addon.name.includes("Treatment")
-                                      ? "FREE"
+                                    {addon.name.includes('Treatment')
+                                      ? 'FREE'
                                       : addon.price}
                                   </div>
                                 </div>
-                              ) : null;
+                              ) : null
                             })}
                           </>
                         )}
@@ -2808,5 +3249,5 @@ export default function Minecraft() {
         )}
       </div>
     </>
-  );
+  )
 }

@@ -506,6 +506,38 @@ export function FeaturesSection() {
               </div>
             </div>
           </div>
+          <div className="pt-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+              <div className="w-40 h-20 relative flex items-center justify-center">
+                <img
+                  src="/images/arista.png"
+                  className="object-contain opacity-50 hover:opacity-75 transition-opacity max-h-full"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <div className="w-40 h-20 relative flex items-center justify-center">
+                <img
+                  src="/images/supermicro.png"
+                  className="object-contain opacity-50 hover:opacity-75 transition-opacity max-h-full"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <div className="w-40 h-20 relative flex items-center justify-center">
+                <img
+                  src="/images/netscout.png"
+                  className="object-contain opacity-50 hover:opacity-75 transition-opacity max-h-full"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <div className="w-40 h-20 relative flex items-center justify-center">
+                <img
+                  src="/images/ptero.png"
+                  className="object-contain opacity-50 hover:opacity-75 transition-opacity max-h-full"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
