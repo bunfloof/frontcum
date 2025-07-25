@@ -1,280 +1,318 @@
 'use client'
-import { useState, useEffect } from 'react'
 
 export default function terms() {
-  interface AddressDetail {
-    title: string
-    name: string
-    address: string[]
-  }
-
-  interface Addresses {
-    california: AddressDetail
-    vietnam: AddressDetail
-  }
-
-  const [data, setData] = useState<{
-    addresses: Addresses
-    protectedInfo: any
-  } | null>(null)
-
-  /* Just a handshake to prevent scrapers from scraping URLs */
-  useEffect(() => {
-    fetch(
-      'https://foxomy.com/publicapi/bun/address/diachi.php?key=fYqc1LvT66bkiN548VZl71gRB6kjdDpvQdz75R4PqLILvWGmYzYvNMsCL4mNEsex9wgUzJbRlC9QK66Czh5HmrveT6JG5US11rj8n4goQKIelA7wlt2512F8s8He0lKyr9Gn6prpCkkJKwkNiF6Z1LxRr6uvm5krVavR31yBaAOqByr1K1XTCr15CCtV0R2Nj9QYctzO'
-    )
-      .then((response) => response.json())
-      .then((fetchedData) => {
-        setData(fetchedData)
-      })
-  }, [])
-
   return (
     <>
       <div className="container">
         <div className="justify-between">
           <div className="pt-32 font-semibold text-3xl sm:text-5xl">Terms</div>
           <p className="py-5 text-md sm:text-lg text-muted-foreground">
-            Amended on January 19, 2025
+            Amended on July 26, 2025
           </p>
         </div>
         <div className="justify-between mt-20 mb-20">
-          {/* Introduction */}
-          <h1 className="font-semibold text-2xl mt-4 uppercase">Definitions</h1>
           <p className="py-3 text-muted-foreground">
-            {`The ensuing declares the constitution of contract, hereby agreement and relationship between the Company Foxomy of Vietnam registered with the company number: 0311850985, Trading as “Foxomy” which hereafter shall be referenced by the following: “Provider”, “Company”, and its first person pronouns, and the Client which conversely is referred to with second and third person pronouns.`}
+            Foxomy (hereinafter referred to as “Foxomy”, “we” as the case may
+            be) would like to send to customers (“You”, “User”, or “Customer”
+            meaning individuals or legal entities who join us to use the service)
+            the terms of the service agreement. Clients using Foxomy’s services
+            agree to accept the terms of service in this document.
           </p>
+
           <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Notice of Service Restrictions
+            1. Refusal of Service Regulations
           </h1>
           <p className="py-3 text-muted-foreground">
-            <span className="text-red-600 font-extrabold
-">
-              We will not work with anyone who is MAGA or voted for Trump.
-            </span>{' '}
-            We reserve the right to refuse service, reject relationship
-            formation, or terminate any existing relationship with any client
-            who identifies as a supporter of the “Make America Great Again”
-            (MAGA) movement or has voted for Donald Trump in any past or future
-            U.S. presidential election. This restriction is a fundamental
-            human right. For full details, including the Provider’s discretion in
-            enforcement, please refer to the “Signature & Formation Eligibility”
-            section of this agreement.
+            We reserve the right to block service or refuse future service if
+            the usage regulations are violated. If you have any questions about
+            our Terms of Service, or if you’d like to clarify whether or not
+            your usage is allowed on our services, please contact us. Here is a{' '}
+            <strong>non-exhaustive</strong> list of prohibited activities:
           </p>
-          {/* Prerequisites */}
+          <ol className="list-decimal list-inside pl-5 py-1 text-muted-foreground">
+            <li>
+              Using the service to commit violations of the laws of the current
+              State of the Socialist Republic of Vietnam and international
+              regulations currently applied in Vietnam.
+            </li>
+            <li>
+              Use the service to disseminate content that opposes the Socialist
+              Republic of Vietnam, causes religious/political conflicts,
+              depraved cultural products, affecting Vietnamese customs.
+            </li>
+            <li>
+              Use server services or server resources to spread SPAM, SPIM,
+              SPIT, mass mailing, or forms of sending emails from the server
+              with the number of emails that negatively affect the reputation of
+              our IP ranges.
+            </li>
+            <li>
+              Distributing and storing malicious codes for the purpose of
+              attacking other websites, or for the purpose of destroying
+              Foxomy’s system such as dstating, DoS, DDoS, malware, virus,
+              phishing, scamming, including cases where the website contains
+              malicious code, is infected with malicious code, or is attacked by
+              a large-scale DDoS attack that seriously affects the
+              infrastructure.
+            </li>
+            <li>
+              Using server services to host website impersonating individuals
+              and organizations to affect reputation of others.
+            </li>
+            <li>
+              Using software that abuses CPU and other server resources such as
+              cryptocurrency mining with the exception of Minecraft or other
+              game server related activities such as pre-genning chunks, high
+              player counts, etc.
+            </li>
+            <li>
+              Using the website to promote illegal services/products is
+              regulated in Decree 15/2020/ND-CP.
+            </li>
+            <li>
+              Using the service to store digital content that violates
+              copyright, copyright, or content that impersonates other
+              organizations/individuals.
+            </li>
+          </ol>
+          <p className="py-3 text-muted-foreground">
+            Clients who utilize services in a prohibited manner may be subject
+            to any of (or a combination of) the following:
+          </p>
+          <ol className="list-decimal list-inside pl-5 py-1 text-muted-foreground">
+            <li>Warning notification (which requires acknowledgement)</li>
+            <li>Service or account suspension</li>
+            <li>Service or account termination</li>
+          </ol>
+
           <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Prerequisites
+            2. Customer Responsibilities
           </h1>
-          <p className="py-3 text-muted-foreground">{`May any definition within the commercial agreements, the Privacy Policy, Terms of Service and Service Level Agreement be of equal enforcement in each agreement, inserted and enforced with negligible capitalization and quotation marks.`}</p>
-          <p className="py-3 text-muted-foreground">{`Headings in this agreement; labeled by completely capitalized lettering; shall not be of legal enforcement nor any effect to the contract.`}</p>
+          <p className="py-3 text-muted-foreground">
+            Customers at Foxomy always have full rights and obligations of the
+            service lessee according to the provisions of the Civil Code and the
+            Commercial Law of Vietnam. To ensure the best interests, customers
+            also need to comply with the following regulations:
+          </p>
+          <ol className="list-decimal list-inside pl-5 py-1 text-muted-foreground">
+            <li>
+              Customers are responsible for keeping their login information to
+              the website system or login information to the customer control
+              panel at Foxomy secure. Customers are responsible for notifying us
+              if they discover any unauthorized use of their password.
+            </li>
+            <li>
+              Customers are responsible for the content hosted and stored on the
+              Foxomy’s server before the law in case of disputes or complaints.
+            </li>
+            <li>
+              Customers are responsible for maintaining the hosted content and
+              are responsible for any damage caused by the self negligence or
+              mismanagement.
+            </li>
+            <li>
+              Customers are responsible for preserving and maintaining content
+              on Foxomy’s servers. Foxomy will not be responsible for data loss
+              incidents caused by customers' negligence and security.
+            </li>
+          </ol>
 
-          {/* Governing Factor */}
           <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Governing Factor
+            3. Foxomy’s Responsibilities
           </h1>
-          <p className="py-3 text-muted-foreground">{`The governing factor of the ensuing and aforeconstituted agreement is Vietnam, in addition to, depending on the service’s location, the governing regional, state and local laws whereby the service is located. Additionally is the company a business and or commercial “Doing Business As” or Trading name for Foxomy.`}</p>
+          <p className="py-3 text-muted-foreground">
+            As a service provider, Foxomy has full rights and obligations of a
+            service provider as prescribed in the Civil Code and Commercial Law.
+            Foxomy has the following responsibilities:
+          </p>
+          <ol className="list-decimal list-inside pl-5 py-1 text-muted-foreground">
+            <li>
+              Provide services with technical specifications as committed on the
+              homepage foxomy.com.
+            </li>
+            <li>
+              Support customers throughout the service usage period according to
+              the support policy under the terms of use of each service.
+            </li>
+            <li>
+              Notify customers when there is a service maintenance schedule or
+              change in service.
+            </li>
+            <li>
+              Use best efforts to prevent total data loss by maintaining daily
+              offsite backups and implementing data protection practices.
+            </li>
+            <li>
+              Comply with other commitments in this document and related legal
+              documents.
+            </li>
+          </ol>
 
-          {/* Agreement to the terms */}
           <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Agreement to the terms
+            4. Service suspension
           </h1>
-          <p className="py-3 text-muted-foreground">{`The client agrees to the contract by using any service and or visiting any website under the operation of Foxomy, in addition the said client may in fact agree to the terms via checkbox on account signup, and therefore is bound to the contract. Violation of the terms shall result in punishment determined by the provider, if said provider believes the Breach of Contract is violatory enough they may seek legal action.`}</p>
+          <p className="py-3 text-muted-foreground">
+            The customer’s service may be suspended without prior notice but
+            will receive an email notification of suspension when the service
+            has been suspended in the following cases:
+          </p>
+          <ol className="list-decimal list-inside pl-5 py-1 text-muted-foreground">
+            <li>Payment is overdue 3 days from the service expiration date.</li>
+            <li>
+              The service violates the usage policy of the respective service.
+            </li>
+            <li>
+              There is a dispute that leads to litigation or is subject to legal
+              scrutiny.
+            </li>
+          </ol>
 
-          {/* Signature & Formation Eligibility */}
           <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Signature & Formation Eligibility
+            5. Registering an Account
           </h1>
-          <div className="py-3 text-muted-foreground">
-            <p className="py-1">
-              One, to be eligible of formation and agreeing to the contract must
-              not be inherent to any of the following restrictions:
-            </p>
-            <ul className="list-inside list-disc pl-5">
-              <li>Be younger than 13 years of age;</li>
-              <li>Be unable able to form or sign contracts.</li>
-              <li>Be an alternate account to avoid restrictions.</li>
-              <li>
-                Identify as a supporter of the “Make America Great Again” (MAGA)
-                movement or have voted for Donald Trump in any past or future
-                U.S. presidential election.
-              </li>
-              <li>
-                Identify as a supporter of the State of Israel, including but
-                not limited to individuals, entities, or organizations that
-                actively endorse, fund, or promote the policies, actions, or
-                existence of the State of Israel as a political entity.
-              </li>
-            </ul>
-            <p className="italic">
-              * An exception to Signature & Formation Eligibility b) is in where
-              the client or the entity agreeing to the contract is between 13 to
-              17 years of age, therefore making them unable to form contracts
-              but said client does not have any other deficiencies in contract
-              formation other than his age. In said event is the client
-              represented by their legal guardian and requires their permission
-              to form the contract.
-            </p>
-          </div>
+          <p className="py-3 text-muted-foreground">
+            An account on the Foxomy service management system is a customer
+            account created during the service registration process. This
+            billing account will have the function of tracking service duration,
+            paying invoices, renewing services, cancelling services, opening
+            support requests, and using specific functions of each service.
+          </p>
 
-          {/* Definition of the Relationship */}
           <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Definition of the Relationship
+            6. Cancellation of Service
           </h1>
-          <p className="py-1 text-muted-foreground">
-            {`A relationship is the term, governed by this contract in which the client has purchased a recurring or one-time, therefore permanent, service for. If the client decides to continue the recurring service shall the relationship not be restarted but extended and therefore shall not require a recreation of contract.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`A relationship formation, commercial inquiry or attempt to acquire a service by the client may be rejected by the provider, negliant to any circumstances and unrequiring reasoning.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`On cancellation of services shall the relationship be deemed as halted and will not insist any termination of account or this contract.`}
-          </p>
-
-          {/* Subsection: Liabilities */}
-          <h3 className="font-semibold text-lg mt-4 uppercase">Liabilities</h3>
-          <p className="py-1 text-muted-foreground">
-            {`The Client agrees to operate, use and act under their own liability and responsibility in any case, regarding legalities or not.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`In the event of data loss shall the client indemnify and keep of harm the company and its directors.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`On occurrence of a data breach the company will withhold liability depending on the situation and decision of authorities.`}
+          <p className="py-3 text-muted-foreground">
+            You must submit a cancellation request at https://foxomy.com/billing
+            to cancel the service. You can cancel the service at any time for
+            any reason. There are two cancellation types: "Immediate" or "At the
+            end of billing term." Please be sure to back up any of your data
+            prior to the cancellation date since upon cancellation of the
+            "Immediate" type, the data upon the server is permanently deleted.
           </p>
 
-          {/* Subsection: Termination */}
-          <h3 className="font-semibold text-lg mt-4 uppercase">Termination</h3>
-          <p className="py-3 text-muted-foreground">{`By any and all means does each party reserve their right in regard, issue and to act upon termination of service and this contract.`}</p>
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            7. Billing and Payment Information
+          </h1>
 
-          {/* Commerce */}
-          <h1 className="font-semibold text-2xl mt-4 uppercase">Commerce</h1>
-          {/* Subsection: Payment */}
-          <h3 className="font-semibold text-lg mt-4 uppercase">Payment</h3>
-          <p className="py-1 text-muted-foreground">
-            Foxomy only accepts payments through:
-          </p>
-          <ul className="list-inside list-disc pl-5 py-1 text-muted-foreground">
-            <li>PayPal</li>
-            <li>Debit & Credit cards, using Stripe as a payment gateway</li>
-            <li>Direct bank transfers</li>
-            <li>Cash, delivered by mail</li>
-          </ul>
-          <p className="py-1 text-muted-foreground">
-            {`Prices listed on the provider’s websites and advertisements may
-              change at any time, by any amount without prior notice.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`All prices are as offered, with the applicable tax included negliant of the client’s location.`}
-          </p>
-
-          {/* Subsection: Refunds */}
-          <h3 className="font-semibold text-lg mt-4 uppercase">Refunds</h3>
-          <p className="py-1 text-muted-foreground">
-            {` A refund of the services; “Minecraft” which the provider offers is applicable in cases where 30 days or less have passed since the purchase.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`Refunds applicable to any service depending on the guarantees defined by Service Level Agreement, said applicable refund is found as defined there. The Service Level Agreement therefore voids the prior two paragraphs of the Commerce (2) section.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`The use of chargebacks, disputes is heavily discouraged and by the following term will be considered a violation of the terms.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`In the event of a chargeback shall the provider terminate the relationship under caution and in regard towards the lack of communication for proper refund by the client. The outcome of the dispute has no effect or change on the relationship, it shall be terminated before then. Furthermore is the outcome of the dispute is negligible towards the relationship.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`The company perceives itself liable if the dispute is made under the accurate claim of billing errors or service related issues, and therefore if the provider pleads, under the provider’s Service Level Agreement, and said liable in turn has inherent the negligibility of termination.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`Additional or add-on purchases, which are extensions of prior or simultaneously purchased services can and will only be refunded in where the service itself has refund eligibility.`}
-          </p>
-
-          {/* Subsection: Failure of Payment */}
           <h3 className="font-semibold text-lg mt-4 uppercase">
-            Failure of Payment
+            1. Payment method
           </h3>
           <p className="py-1 text-muted-foreground">
-            {`In the event where an invoice has been overdue for over 6 months the service(s) will be terminated. Within those 6 months the service was suspended, meaning it was inaccessible to the client but a simple completion of payment could get it reinstated.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`A client indebted to the provider with no sight or promise of repayment grants the provider the right to send contract, service and account information of the relationship in which the debt was entitled to a debt collection agency of their choice.`}
-          </p>
-          {/* Privacy Disclaimer */}
-          <h1 className="font-semibold text-2xl mt-4 uppercase">Commerce</h1>
-          <p className="py-1 text-muted-foreground">
-            {`In regards to privacy and or data protection shall the client look to the provider’s Privacy Policy, which inherits definition from all adjacent documents which are the Service Level Agreement, Terms of Service and Acceptable Use Policy.`}
+            Foxomy supports 3 payment methods: PayPal, Stripe, wire transfer.
+            You have the right to choose the appropriate payment method and the
+            service activation time will also depend on the payment method. For
+            PayPal payment method, the system will automatically activate the
+            service immediately after completing the payment. For wire transfer
+            payment method, the system will automatically activate manually
+            after a review.
           </p>
 
-          {/* Prohibited Usage of Service */}
-          <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Prohibited Usage of Service
-          </h1>
+          <h3 className="font-semibold text-lg mt-4 uppercase">
+            2. Prepayment (Non-subscription PayPal only)
+          </h3>
           <p className="py-1 text-muted-foreground">
-            {`Foxomy services and products are subject to an Acceptable Use Policy.`}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`For information on any fraudulent or prohibited usage of service please refer to the Acceptable Use Policy, found at https://foxomy.com/aup.`}
+            We need customers to understand that service payments are
+            prepayments to maintain the service. For service renewals, the
+            system will automatically generate an invoice 2 weeks before the
+            invoice payment due date to notify customers.
           </p>
 
-          {/* Copyright */}
-          <h1 className="font-semibold text-2xl mt-4 uppercase">Copyright</h1>
+          <h3 className="font-semibold text-lg mt-4 uppercase">
+            3. Auto-renewal (Stripe and PayPal subscription only)
+          </h3>
           <p className="py-1 text-muted-foreground">
-            {`The copyright law of the United States is and of effect within all services the provider offers in addition to the copyright law of the service’s location.`}
+            If the customer pays via a PayPal subscription, it is necessary to
+            accept that this payment method supports automatic renewal of the
+            service. If the customer cancels the service, they must ensure that
+            the Preapprove Payment function from Foxomy is turned off in the
+            PayPal account to avoid automatic payment when the cycle comes even
+            though the invoice has been canceled.
           </p>
+
+          <h3 className="font-semibold text-lg mt-4 uppercase">4. Taxes</h3>
           <p className="py-1 text-muted-foreground">
-            {`Violation of any of the aforementioned copyright laws will be dealt with in the form of content removal requests, suspension and or termination of service and or account.`}
+            All service prices on the foxomy.com homepage are final and do not
+            include any additional surcharges or fees to the user.
           </p>
+
+          <h3 className="font-semibold text-lg mt-4 uppercase">
+            5. Late Payment
+          </h3>
           <p className="py-1 text-muted-foreground">
-            {`Repeated or vigilant plagiarization or infringement of intellectual property may result in legal proceedings by any party. If said party is of participation in the current contract shall it apply to the relationship definitions and governing factors as aforedefined. Conversely if said prosecuting party is not of the contract shall the client vow by the liabilities of the relationship to take said liability unless the provider pleads.`}
+            Customers are responsible for paying to maintain the service on
+            time. The service will be automatically suspended after 7 days of
+            late payment, and service data will be permanently deleted after 6
+            months if the service is not renewed. We do not apply any penalties
+            or late fees applied to overdue invoices. If you missed more than 1
+            billing cycle, then you must contact us to correct the next invoice
+            payment due date.
           </p>
-          {/* Alterations to the Terms */}
+
+          <h3 className="font-semibold text-lg mt-4 uppercase">
+            6. Refusal of Payment
+          </h3>
+          <p className="py-1 text-muted-foreground">
+            We reserve the right to refuse and refund payment if we detect that
+            the payment is fraudulent.
+          </p>
+
+          <h3 className="font-semibold text-lg mt-4 uppercase">7. Refunds</h3>
+          <p className="py-1 text-muted-foreground">
+            We accept refunds upon request within 180 days of service
+            activation. Refund requests are fulfilled on a case-by-case basis.
+            Our intent is to work with each individual client in a fair manner.
+            Upon request, we will do our very best to accommodate your request
+            and let you know what is possible (and why).
+          </p>
+
+          <h1 className="font-semibold text-2xl mt-4 uppercase">8. Support</h1>
+          <p className="py-3 text-muted-foreground">
+            You can submit a support issue via email or on-site ticket support
+            system. In some cases, resolving the issue may take longer than
+            usual, so we are sorry that we may not support you faster.
+          </p>
+
           <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Alterations to the Terms
+            9. Complaints
           </h1>
-          <p className="py-1 text-muted-foreground">
-            {`Changes to be or have been made to any document amended by Foxomy including the current shall not require any notification to the other parties, it is under their duty to make sure their acknowledgement of any terms is correct at all times.`}
+          <p className="py-3 text-muted-foreground">
+            We always try to improve our service. Customers have the right to
+            complain or give feedback on Foxomy’s service via email
+            support@foxomy.com or the on-site ticket system.
           </p>
-          {/* Intellectual Property of the Provider */}
+
           <h1 className="font-semibold text-2xl mt-4 uppercase">
-            Intellectual Property of the Provider
+            10. Limitation of Liability and Disclaimer of Warranty
           </h1>
-          <p className="py-1 text-muted-foreground">
-            {`The Foxomy Logo and name are protected under unregistered trademark rights or general unregistered intellectual property. You may not use neither the name nor logo for commercial purposes merely related to the ones of Foxomy operations.`}
+          <p className="py-3 text-muted-foreground">
+            In no event shall any of Foxomy’s directors, officers, employees or
+            agents be liable for any direct or consequential loss. In
+            particular, even for loss of customer benefits or loss of data due
+            to the customer’s negligence. The customer also accepts that Foxomy
+            has the right to waive liability under the terms of this document if
+            there is a separate agreement with the customer. The customer is not
+            entitled to waive liability under the terms stated in this document.
           </p>
-          <p className="py-1 text-muted-foreground">
-            {`The domains of the provider are, order is of no effect; Foxomy.com, Any additional domains redirected to any asset of the provider is not of its ownership and therefore does not inherit any of its liability nor the reputation of the domain’s name.`}
+
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            11. Compensation for Damages
+          </h1>
+          <p className="py-3 text-muted-foreground">
+            In the case that Foxomy fails to ensure the service license
+            commitment (SLA), compensation will be made according to the
+            compensation policy. This balance can be used by the customer to
+            register for the service or renew, and may be refunded.
           </p>
-          {/* Imprint */}
-          <h1 className="font-semibold text-2xl mt-4 uppercase">Imprint</h1>
-          {data?.addresses &&
-            Object.values(data.addresses).map(
-              (address: AddressDetail, idx: number) => (
-                <div key={idx} className="text-muted-foreground">
-                  <h3 className="font-semibold text-lg mt-4 uppercase">
-                    {address.title}
-                  </h3>
-                  <p className="py-1 text-muted-foreground">
-                    {address.name}
-                    <br />
-                    {address.address.map((line: string, lineIdx: number) => (
-                      <span key={lineIdx}>
-                        {line}
-                        <br />
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              )
-            )}
-          <p className="py-1 text-muted-foreground">
-            {data?.protectedInfo.dpo.title}: {data?.protectedInfo.dpo.name}
-            <br />
-            {data?.protectedInfo.inquries.title}:{' '}
-            {data?.protectedInfo.inquries.name}
-            <br />
-            Website: {data?.protectedInfo.website}
-          </p>
-          <p className="py-1 text-muted-foreground">
-            {`This document may be updated at any time with or without notice to ensure the provider has the ability to keep these terms accurate and up-to-date. This is defined under the section “Alterations to the terms” and should this notice contradict the statement found under the section "Alterations to the terms" then this statement is to be ignored.`}
+
+          <h1 className="font-semibold text-2xl mt-4 uppercase">
+            12. Changes to Terms
+          </h1>
+          <p className="py-3 text-muted-foreground">
+            Foxomy may change the terms of service, any policies or related
+            legal documents when necessary. Changes will be notified to
+            customers via email when necessary, but customers are responsible
+            for regularly monitoring these documents to ensure compliance with
+            the terms.
           </p>
         </div>
       </div>
